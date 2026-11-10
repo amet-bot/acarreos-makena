@@ -271,17 +271,14 @@ h2 { position: relative; z-index: 0; }
   top: 14px; bottom: 124px; left: -20px; right: 20px; opacity: .35;
   background: radial-gradient(rgba(255, 255, 255, .7) 1.4px, transparent 1.6px) 0 0 / 14px 14px;
 }
+/* la foto va completa (sin recorte inclinado ni zoom) para que los camiones se vean enteros;
+   lo inclinado queda en las capas de atrás */
 .escena__foto {
-  position: relative; z-index: 1;
-  clip-path: polygon(var(--corte) 0, 100% 0, calc(100% - var(--corte)) 100%, 0 100%);
+  position: relative; z-index: 1; overflow: hidden; border-radius: 22px;
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .14);
   transition: transform .5s var(--curva); will-change: transform;
-  filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .35));
 }
-.escena__foto img {
-  width: 100%; height: auto; display: block; transform-origin: 60% 60%;
-  animation: cine 18s ease-in-out infinite alternate;
-}
-@keyframes cine { from { transform: scale(1.03); } to { transform: scale(1.12) translateX(-2%); } }
+.escena__foto img { width: 100%; height: auto; display: block; }
 .escena__foto::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(180deg, transparent 60%, rgba(4, 18, 47, .45));
