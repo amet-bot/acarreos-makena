@@ -421,11 +421,21 @@ h2 { position: relative; z-index: 0; }
 .servicio {
   --x: 50%; --y: 50%;
   position: relative; overflow: hidden; isolation: isolate;
-  padding: 30px 26px 26px; border-radius: var(--radio);
+  padding: 0 0 24px; border-radius: var(--radio);
   background: var(--blanco); border: 1px solid var(--linea);
-  display: flex; flex-direction: column; gap: 12px;
+  display: flex; flex-direction: column; gap: 10px;
   transition: transform .45s var(--curva), box-shadow .45s var(--curva), border-color .3s;
 }
+.servicio > :not(.servicio__foto) { margin-inline: 22px; }
+/* foto real arriba de cada tarjeta */
+.servicio__foto { position: relative; aspect-ratio: 3 / 2; overflow: hidden; margin-bottom: -40px; background: var(--azul-100); }
+.servicio__foto img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1s var(--curva); }
+.servicio__foto::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, rgba(4, 18, 47, .35));
+}
+.servicio:hover .servicio__foto img { transform: scale(1.07); }
+.servicio--destacado .servicio__foto::after { background: linear-gradient(180deg, transparent 45%, rgba(6, 26, 68, .85)); }
 .servicio::before {
   content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0; transition: opacity .35s;
   background: radial-gradient(380px circle at var(--x) var(--y), rgba(59, 130, 246, .14), transparent 45%);
@@ -435,11 +445,14 @@ h2 { position: relative; z-index: 0; }
 .servicio h3 { font-size: 1.18rem; font-weight: 800; letter-spacing: -.01em; }
 .servicio p { color: var(--gris); font-size: .97rem; flex: 1; }
 .servicio__ico {
-  width: 62px; height: 62px; border-radius: 16px; display: grid; place-items: center;
-  background: var(--azul-100); color: var(--azul-800); margin-bottom: 6px;
+  position: relative; z-index: 1; align-self: flex-start;
+  width: 60px; height: 60px; border-radius: 16px; display: grid; place-items: center;
+  background: var(--azul-100); color: var(--azul-800); margin-bottom: 4px;
+  border: 4px solid var(--blanco); box-shadow: 0 10px 20px -10px rgba(6, 26, 68, .45);
   transition: transform .5s var(--curva), background-color .3s, color .3s;
 }
-.servicio__ico svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+.servicio--destacado .servicio__ico { border-color: var(--azul-800); }
+.servicio__ico svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
 .servicio__ico svg .acento { stroke: var(--amarillo-600); }
 .servicio:hover .servicio__ico { transform: rotate(-8deg) scale(1.08); background: var(--azul-800); color: var(--blanco); }
 .servicio:hover .servicio__ico svg .acento { stroke: var(--amarillo); }
@@ -947,7 +960,8 @@ h2 { position: relative; z-index: 0; }
     scrollbar-width: none;
   }
   .servicios::-webkit-scrollbar { display: none; }
-  .servicio { flex: 0 0 84%; scroll-snap-align: start; padding: 24px 22px 22px; }
+  .servicio { flex: 0 0 84%; scroll-snap-align: start; padding: 0 0 22px; }
+  .servicio > :not(.servicio__foto) { margin-inline: 20px; }
   .servicio:hover { transform: none; }
   .servicio__ico { width: 54px; height: 54px; }
   .servicio__ico svg { width: 30px; height: 30px; }
