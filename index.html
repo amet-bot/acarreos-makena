@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acarreos Makena · Mudanzas y acarreos en todo Panamá</title>
+  <meta name="description" content="Acarreos Makena: mudanzas, botamos caliche y escombros, retiro de basura, distribución de mercancías, embalaje y manejo de artículos frágiles. Entrega y puntualidad en todo Panamá.">
+  <meta name="theme-color" content="#061a44">
+  <meta property="og:title" content="Acarreos Makena">
+  <meta property="og:description" content="Entrega y puntualidad en todo Panamá. Mudanzas, escombros, mercancías y más.">
+  <meta property="og:image" content="img/camion-baranda.webp">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Símbolos reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="logo" viewBox="0 0 120 120">
+        <g fill="none" stroke="currentColor" stroke-linecap="round">
+          <circle cx="60" cy="60" r="52" stroke-width="5" stroke-dasharray="150 6 40 4 90 5 30 3"/>
+          <circle cx="60" cy="60" r="55.5" stroke-width="1.6" stroke-dasharray="20 9 44 6 12 14 60 8" opacity=".8"/>
+          <circle cx="60" cy="60" r="48.5" stroke-width="1.2" stroke-dasharray="8 12 30 6 50 18" opacity=".6"/>
+        </g>
+        <text x="60" y="68" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="44" fill="currentColor" letter-spacing="-2">MK</text>
+        <text x="60" y="82" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="7.4" fill="currentColor" letter-spacing=".4">ACARREOS MAKENA</text>
+      </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.1.82.83-3-.2-.31a8.2 8.2 0 1 1 6.97 3.82Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31 2.77 2.77 0 0 0-.86 2.06 4.8 4.8 0 0 0 1 2.56 11 11 0 0 0 4.22 3.73c1.57.68 2.19.74 2.98.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29Z"/></symbol>
+      <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.9h10A4.1 4.1 0 0 1 21.1 7v10a4.1 4.1 0 0 1-4.1 4.1H7A4.1 4.1 0 0 1 2.9 17V7A4.1 4.1 0 0 1 7 2.9Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+      <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3.5h3.2l1.6 4.4-2.2 1.4a11.5 11.5 0 0 0 7.1 7.1l1.4-2.2 4.4 1.6V19a1.9 1.9 0 0 1-2 1.9A16.6 16.6 0 0 1 3.1 5.5 1.9 1.9 0 0 1 5 3.5Z"/></symbol>
+      <symbol id="i-flecha" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ CABECERA ============ -->
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a href="#inicio" class="marca" aria-label="Acarreos Makena, inicio">
+        <svg class="marca__logo"><use href="#logo"/></svg>
+        <span class="marca__texto"><b>Acarreos</b> Makena</span>
+      </a>
+      <nav class="menu" id="menu" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#accion">Videos</a>
+        <a href="#nosotros">Por qué nosotros</a>
+        <a href="#proceso">Cómo trabajamos</a>
+        <a href="#flota">Flota</a>
+        <a href="#preguntas">Preguntas</a>
+        <a href="#cotizar" class="boton boton--amarillo boton--chico menu__cta">Cotizar ahora</a>
+      </nav>
+      <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ PORTADA ============ -->
+    <section class="portada" id="inicio">
+      <div class="portada__fondo" aria-hidden="true">
+        <div class="portada__brillo portada__brillo--1"></div>
+        <div class="portada__brillo portada__brillo--2"></div>
+        <div class="portada__rejilla"></div>
+      </div>
+
+      <div class="contenedor portada__grid">
+        <div class="portada__texto">
+          <p class="etiqueta entrada" style="--d:0">
+            <span class="punto-vivo"></span> Acarreos en todo Panamá
+          </p>
+          <h1 class="portada__titulo">
+            <span class="linea"><span class="entrada" style="--d:1">Trasladando</span></span>
+            <span class="linea"><span class="entrada" style="--d:2">tus bienes</span></span>
+            <span class="linea"><span class="entrada resaltado" style="--d:3">más preciados</span></span>
+          </h1>
+          <p class="portada__sub entrada" style="--d:4">
+            Mudanzas, retiro de escombros y caliche, basura, mercancías y artículos frágiles.
+            Cuidamos cada carga como si fuera nuestra, con <strong>entrega y puntualidad</strong> de punta a punta.
+          </p>
+          <p class="rotador entrada" style="--d:5" aria-live="polite">
+            Hoy movemos
+            <span class="rotador__caja"><span class="rotador__palabra" id="rotador">mudanzas</span></span>
+          </p>
+          <div class="portada__botones entrada" style="--d:6">
+            <a class="boton boton--whatsapp boton--brillo" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener">
+              <svg class="ico"><use href="#i-wa"/></svg> Cotiza por WhatsApp
+            </a>
+            <a class="boton boton--contorno" href="#servicios">
+              Ver servicios <svg class="ico"><use href="#i-flecha"/></svg>
+            </a>
+          </div>
+          <ul class="portada__garantias entrada" style="--d:7">
+            <li><svg class="ico"><use href="#i-check"/></svg> Operativo 24/7</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Atención personalizada</li>
+            <li><svg class="ico"><use href="#i-check"/></svg> Manejo de frágiles</li>
+          </ul>
+        </div>
+
+        <div class="portada__visual entrada entrada--zoom" style="--d:3">
+          <div class="foto-marco" data-inclinar>
+            <img src="img/camion-baranda.webp" alt="Camión de baranda de Acarreos Makena frente a la ciudad de Panamá" width="756" height="468">
+            <div class="foto-marco__borde" aria-hidden="true"></div>
+          </div>
+          <div class="chapa chapa--1">
+            <span class="chapa__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span>
+            <span><b>Puntualidad</b><small>Llegamos a la hora acordada</small></span>
+          </div>
+          <div class="chapa chapa--2">
+            <span class="chapa__ico chapa__ico--amarillo"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b>Todo Panamá</b><small>De la ciudad al interior</small></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carretera animada -->
+      <div class="carretera" aria-hidden="true">
+        <div class="carretera__ciudad carretera__ciudad--lejos" id="ciudad-lejos"></div>
+        <div class="carretera__ciudad carretera__ciudad--cerca" id="ciudad-cerca"></div>
+        <div class="carretera__via"><div class="carretera__rayas"></div></div>
+        <div class="camioncito">
+          <svg viewBox="0 0 330 150" class="camioncito__svg">
+            <defs>
+              <linearGradient id="caja" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe7f5"/>
+              </linearGradient>
+              <linearGradient id="cabina" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d6e0f2"/>
+              </linearGradient>
+            </defs>
+            <ellipse cx="170" cy="134" rx="150" ry="7" fill="#000" opacity=".25"/>
+            <!-- caja -->
+            <rect x="12" y="14" width="196" height="92" rx="6" fill="url(#caja)" stroke="#0a2a6e" stroke-width="2.5"/>
+            <rect x="12" y="86" width="196" height="9" fill="#ffc21a"/>
+            <text x="110" y="60" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="30" fill="#0a2a6e" letter-spacing="1">MAKENA</text>
+            <text x="110" y="76" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="9" fill="#1351c4" letter-spacing="2.5">ACARREOS · PANAMÁ</text>
+            <!-- cabina -->
+            <path d="M212 40h52c8 0 13 4 17 10l20 30c3 4 4 8 4 12v14c0 4-3 6-6 6H212Z" fill="url(#cabina)" stroke="#0a2a6e" stroke-width="2.5"/>
+            <path d="M226 48h34c5 0 8 2 11 6l14 22h-59Z" fill="#1d3f86"/>
+            <path d="M232 52h8l-6 20h-8Z" fill="#ffffff" opacity=".35"/>
+            <rect x="290" y="92" width="16" height="7" rx="2" fill="#ffc21a"/>
+            <rect x="212" y="98" width="96" height="6" fill="#0a2a6e"/>
+            <!-- ruedas -->
+            <g class="rueda" style="transform-origin:70px 112px">
+              <circle cx="70" cy="112" r="19" fill="#0b1630"/><circle cx="70" cy="112" r="9" fill="#c9d4ea"/>
+              <path d="M70 99v26M57 112h26" stroke="#0b1630" stroke-width="3"/>
+            </g>
+            <g class="rueda" style="transform-origin:258px 112px">
+              <circle cx="258" cy="112" r="19" fill="#0b1630"/><circle cx="258" cy="112" r="9" fill="#c9d4ea"/>
+              <path d="M258 99v26M245 112h26" stroke="#0b1630" stroke-width="3"/>
+            </g>
+          </svg>
+          <div class="camioncito__humo"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CINTA ============ -->
+    <div class="cinta" aria-label="Lo que hacemos">
+      <div class="cinta__pista">
+        <span>Mudanzas</span><i>✦</i><span>Botamos caliche</span><i>✦</i><span>Escombros de construcción</span><i>✦</i>
+        <span>Retiro de basura</span><i>✦</i><span>Distribución de mercancías</span><i>✦</i><span>Embalaje</span><i>✦</i>
+        <span>Artículos frágiles</span><i>✦</i><span>Montaje de eventos</span><i>✦</i><span>Fletes</span><i>✦</i>
+        <span>Suministro de caliche</span><i>✦</i><span>Carga general</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="seccion" id="servicios">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">Servicios</p>
+          <h2>Todo lo que necesitas <span class="subrayado">mover</span>, lo movemos</h2>
+          <p class="seccion__intro">Desde una mudanza completa hasta la limpieza de una obra. Un solo equipo, con camión y personal para cargar, trasladar y entregar.</p>
+        </header>
+
+        <div class="servicios">
+          <article class="servicio servicio--destacado" data-revelar data-foco style="--d:0">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M6 20 24 7l18 13v20a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2Z"/><path d="M18 42V29h12v13"/><path class="acento" d="M30 18h6v6h-6z"/></svg>
+            </div>
+            <h3>Mudanzas residenciales y de oficina</h3>
+            <p>Casa, apartamento u oficina. Cargamos, trasladamos y entregamos tus pertenencias en el destino, con cuidado en cada mueble.</p>
+            <a href="#cotizar" data-servicio="Mudanza" class="servicio__link">Cotizar mudanza <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:1">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M4 38h40"/><path d="M8 38l6-12h8l4 6h8l6 6"/><path class="acento" d="M18 18l4-6 4 6M28 22l3-5 3 5"/></svg>
+            </div>
+            <h3>Caliche y escombros</h3>
+            <p>Transporte y suministro de caliche para construcción y proyectos. También botamos caliche y escombro de residencias y obras.</p>
+            <a href="#cotizar" data-servicio="Caliche / escombros" class="servicio__link">Cotizar caliche <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:2">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M10 14h28l-3 28H13Z"/><path d="M6 14h36M19 14V8h10v6"/><path class="acento" d="M20 22v12M28 22v12"/></svg>
+            </div>
+            <h3>Retiro de basura y cachivaches</h3>
+            <p>Muebles viejos, electrodomésticos y desechos voluminosos fuera de tu casa, local o bodega.</p>
+            <a href="#cotizar" data-servicio="Retiro de basura" class="servicio__link">Cotizar retiro <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:3">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M8 16 24 8l16 8v16l-16 8-16-8Z"/><path d="M8 16l16 8 16-8M24 24v16"/><path class="acento" d="m16 12 16 8"/></svg>
+            </div>
+            <h3>Distribución y liquidación de mercancías</h3>
+            <p>Llevamos tu mercancía de bodega a tienda o directo a tus clientes, y movemos inventario cuando lo necesites.</p>
+            <a href="#cotizar" data-servicio="Mercancías" class="servicio__link">Cotizar envío <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:4">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M24 6c6 7 10 12 10 18a10 10 0 0 1-20 0c0-6 4-11 10-18Z"/><path class="acento" d="M20 27a4 4 0 0 0 4 4"/><path d="M10 42h28"/></svg>
+            </div>
+            <h3>Manejo de artículos frágiles</h3>
+            <p>Vidrio, electrónicos, cuadros y piezas delicadas viajan protegidos y bien asegurados dentro del camión.</p>
+            <a href="#cotizar" data-servicio="Artículos frágiles" class="servicio__link">Cotizar traslado <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:5">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="26" rx="2"/><path d="M8 22h32"/><path class="acento" d="M20 14v8h8v-8"/><path d="M16 8h16"/></svg>
+            </div>
+            <h3>Embalaje</h3>
+            <p>Protegemos y empacamos tus pertenencias antes de moverlas para que lleguen como salieron.</p>
+            <a href="#cotizar" data-servicio="Embalaje" class="servicio__link">Cotizar embalaje <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:6">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="6"/><path d="M24 6v6M24 36v6M6 24h6M36 24h6M11 11l4 4M33 33l4 4M37 11l-4 4M15 33l-4 4"/><circle class="acento" cx="24" cy="24" r="1.5"/></svg>
+            </div>
+            <h3>Montaje y desmontaje de eventos</h3>
+            <p>Llevamos tarimas, pantallas y sonido a ferias y eventos, con camión de rampa hidráulica para cargar sin riesgo.</p>
+            <a href="#cotizar" data-servicio="Montaje de evento" class="servicio__link">Cotizar evento <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+
+          <article class="servicio" data-revelar data-foco style="--d:7">
+            <div class="servicio__ico">
+              <svg viewBox="0 0 48 48"><path d="M6 32h22V14H6Z"/><path d="M28 20h8l6 7v5H28"/><circle cx="13" cy="36" r="4"/><circle cx="35" cy="36" r="4"/><path class="acento" d="M12 23h10"/></svg>
+            </div>
+            <h3>Carga general y fletes</h3>
+            <p>Transporte privado y logística a la medida: llevamos tus bienes a tu residencia, oficina o negocio, en la ciudad o al interior.</p>
+            <a href="#cotizar" data-servicio="Transporte a destino" class="servicio__link">Cotizar transporte <svg class="ico"><use href="#i-flecha"/></svg></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EN ACCIÓN ============ -->
+    <section class="seccion seccion--clara" id="accion">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">En acción</p>
+          <h2>Así trabajamos <span class="subrayado">en la calle</span></h2>
+          <p class="seccion__intro">Videos reales de nuestros acarreos: ferias, eventos, mercancía y obras por todo Panamá.</p>
+        </header>
+
+        <div class="galeria">
+          <figure class="pieza pieza--a" data-revelar style="--d:0">
+            <video muted loop playsinline preload="none" poster="media/montaje-feria.jpg" data-auto>
+              <source src="media/montaje-feria.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="pieza__tag">Eventos</span>Montaje y desmontaje de ferias</figcaption>
+          </figure>
+          <figure class="pieza pieza--b" data-revelar style="--d:1">
+            <img src="media/caliche.jpg" alt="Camión de baranda de Acarreos Makena cargado con sacos de caliche" width="640" height="360" loading="lazy">
+            <figcaption><span class="pieza__tag">Construcción</span>Caliche para tu obra</figcaption>
+          </figure>
+          <figure class="pieza pieza--c" data-revelar style="--d:2">
+            <video muted loop playsinline preload="none" poster="media/rampa-hidraulica.jpg" data-auto>
+              <source src="media/rampa-hidraulica.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="pieza__tag">Rampa hidráulica</span>Tarima, pantalla y sonido para eventos</figcaption>
+          </figure>
+          <figure class="pieza pieza--d" data-revelar style="--d:3">
+            <video muted loop playsinline preload="none" poster="media/carga-embalada.jpg" data-auto>
+              <source src="media/carga-embalada.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="pieza__tag">Embalaje</span>Carga protegida</figcaption>
+          </figure>
+          <figure class="pieza pieza--e" data-revelar style="--d:4">
+            <video muted loop playsinline preload="none" poster="media/distribucion.jpg" data-auto>
+              <source src="media/distribucion.mp4" type="video/mp4">
+            </video>
+            <figcaption><span class="pieza__tag">Mercancía</span>Distribución puerta a puerta</figcaption>
+          </figure>
+        </div>
+
+        <div class="galeria__pie" data-revelar>
+          <a class="boton boton--instagram" href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener">
+            <svg class="ico"><use href="#i-ig"/></svg> Ver más en Instagram
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NOSOTROS ============ -->
+    <section class="seccion seccion--oscura" id="nosotros">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo sobretitulo--claro">Por qué Makena</p>
+          <h2>Tres promesas que cumplimos <span class="texto-amarillo">en cada viaje</span></h2>
+          <p class="seccion__intro lema">Fuerza <i>·</i> Confianza <i>·</i> Compromiso</p>
+        </header>
+
+        <div class="pilares">
+          <article class="pilar" data-revelar style="--d:0">
+            <span class="pilar__num">01</span>
+            <div class="pilar__ico"><svg viewBox="0 0 48 48"><path d="M4 30h24V12H4Z"/><path d="M28 18h9l7 8v4H28"/><circle cx="12" cy="34" r="4"/><circle cx="36" cy="34" r="4"/></svg></div>
+            <h3>Transporte</h3>
+            <p>Contamos con excelentes vehículos para el transporte, que garantizan la llegada a su destino.</p>
+          </article>
+          <article class="pilar" data-revelar style="--d:1">
+            <span class="pilar__num">02</span>
+            <div class="pilar__ico"><svg viewBox="0 0 48 48"><path d="M8 10h32v22H22l-8 7v-7H8Z"/><path d="M16 19h16M16 25h10"/></svg></div>
+            <h3>Atención</h3>
+            <p>Atención personalizada. Siempre en contacto contigo mientras viajan tus encomiendas.</p>
+          </article>
+          <article class="pilar" data-revelar style="--d:2">
+            <span class="pilar__num">03</span>
+            <div class="pilar__ico"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 5"/></svg></div>
+            <h3>Entrega</h3>
+            <p>Llegamos a tu destino entregando con puntualidad y estricto cuidado en el transporte de tus cargas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="seccion" id="proceso">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">Cómo trabajamos</p>
+          <h2>Tu acarreo en <span class="subrayado">4 pasos</span></h2>
+          <p class="seccion__intro">Sin vueltas: nos escribes, te cotizamos y nos encargamos del resto.</p>
+        </header>
+
+        <ol class="pasos" id="pasos">
+          <li class="paso" data-revelar style="--d:0">
+            <span class="paso__num">1</span>
+            <h3>Escríbenos</h3>
+            <p>Cuéntanos qué hay que mover, de dónde a dónde y cuándo. Si puedes, manda fotos.</p>
+          </li>
+          <li class="paso" data-revelar style="--d:1">
+            <span class="paso__num">2</span>
+            <h3>Recibe tu cotización</h3>
+            <p>Te damos un precio claro según la distancia, el volumen y el tipo de carga.</p>
+          </li>
+          <li class="paso" data-revelar style="--d:2">
+            <span class="paso__num">3</span>
+            <h3>Agendamos y cargamos</h3>
+            <p>Llegamos con el camión adecuado, embalamos lo necesario y cargamos con cuidado.</p>
+          </li>
+          <li class="paso" data-revelar style="--d:3">
+            <span class="paso__num">4</span>
+            <h3>Entregamos a tiempo</h3>
+            <p>Te mantenemos al tanto en el camino y entregamos en el destino, puntual.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ FLOTA ============ -->
+    <section class="seccion seccion--clara" id="flota">
+      <div class="contenedor flota">
+        <div class="flota__foto" data-revelar>
+          <div class="foto-marco foto-marco--plano" data-inclinar>
+            <img src="img/camion-baranda.webp" alt="Flota de Acarreos Makena: camión cerrado y camión de baranda" width="756" height="468" loading="lazy">
+          </div>
+          <span class="flota__sello"><b>Entrega</b> y puntualidad en todo Panamá</span>
+        </div>
+        <div class="flota__texto">
+          <p class="sobretitulo" data-revelar>Nuestra flota</p>
+          <h2 data-revelar style="--d:1">El camión correcto para <span class="subrayado">cada carga</span></h2>
+          <div class="vehiculo" data-revelar style="--d:2">
+            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26V10H4Z"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></div>
+            <div>
+              <h3>Camión cerrado de 22 pies</h3>
+              <p>Caja cerrada que protege del sol y la lluvia. Ideal para mudanzas, muebles, electrodomésticos y mercancía.</p>
+            </div>
+          </div>
+          <div class="vehiculo" data-revelar style="--d:3">
+            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M12 30h20V12H12Z"/><path d="M32 18h7l5 7v5H32"/><circle cx="18" cy="34" r="4"/><circle cx="38" cy="34" r="4"/><path d="M12 30 4 40h8"/></svg></div>
+            <div>
+              <h3>Camión de 16 pies con rampa hidráulica</h3>
+              <p>Sube y baja cargas pesadas sin esfuerzo: tarimas, pantallas, equipo de sonido y maquinaria.</p>
+            </div>
+          </div>
+          <div class="vehiculo" data-revelar style="--d:4">
+            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26M4 32V22M30 32V22M4 22h26M10 22v10M17 22v10M24 22v10"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></div>
+            <div>
+              <h3>Camión de baranda</h3>
+              <p>Plataforma abierta para caliche, escombros, materiales de construcción y cargas voluminosas.</p>
+            </div>
+          </div>
+          <a class="boton boton--azul" href="#cotizar" data-revelar style="--d:5">¿Cuál necesito? Pregúntanos <svg class="ico"><use href="#i-flecha"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COBERTURA ============ -->
+    <section class="seccion cobertura">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">Cobertura</p>
+          <h2>De la ciudad <span class="subrayado">al interior</span></h2>
+          <p class="seccion__intro">Hacemos acarreos dentro de la ciudad y viajes a cualquier provincia del país.</p>
+        </header>
+        <ul class="provincias" data-revelar>
+          <li style="--d:0">Panamá</li><li style="--d:1">Panamá Oeste</li><li style="--d:2">Colón</li>
+          <li style="--d:3">Coclé</li><li style="--d:4">Herrera</li><li style="--d:5">Los Santos</li>
+          <li style="--d:6">Veraguas</li><li style="--d:7">Chiriquí</li><li style="--d:8">Bocas del Toro</li>
+          <li style="--d:9">Darién</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ COTIZAR ============ -->
+    <section class="seccion seccion--oscura cotizar" id="cotizar">
+      <div class="contenedor cotizar__grid">
+        <div class="cotizar__texto">
+          <p class="sobretitulo sobretitulo--claro" data-revelar>Cotiza gratis</p>
+          <h2 data-revelar style="--d:1">Cuéntanos qué movemos y te respondemos <span class="texto-amarillo">por WhatsApp</span></h2>
+          <p data-revelar style="--d:2">Llena estos datos y se abrirá WhatsApp con tu mensaje listo para enviar. Mientras más detalles nos des, más exacta será la cotización.</p>
+          <div class="contactos" data-revelar style="--d:3">
+            <a href="tel:+50764525086" class="contacto">
+              <span class="contacto__ico"><svg class="ico"><use href="#i-tel"/></svg></span>
+              <span><small>Llámanos</small><b>6452-5086</b></span>
+            </a>
+            <a href="tel:+50769971253" class="contacto">
+              <span class="contacto__ico"><svg class="ico"><use href="#i-tel"/></svg></span>
+              <span><small>O al</small><b>6997-1253</b></span>
+            </a>
+            <a href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener" class="contacto">
+              <span class="contacto__ico contacto__ico--ig"><svg class="ico"><use href="#i-ig"/></svg></span>
+              <span><small>Síguenos</small><b>@acarreosmakenapty</b></span>
+            </a>
+          </div>
+        </div>
+
+        <form class="formulario" id="formulario" data-revelar style="--d:2" novalidate>
+          <div class="campo campo--ancho">
+            <span class="campo__titulo">¿Qué necesitas?</span>
+            <div class="opciones" id="opciones">
+              <label><input type="radio" name="servicio" value="Mudanza" checked><span>Mudanza</span></label>
+              <label><input type="radio" name="servicio" value="Caliche / escombros"><span>Caliche / escombros</span></label>
+              <label><input type="radio" name="servicio" value="Retiro de basura"><span>Retiro de basura</span></label>
+              <label><input type="radio" name="servicio" value="Mercancías"><span>Mercancías</span></label>
+              <label><input type="radio" name="servicio" value="Artículos frágiles"><span>Frágiles</span></label>
+              <label><input type="radio" name="servicio" value="Montaje de evento"><span>Evento</span></label>
+              <label><input type="radio" name="servicio" value="Otro"><span>Otro</span></label>
+            </div>
+          </div>
+          <label class="campo">
+            <span class="campo__titulo">Tu nombre</span>
+            <input type="text" name="nombre" autocomplete="name" placeholder="Ej. María Pérez" required>
+          </label>
+          <label class="campo">
+            <span class="campo__titulo">Fecha aproximada</span>
+            <input type="date" name="fecha">
+          </label>
+          <label class="campo">
+            <span class="campo__titulo">Desde</span>
+            <input type="text" name="desde" placeholder="Ej. San Francisco, Panamá" required>
+          </label>
+          <label class="campo">
+            <span class="campo__titulo">Hasta</span>
+            <input type="text" name="hasta" placeholder="Ej. Arraiján">
+          </label>
+          <label class="campo campo--ancho">
+            <span class="campo__titulo">Detalles de la carga</span>
+            <textarea name="detalles" rows="3" placeholder="Ej. Apartamento de 2 recámaras, piso 8 con ascensor, hay una nevera y una lavadora."></textarea>
+          </label>
+          <p class="formulario__error" id="error" role="alert"></p>
+          <button class="boton boton--whatsapp boton--ancho boton--brillo" type="submit">
+            <svg class="ico"><use href="#i-wa"/></svg> Enviar por WhatsApp
+          </button>
+          <p class="formulario__nota">Te respondemos lo antes posible. No compartimos tus datos.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS ============ -->
+    <section class="seccion" id="preguntas">
+      <div class="contenedor contenedor--angosto">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">Preguntas frecuentes</p>
+          <h2>Lo que más nos <span class="subrayado">preguntan</span></h2>
+        </header>
+        <div class="preguntas">
+          <details class="pregunta" data-revelar style="--d:0">
+            <summary>¿Cómo se calcula el precio?</summary>
+            <div class="pregunta__resp"><p>Depende de la distancia, el volumen de la carga, el tipo de artículos y si hace falta embalaje. Escríbenos con fotos y te damos un precio claro antes de empezar.</p></div>
+          </details>
+          <details class="pregunta" data-revelar style="--d:1">
+            <summary>¿Hacen viajes fuera de la ciudad?</summary>
+            <div class="pregunta__resp"><p>Sí. Trabajamos en todo Panamá: dentro de la ciudad y hacia cualquier provincia del interior.</p></div>
+          </details>
+          <details class="pregunta" data-revelar style="--d:2">
+            <summary>¿Recogen escombro de construcción?</summary>
+            <div class="pregunta__resp"><p>Sí, botamos caliche y escombros de residencias y de construcción. Cuéntanos más o menos cuánto material hay para mandarte el camión adecuado.</p></div>
+          </details>
+          <details class="pregunta" data-revelar style="--d:3">
+            <summary>¿Ustedes embalan mis cosas?</summary>
+            <div class="pregunta__resp"><p>Sí, ofrecemos embalaje y manejo especial de artículos frágiles para que todo llegue en el mismo estado en que salió.</p></div>
+          </details>
+          <details class="pregunta" data-revelar style="--d:4">
+            <summary>¿Cómo sé dónde va mi carga?</summary>
+            <div class="pregunta__resp"><p>Nos mantenemos en contacto contigo durante todo el traslado por llamada o WhatsApp, hasta que la carga se entrega.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LLAMADO FINAL ============ -->
+    <section class="final">
+      <div class="contenedor final__caja" data-revelar>
+        <div>
+          <h2>¿Listo para mover tus cosas?</h2>
+          <p>Escríbenos hoy y coordinamos tu acarreo.</p>
+        </div>
+        <a class="boton boton--whatsapp boton--grande boton--brillo" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener">
+          <svg class="ico"><use href="#i-wa"/></svg> 6452-5086
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <div class="pie__marca">
+        <svg class="pie__logo"><use href="#logo"/></svg>
+        <p>Entrega y puntualidad en todo Panamá.</p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Mudanzas</a></li>
+          <li><a href="#servicios">Caliche y escombros</a></li>
+          <li><a href="#servicios">Retiro de basura</a></li>
+          <li><a href="#servicios">Mercancías</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.me/50764525086" target="_blank" rel="noopener">WhatsApp 6452-5086</a></li>
+          <li><a href="https://wa.me/50769971253" target="_blank" rel="noopener">WhatsApp 6997-1253</a></li>
+          <li><a href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener">Instagram @acarreosmakenapty</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="contenedor pie__base">
+      <span>© <span id="anio">2026</span> Acarreos Makena · Panamá</span>
+      <span>Mudanzas · Escombros · Mercancías</span>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa-flotante" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+    <svg class="ico"><use href="#i-wa"/></svg>
+    <span class="wa-flotante__texto">¿Cotizamos?</span>
+  </a>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
