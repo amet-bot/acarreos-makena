@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v= obliga al navegador a bajar la versión nueva: súbelo en cada cambio de CSS o JS -->
-  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10b">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10c">
 </head>
 <body>
 
@@ -47,6 +47,45 @@
       <symbol id="bandera-pa" viewBox="0 0 30 20">
         <rect width="30" height="20" fill="#fff"/><rect x="15" width="15" height="10" fill="#d21034"/><rect y="10" width="15" height="10" fill="#005293"/>
         <use href="#est" transform="translate(7.5 5) scale(4.2)" fill="#005293"/><use href="#est" transform="translate(22.5 15) scale(4.2)" fill="#d21034"/>
+      </symbol>
+      <!-- piezas de los camiones ilustrados -->
+      <linearGradient id="g-cabina" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#eef2f9"/><stop offset="1" stop-color="#cfd9ea"/></linearGradient>
+      <linearGradient id="g-vidrio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb0ef"/><stop offset=".45" stop-color="#2d5ba8"/><stop offset="1" stop-color="#14306a"/></linearGradient>
+      <linearGradient id="g-caja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f4fa"/><stop offset="1" stop-color="#d7dfec"/></linearGradient>
+      <linearGradient id="g-poste" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c3cddd"/><stop offset=".5" stop-color="#eef2f8"/><stop offset="1" stop-color="#b3bfd3"/></linearGradient>
+      <linearGradient id="g-lona" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a5384"/><stop offset=".25" stop-color="#2a426f"/><stop offset="1" stop-color="#1b2c4f"/></linearGradient>
+      <linearGradient id="g-franja" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a2a6e"/><stop offset="1" stop-color="#1f63d6"/></linearGradient>
+      <linearGradient id="g-tanque" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8"/><stop offset=".5" stop-color="#b9c4d6"/><stop offset="1" stop-color="#7f8ca5"/></linearGradient>
+      <linearGradient id="g-rin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".6" stop-color="#b6c1d3"/><stop offset="1" stop-color="#7c879c"/></linearGradient>
+      <linearGradient id="g-haz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3b0" stop-opacity=".55"/><stop offset="1" stop-color="#fff3b0" stop-opacity="0"/></linearGradient>
+      <pattern id="p-cinta" width="16" height="6" patternUnits="userSpaceOnUse"><rect width="8" height="6" fill="#e11d2e"/><rect x="8" width="8" height="6" fill="#ffffff"/></pattern>
+      <symbol id="s-rueda" viewBox="-24 -24 48 48">
+        <circle r="23" fill="#11151e"/>
+        <circle r="20.5" fill="none" stroke="#262d3b" stroke-width="3" stroke-dasharray="3.2 2.2"/>
+        <circle r="13" fill="url(#g-rin)" stroke="#5b667c" stroke-width="1"/>
+        <circle r="8.5" fill="none" stroke="#8c97ac" stroke-width="1.2"/>
+        <g fill="#5b667c"><circle cx="0" cy="-6" r="1.4"/><circle cx="5.2" cy="-3" r="1.4"/><circle cx="5.2" cy="3" r="1.4"/><circle cx="0" cy="6" r="1.4"/><circle cx="-5.2" cy="3" r="1.4"/><circle cx="-5.2" cy="-3" r="1.4"/></g>
+        <circle r="3.2" fill="#3c4558"/>
+        <path d="M-12 -1.2h4M8 -1.2h4" stroke="#7c879c" stroke-width="1.6" stroke-linecap="round"/>
+      </symbol>
+      <!-- cabina JAC vista de lado, mirando a la derecha (la base del chasis en y=100) -->
+      <symbol id="s-cabina" viewBox="0 0 124 112" overflow="visible">
+        <path d="M4 8Q4 2 10 2H74Q86 2 93 10L111 41Q117 51 117 61V92Q117 100 109 100H4Z" fill="url(#g-cabina)" stroke="#b7c3d8" stroke-width="1.2"/>
+        <path d="M60 100a27 27 0 0 1 54 0Z" fill="#222a3a"/>
+        <path d="M14 12H71Q79 12 85 20L98 43H14Z" fill="url(#g-vidrio)"/>
+        <path d="M30 13h11L27 42H17Z" fill="#fff" opacity=".22"/>
+        <path d="M46 13h4L36 42h-4Z" fill="#fff" opacity=".14"/>
+        <path d="M10 48V96M86 48V78" stroke="#c4cfe2" stroke-width="1.4"/>
+        <rect x="64" y="56" width="13" height="3.4" rx="1.7" fill="#8f9bb2"/>
+        <circle cx="38" cy="70" r="8.5" fill="#fff" stroke="#0a2a6e" stroke-width="1.6"/>
+        <text x="38" y="73.2" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="8.6" fill="#0a2a6e">MK</text>
+        <rect x="101" y="85" width="19" height="15" rx="3.5" fill="#e6ebf4" stroke="#b7c3d8" stroke-width="1"/>
+        <rect x="103" y="95" width="15" height="3" fill="url(#p-cinta)"/>
+        <path d="M108 63h6.5q3 0 3 3v11q0 3-3 3H108Z" fill="#fff7cf" stroke="#c3cee0" stroke-width="1"/>
+        <rect x="111" y="81.5" width="6" height="3" rx="1" fill="#ffb020"/>
+        <path d="M95 30l11-9" stroke="#1c2333" stroke-width="2.4" stroke-linecap="round"/>
+        <rect x="104" y="8" width="7.5" height="21" rx="2.5" fill="#1c2333"/>
+        <rect x="34" y="100" width="22" height="4" rx="1" fill="#3a4357"/>
       </symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
     </defs>
@@ -155,44 +194,89 @@
 
       <!-- Carretera animada -->
       <div class="carretera" aria-hidden="true">
-        <div class="carretera__ciudad carretera__ciudad--lejos" id="ciudad-lejos"></div>
-        <div class="carretera__ciudad carretera__ciudad--cerca" id="ciudad-cerca"></div>
+        <span class="carretera__luna"></span>
+        <div class="carretera__capa carretera__capa--lejos" id="capa-lejos"></div>
+        <div class="carretera__capa carretera__capa--medio" id="capa-medio"></div>
+        <div class="carretera__capa carretera__capa--cerca" id="capa-cerca"></div>
         <div class="carretera__via"><div class="carretera__rayas"></div></div>
-        <div class="camioncito">
-          <svg viewBox="0 0 330 150" class="camioncito__svg">
-            <defs>
-              <linearGradient id="caja" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe7f5"/>
-              </linearGradient>
-              <linearGradient id="cabina" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d6e0f2"/>
-              </linearGradient>
-            </defs>
-            <ellipse cx="170" cy="134" rx="150" ry="7" fill="#000" opacity=".25"/>
-            <!-- caja -->
-            <rect x="12" y="14" width="196" height="92" rx="6" fill="url(#caja)" stroke="#0a2a6e" stroke-width="2.5"/>
-            <rect x="12" y="86" width="196" height="9" fill="#ffc21a"/>
-            <text x="110" y="60" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="30" fill="#0a2a6e" letter-spacing="1">MAKENA</text>
-            <text x="110" y="76" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="9" fill="#1351c4" letter-spacing="2.5">ACARREOS · PANAMÁ</text>
-            <use href="#bandera-ve" x="88" y="20" width="18" height="12"/>
-            <use href="#bandera-pa" x="114" y="20" width="18" height="12"/>
-            <!-- cabina -->
-            <path d="M212 40h52c8 0 13 4 17 10l20 30c3 4 4 8 4 12v14c0 4-3 6-6 6H212Z" fill="url(#cabina)" stroke="#0a2a6e" stroke-width="2.5"/>
-            <path d="M226 48h34c5 0 8 2 11 6l14 22h-59Z" fill="#1d3f86"/>
-            <path d="M232 52h8l-6 20h-8Z" fill="#ffffff" opacity=".35"/>
-            <rect x="290" y="92" width="16" height="7" rx="2" fill="#ffc21a"/>
-            <rect x="212" y="98" width="96" height="6" fill="#0a2a6e"/>
-            <!-- ruedas -->
-            <g class="rueda" style="transform-origin:70px 112px">
-              <circle cx="70" cy="112" r="19" fill="#0b1630"/><circle cx="70" cy="112" r="9" fill="#c9d4ea"/>
-              <path d="M70 99v26M57 112h26" stroke="#0b1630" stroke-width="3"/>
-            </g>
-            <g class="rueda" style="transform-origin:258px 112px">
-              <circle cx="258" cy="112" r="19" fill="#0b1630"/><circle cx="258" cy="112" r="9" fill="#c9d4ea"/>
-              <path d="M258 99v26M245 112h26" stroke="#0b1630" stroke-width="3"/>
-            </g>
-          </svg>
-          <div class="camioncito__humo"><span></span><span></span><span></span></div>
+
+        <!-- caravana: el de lona atrás y el cerrado de 22 pies adelante -->
+        <div class="caravana">
+          <!-- camión de 16 pies con lona y rampa hidráulica -->
+          <div class="camion camion--lona">
+            <svg viewBox="0 0 360 172" class="camion__svg">
+              <ellipse cx="186" cy="166" rx="172" ry="5.5" fill="#000" opacity=".32"/>
+              <rect x="20" y="130" width="238" height="9" fill="#222a3a"/>
+              <!-- rampa hidráulica plegada -->
+              <rect x="6" y="104" width="9" height="40" rx="2" fill="#4a5468"/>
+              <rect x="8" y="108" width="5" height="32" fill="#2f3748"/>
+              <!-- barandas -->
+              <rect x="16" y="112" width="218" height="20" fill="#e9eef6" stroke="#b8c3d6" stroke-width="1"/>
+              <path d="M16 122H234" stroke="#c4cedf" stroke-width="1"/>
+              <g fill="#b8c3d6"><rect x="16" y="112" width="4" height="20"/><rect x="72" y="112" width="3" height="20"/><rect x="126" y="112" width="3" height="20"/><rect x="180" y="112" width="3" height="20"/><rect x="230" y="112" width="4" height="20"/></g>
+              <rect x="16" y="126" width="218" height="4" fill="url(#p-cinta)"/>
+              <!-- lona -->
+              <path d="M17 32Q17 22 27 22H222Q232 22 232 32V114H17Z" fill="url(#g-lona)"/>
+              <path d="M17 32Q17 22 27 22H222Q232 22 232 32" fill="none" stroke="#5c78ad" stroke-width="2" opacity=".7"/>
+              <g fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2">
+                <path d="M40 26q8 40 2 86"/><path d="M92 26q-6 44 4 86"/><path d="M146 26q9 40 0 86"/><path d="M200 26q-7 42 3 86"/>
+              </g>
+              <g stroke="#0e1830" stroke-width="2.2"><path d="M30 104v12M58 104v12M86 104v12M114 104v12M142 104v12M170 104v12M198 104v12M222 104v12"/></g>
+              <g fill="#c9d1df"><rect x="28" y="111" width="6" height="4" rx="1"/><rect x="56" y="111" width="6" height="4" rx="1"/><rect x="84" y="111" width="6" height="4" rx="1"/><rect x="112" y="111" width="6" height="4" rx="1"/><rect x="140" y="111" width="6" height="4" rx="1"/><rect x="168" y="111" width="6" height="4" rx="1"/><rect x="196" y="111" width="6" height="4" rx="1"/><rect x="220" y="111" width="6" height="4" rx="1"/></g>
+              <text x="124" y="74" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="22" fill="#fff" fill-opacity=".9" letter-spacing="1.5">MAKENA</text>
+              <text x="124" y="88" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="7.5" fill="#ffc21a" letter-spacing="2">16 PIES · RAMPA</text>
+              <rect x="10" y="96" width="6" height="11" rx="1" fill="#e11d2e"/>
+              <!-- tanque y guardafango -->
+              <rect x="150" y="134" width="40" height="14" rx="7" fill="url(#g-tanque)"/>
+              <rect x="106" y="134" width="5" height="18" rx="1" fill="#1c2333"/>
+              <path d="M46 132a28 28 0 0 1 56 0Z" fill="#222a3a"/>
+              <!-- cabina -->
+              <use href="#s-cabina" x="234" y="30" width="124" height="112"/>
+              <!-- ruedas -->
+              <g class="rueda" style="transform-origin:74px 148px"><use href="#s-rueda" x="51" y="125" width="46" height="46"/></g>
+              <g class="rueda" style="transform-origin:321px 148px"><use href="#s-rueda" x="298" y="125" width="46" height="46"/></g>
+            </svg>
+            <div class="camion__humo"><span></span><span></span><span></span></div>
+          </div>
+
+          <!-- camión cerrado de 22 pies -->
+          <div class="camion camion--cerrado">
+            <svg viewBox="0 0 450 172" class="camion__svg">
+              <path d="M436 100l120-16v52Z" fill="url(#g-haz)"/>
+              <ellipse cx="226" cy="166" rx="215" ry="5.5" fill="#000" opacity=".32"/>
+              <rect x="20" y="130" width="306" height="9" fill="#222a3a"/>
+              <!-- caja -->
+              <rect x="14" y="10" width="306" height="122" rx="4" fill="url(#g-caja)"/>
+              <rect x="14" y="10" width="306" height="8" rx="3" fill="#e4e9f2"/>
+              <rect x="14" y="122" width="306" height="10" fill="#c6cfdf"/>
+              <rect x="14" y="10" width="10" height="122" fill="url(#g-poste)"/>
+              <rect x="310" y="10" width="10" height="122" fill="url(#g-poste)"/>
+              <g stroke="#0a2a6e" stroke-opacity=".05" stroke-width="2"><path d="M60 18v104M106 18v104M152 18v104M198 18v104M244 18v104M290 18v104"/></g>
+              <!-- franja de la marca -->
+              <path d="M24 112C120 104 214 98 310 72V96C214 116 120 120 24 122Z" fill="url(#g-franja)"/>
+              <path d="M24 108C120 99 214 92 310 64" fill="none" stroke="#ffc21a" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- logo y nombre -->
+              <circle cx="72" cy="58" r="27" fill="#fff" stroke="#0a2a6e" stroke-width="3"/>
+              <circle cx="72" cy="58" r="22" fill="none" stroke="#0a2a6e" stroke-width="1" stroke-dasharray="14 3 6 2"/>
+              <text x="72" y="64" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="21" fill="#0a2a6e" letter-spacing="-1">MK</text>
+              <text x="198" y="68" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="38" fill="#0a2a6e" letter-spacing="1.5">MAKENA</text>
+              <text x="198" y="84" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="9.5" fill="#1351c4" letter-spacing="3">ACARREOS · PANAMÁ</text>
+              <use href="#bandera-ve" x="175" y="20" width="18" height="12"/>
+              <use href="#bandera-pa" x="203" y="20" width="18" height="12"/>
+              <rect x="18" y="124" width="296" height="4" fill="url(#p-cinta)"/>
+              <rect x="8" y="98" width="6" height="14" rx="1" fill="#e11d2e"/>
+              <!-- tanque y guardafango -->
+              <rect x="236" y="134" width="44" height="14" rx="7" fill="url(#g-tanque)"/>
+              <rect x="116" y="134" width="5" height="19" rx="1" fill="#1c2333"/>
+              <path d="M52 132a28 28 0 0 1 56 0Z" fill="#222a3a"/>
+              <!-- cabina -->
+              <use href="#s-cabina" x="322" y="30" width="124" height="112"/>
+              <!-- ruedas (doble atrás) -->
+              <g class="rueda" style="transform-origin:80px 148px"><use href="#s-rueda" x="57" y="125" width="46" height="46"/></g>
+              <g class="rueda" style="transform-origin:409px 148px"><use href="#s-rueda" x="386" y="125" width="46" height="46"/></g>
+            </svg>
+            <div class="camion__humo"><span></span><span></span><span></span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -694,6 +778,6 @@
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
 
-  <script src="js/main.js?v=2026-11-10b" defer></script>
+  <script src="js/main.js?v=2026-11-10c" defer></script>
 </body>
 </html>

@@ -73,34 +73,114 @@
     }, 2200);
   }
 
-  /* ---------- Siluetas de la ciudad (generadas) ---------- */
-  const silueta = (semilla, ancho, alto, color, ventanas) => {
-    let s = semilla;
-    const azar = () => (s = (s * 9301 + 49297) % 233280) / 233280;
-    let x = 0, partes = '';
-    while (x < ancho) {
-      const w = 22 + azar() * 46;
-      const h = alto * (0.25 + azar() * 0.75);
-      const y = alto - h;
-      partes += `<rect x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${w.toFixed(1)}" height="${h.toFixed(1)}" fill="${color}"/>`;
-      if (azar() > 0.7) { // antena o techo inclinado
-        partes += `<rect x="${(x + w / 2 - 1).toFixed(1)}" y="${(y - 12).toFixed(1)}" width="2" height="12" fill="${color}"/>`;
-      }
-      if (ventanas) {
-        for (let vy = y + 8; vy < alto - 8; vy += 12) {
-          for (let vx = x + 6; vx < x + w - 6; vx += 10) {
-            if (azar() > 0.78) partes += `<rect x="${vx.toFixed(1)}" y="${vy.toFixed(1)}" width="4" height="5" fill="#ffc21a" opacity=".55"/>`;
+  /* ---------- Paisaje de Panamá (generado): cerro Ancón, torres con luces, palmeras y faroles ---------- */
+  const TRAMO = 1600; // ancho de cada dibujo; se repite para el bucle infinito
+  const azarCon = semilla => { let s = semilla; return () => (s = (s * 9301 + 49297) % 233280) / 233280; };
+  const f = n => n.toFixed(1);
+  const envolver = (alto, defs, cuerpo) => {
+    const svg = `<svg width="${TRAMO}" height="${alto}" viewBox="0 0 ${TRAMO} ${alto}" aria-hidden="true">${defs ? `<defs>${defs}</defs>` : ''}${cuerpo}</svg>`;
+    return svg + svg + svg; // tres copias: cubre pantallas de hasta 3200 px mientras avanza
+  };
+
+  // Capa lejana: el cerro Ancón con su bandera y torres difusas
+  const capaLejos = () => {
+    const H = 150, az = azarCon(11);
+    let torres = '';
+    for (let x = 6; x < TRAMO - 50;) {
+      const w = 18 + az() * 30, h = 40 + az() * 72;
+      torres += `<rect x="${f(x)}" y="${f(H - h)}" width="${f(w)}" height="${f(h)}"/>`;
+      x += w + 6 + az() * 34;
+    }
+    const cerro = `<path d="M0 ${H}V${H - 28}C180 ${H - 36} 320 ${H - 96} 470 ${H - 100}C600 ${H - 104} 690 ${H - 58} 820 ${H - 46}C1000 ${H - 32} 1200 ${H - 54} 1350 ${H - 40}C1450 ${H - 32} 1550 ${H - 28} 1600 ${H - 28}V${H}Z"/>`;
+    const bandera = `<path d="M470 ${H - 100}V${H - 130}" stroke="#2c4d93" stroke-width="2"/>`
+      + `<g transform="translate(471 ${H - 130})" opacity=".85"><rect width="15" height="10" fill="#e9eef8"/><rect x="7.5" width="7.5" height="5" fill="#d21034"/><rect y="5" width="7.5" height="5" fill="#005293"/></g>`;
+    return envolver(H, '', `<g fill="#1b3c84" opacity=".5">${torres}</g><g fill="#132f6b">${cerro}</g>${bandera}`);
+  };
+
+  // Capa media: torres de la ciudad (con el Tornillo y una torre vela) y ventanas encendidas
+  const capaMedio = () => {
+    const H = 132, az = azarCon(29), color = '#0e275d', canto = '#173a80';
+    let edif = '', luces = '';
+    const ventanas = (x, y, w) => {
+      for (let vy = y + 8; vy < H - 6; vy += 9) {
+        for (let vx = x + 5; vx < x + w - 6; vx += 7) {
+          if (az() > .72) {
+            const tono = az() > .82 ? '#9fd5ff' : '#ffd166';
+            luces += `<rect x="${f(vx)}" y="${f(vy)}" width="3" height="4" fill="${tono}" opacity="${f(.4 + az() * .5)}"${az() > .94 ? ' class="titila"' : ''}/>`;
           }
         }
       }
-      x += w + 2 + azar() * 6;
+    };
+    const puestos = {};
+    for (let x = 4; x < TRAMO - 60;) {
+      let tipo = ['caja', 'escalones', 'punta', 'antena', 'redondo'][Math.floor(az() * 5)];
+      if (!puestos.tornillo && x > 360) tipo = puestos.tornillo = 'tornillo';
+      else if (!puestos.vela && x > 1040) tipo = puestos.vela = 'vela';
+      let w = 30 + az() * 34, h = 50 + az() * 62;
+      if (tipo === 'tornillo') { w = 34; h = 124; }
+      if (tipo === 'vela') { w = 46; h = 114; }
+      const y = H - h;
+      if (tipo === 'tornillo') {
+        // torre retorcida: los pisos se van desplazando de un lado a otro
+        for (let i = 0, py = H; py > y; i++, py -= 6) {
+          const d = Math.sin(i * .42) * 5;
+          edif += `<rect x="${f(x + d)}" y="${f(py - 6)}" width="${w}" height="5.3" fill="${i % 2 ? color : canto}"/>`;
+          if (az() > .55) luces += `<rect x="${f(x + d + 4 + az() * (w - 12))}" y="${f(py - 4.6)}" width="5" height="2.4" fill="#ffd166" opacity=".75"/>`;
+        }
+        edif += `<rect x="${f(x + w / 2 - 1)}" y="${f(y - 16)}" width="2" height="16" fill="${color}"/>`;
+        luces += `<circle cx="${f(x + w / 2)}" cy="${f(y - 17)}" r="2" fill="#ff5a5a" class="titila"/>`;
+      } else if (tipo === 'vela') {
+        // torre con forma de vela
+        edif += `<path d="M${f(x)} ${H}V${f(y + 10)}Q${f(x + w * 1.15)} ${f(y - 8)} ${f(x + w)} ${H}Z" fill="${color}"/>`;
+        edif += `<path d="M${f(x + 3)} ${f(y + 14)}Q${f(x + w * 1.06)} ${f(y)} ${f(x + w - 2)} ${H}" fill="none" stroke="${canto}" stroke-width="2.4"/>`;
+        ventanas(x + 4, y + 20, w - 16);
+      } else {
+        edif += `<rect x="${f(x)}" y="${f(y)}" width="${f(w)}" height="${f(h)}" fill="${color}"/>`;
+        edif += `<rect x="${f(x)}" y="${f(y)}" width="3" height="${f(h)}" fill="${canto}"/>`; // canto iluminado
+        if (tipo === 'escalones') edif += `<rect x="${f(x + w * .15)}" y="${f(y - h * .1)}" width="${f(w * .7)}" height="${f(h * .1)}" fill="${color}"/><rect x="${f(x + w * .32)}" y="${f(y - h * .18)}" width="${f(w * .36)}" height="${f(h * .08)}" fill="${color}"/>`;
+        if (tipo === 'punta') edif += `<path d="M${f(x)} ${f(y)}L${f(x + w / 2)} ${f(y - h * .16)}L${f(x + w)} ${f(y)}Z" fill="${color}"/>`;
+        if (tipo === 'redondo') edif += `<path d="M${f(x)} ${f(y)}A${f(w / 2)} ${f(w * .35)} 0 0 1 ${f(x + w)} ${f(y)}Z" fill="${color}"/>`;
+        if (tipo === 'antena') {
+          edif += `<rect x="${f(x + w / 2 - 1)}" y="${f(y - 16)}" width="2" height="16" fill="${color}"/>`;
+          luces += `<circle cx="${f(x + w / 2)}" cy="${f(y - 17)}" r="1.8" fill="#ff5a5a" class="titila"/>`;
+        }
+        ventanas(x, y, w);
+      }
+      x += w + 3 + az() * 16;
     }
-    const svg = `<svg viewBox="0 0 ${ancho} ${alto}" preserveAspectRatio="none" aria-hidden="true">${partes}</svg>`;
-    return svg + svg; // dos copias para el bucle infinito
+    return envolver(H, '', `<g>${edif}</g><g>${luces}</g>`);
   };
-  const lejos = $('#ciudad-lejos'), cerca = $('#ciudad-cerca');
-  if (lejos) lejos.innerHTML = silueta(7, 1400, 120, '#2a4f9e', false);
-  if (cerca) cerca.innerHTML = silueta(31, 1400, 84, '#0d2a63', true);
+
+  // Capa cercana: palmeras y faroles encendidos sobre la acera
+  const capaCerca = () => {
+    const H = 120, az = azarCon(5), c = '#050f29';
+    const defs = '<radialGradient id="g-farol"><stop offset="0" stop-color="#ffe9a8" stop-opacity=".5"/><stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/></radialGradient>';
+    const palma = (x, h) => {
+      const top = H - h, tx = x + 12;
+      let s = `<path d="M${x} ${H}Q${f(x + 16)} ${f(H - h * .5)} ${tx} ${f(top)}" stroke="${c}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+      const hojas = [[-48, -4], [-36, 14], [-16, 24], [20, 22], [40, 12], [50, -4], [2, -22], [-26, -18], [28, -18]];
+      for (const [dx, dy] of hojas) {
+        s += `<path d="M${tx} ${f(top)}Q${f(tx + dx * .5)} ${f(top + dy - 14)} ${f(tx + dx)} ${f(top + dy)}Q${f(tx + dx * .55)} ${f(top + dy - 5)} ${tx} ${f(top)}Z" fill="${c}"/>`;
+      }
+      return s + `<circle cx="${tx}" cy="${f(top + 3)}" r="4.5" fill="#0b1a3d"/>`;
+    };
+    const farol = x => `<circle cx="${x + 18}" cy="${H - 90}" r="34" fill="url(#g-farol)"/>`
+      + `<rect x="${x - 1.5}" y="${H - 96}" width="3" height="96" fill="${c}"/>`
+      + `<path d="M${x} ${H - 94}q2-6 18-4" stroke="${c}" stroke-width="3" fill="none"/>`
+      + `<rect x="${x + 12}" y="${H - 93}" width="13" height="4" rx="2" fill="#ffe9a8"/>`;
+    let cuerpo = '';
+    for (let x = 60; x < TRAMO - 60; x += 200) {
+      if (az() > .3) cuerpo += palma(x, 78 + az() * 30);
+      cuerpo += farol(x + 104);
+    }
+    return envolver(H, defs, cuerpo);
+  };
+
+  const capas = { 'capa-lejos': capaLejos, 'capa-medio': capaMedio, 'capa-cerca': capaCerca };
+  for (const [id, dibujar] of Object.entries(capas)) {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = dibujar();
+  }
 
   /* ---------- Línea de progreso de los pasos ---------- */
   const pasos = $('#pasos');

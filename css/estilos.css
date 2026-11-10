@@ -368,47 +368,73 @@ h2 { position: relative; z-index: 0; }
 .seguimiento[data-paso="2"] .seguimiento__etiquetas span:nth-child(3) { color: var(--azul-800); }
 
 /* ---------- Carretera ---------- */
-.carretera { position: relative; height: 190px; margin-top: 30px; }
-.carretera__ciudad {
-  position: absolute; left: 0; bottom: 46px; width: 200%; display: flex;
-  animation: avanzar 60s linear infinite;
+.carretera { --carril: 64px; position: relative; height: 250px; margin-top: 24px; overflow: hidden; }
+/* luna con halo */
+.carretera__luna {
+  position: absolute; right: 9%; top: 6px; width: 46px; height: 46px; border-radius: 50%;
+  background: radial-gradient(circle at 38% 35%, #fffbea 0 40%, #f3e7bd 70%, #e3d39f);
+  box-shadow: 0 0 0 10px rgba(255, 244, 200, .06), 0 0 40px 12px rgba(255, 236, 170, .22);
 }
-.carretera__ciudad svg { width: 50%; height: 100%; flex: none; display: block; }
-.carretera__ciudad--lejos { height: 120px; opacity: .35; animation-duration: 90s; }
-.carretera__ciudad--cerca { height: 84px; opacity: .7; animation-duration: 45s; }
-@keyframes avanzar { to { transform: translateX(-50%); } }
+/* capas de la ciudad: cada una repite su dibujo de 1600 px y avanza a su ritmo */
+.carretera__capa {
+  position: absolute; left: 0; bottom: calc(var(--carril) - 2px); display: flex; width: max-content;
+  animation: avanzar-capa linear infinite;
+}
+.carretera__capa svg { flex: none; display: block; height: 100%; width: auto; }
+/* --escala achica todo el paisaje en celular sin deformarlo */
+.carretera__capa { --tramo: calc(-1600px * var(--escala, 1)); }
+.carretera__capa--lejos { height: calc(150px * var(--escala, 1)); animation-duration: 160s; }
+.carretera__capa--medio { height: calc(132px * var(--escala, 1)); animation-duration: 90s; }
+.carretera__capa--cerca { height: calc(120px * var(--escala, 1)); animation-duration: 26s; }
+@keyframes avanzar-capa { to { transform: translateX(var(--tramo)); } }
+/* carretera con acera, bordillo y carriles */
 .carretera__via {
-  position: absolute; left: 0; right: 0; bottom: 0; height: 50px;
-  background: linear-gradient(180deg, #0b1630, #050b1c);
-  border-top: 3px solid rgba(255, 194, 26, .9);
-  overflow: hidden;
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--carril); overflow: hidden;
+  background:
+    linear-gradient(180deg, #2a3b63 0 9px, #11182c 9px 12px, transparent 12px),
+    linear-gradient(180deg, #161f36, #0a1122 60%, #060b17);
+}
+.carretera__via::before {
+  content: ""; position: absolute; left: 0; top: 9px; width: 200%; height: 3px;
+  background: repeating-linear-gradient(90deg, #ffc21a 0 22px, #0a1122 22px 44px);
+  animation: avanzar 2.4s linear infinite;
 }
 .carretera__rayas {
-  position: absolute; top: 22px; left: 0; width: 200%; height: 4px;
-  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .75) 0 46px, transparent 46px 92px);
+  position: absolute; top: 36px; left: 0; width: 200%; height: 4px; border-radius: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .8) 0 46px, transparent 46px 92px);
   animation: avanzar 1.4s linear infinite;
 }
-.camioncito {
-  position: absolute; bottom: 14px; left: 0; width: clamp(190px, 24vw, 280px);
-  animation: cruzar 22s ease-in-out infinite;
+@keyframes avanzar { to { transform: translateX(-50%); } }
+
+/* caravana de los dos camiones */
+.caravana {
+  position: absolute; left: 0; bottom: 14px; display: flex; align-items: flex-end; gap: clamp(20px, 3vw, 44px);
+  width: max-content; animation: cruzar 24s ease-in-out infinite;
 }
-.camioncito__svg { width: 100%; height: auto; overflow: visible; animation: rebote .5s ease-in-out infinite alternate; }
+.camion { position: relative; }
+.camion--cerrado { width: clamp(230px, 24vw, 330px); }
+.camion--lona { width: calc(clamp(230px, 24vw, 330px) * 360 / 450); }
+.camion__svg { width: 100%; height: auto; display: block; overflow: visible; animation: rebote .45s ease-in-out infinite alternate; }
+.camion--lona .camion__svg { animation-delay: -.2s; }
 .rueda { animation: girar .5s linear infinite; }
 @keyframes girar { to { transform: rotate(360deg); } }
-@keyframes rebote { to { transform: translateY(-2px); } }
+@keyframes rebote { to { transform: translateY(-1.5px); } }
 @keyframes cruzar {
-  0% { transform: translateX(-110%); }
-  30%, 55% { transform: translateX(calc(50vw - 50%)); }
-  100% { transform: translateX(calc(100vw + 10%)); }
+  0% { transform: translateX(-105%); }
+  32%, 56% { transform: translateX(calc(50vw - 50%)); }
+  100% { transform: translateX(calc(100vw + 5%)); }
 }
-.camioncito__humo { position: absolute; left: -6px; bottom: 26px; }
-.camioncito__humo span {
-  position: absolute; width: 14px; height: 14px; border-radius: 50%; background: rgba(255, 255, 255, .35);
+.camion__humo { position: absolute; left: 0; bottom: 18%; }
+.camion__humo span {
+  position: absolute; width: 12px; height: 12px; border-radius: 50%; background: rgba(210, 222, 245, .35);
   animation: humo 1.4s ease-out infinite;
 }
-.camioncito__humo span:nth-child(2) { animation-delay: .45s; }
-.camioncito__humo span:nth-child(3) { animation-delay: .9s; }
-@keyframes humo { from { transform: translate(0, 0) scale(.4); opacity: .8; } to { transform: translate(-40px, -18px) scale(1.8); opacity: 0; } }
+.camion__humo span:nth-child(2) { animation-delay: .45s; }
+.camion__humo span:nth-child(3) { animation-delay: .9s; }
+@keyframes humo { from { transform: translate(0, 0) scale(.4); opacity: .8; } to { transform: translate(-40px, -16px) scale(1.8); opacity: 0; } }
+/* luces que titilan en los edificios y la antena */
+.titila { animation: titilar 3s ease-in-out infinite; }
+@keyframes titilar { 50% { opacity: .15; } }
 
 /* ---------- Cinta ---------- */
 .cinta { background: var(--amarillo); color: var(--azul-900); overflow: hidden; padding: 18px 0; transform: rotate(-1.2deg) scale(1.02); margin: -12px 0 0; position: relative; z-index: 2; box-shadow: 0 12px 30px -16px rgba(6, 26, 68, .5); }
@@ -949,7 +975,12 @@ h2 { position: relative; z-index: 0; }
   .sello__centro svg { width: 19px; height: 19px; }
   .seguimiento { left: 4px; bottom: 0; width: 236px; padding: 11px 14px 10px; border-radius: 16px; }
   .seguimiento__estado { font-size: .92rem; }
-  .carretera { height: 140px; margin-top: 18px; }
+  .carretera { --escala: .68; --carril: 50px; height: 178px; margin-top: 18px; }
+  .carretera__luna { width: 32px; height: 32px; right: 7%; }
+  .carretera__rayas { top: 29px; }
+  .caravana { bottom: 10px; gap: 16px; animation-duration: 20s; }
+  .camion--cerrado { width: 196px; }
+  .camion--lona { width: calc(196px * 360 / 450); }
   .cinta { padding: 13px 0; }
 
   /* servicios: carrusel que se desliza */
@@ -1093,6 +1124,6 @@ h2 { position: relative; z-index: 0; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
   .entrada, [data-revelar], .provincias li { opacity: 1 !important; transform: none !important; }
-  .camioncito { transform: translateX(calc(50vw - 50%)); }
+  .caravana { transform: translateX(calc(50vw - 50%)); }
   .escena__puerta { display: none; }
 }
