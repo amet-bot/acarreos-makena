@@ -1092,8 +1092,11 @@ h2 { position: relative; z-index: 0; }
 
   /* cotizar */
   .cotizar__texto > p { font-size: 1rem; }
-  .contactos { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 22px; }
+  /* tres teléfonos en fila (ícono arriba, número abajo) y el Instagram a lo ancho */
+  .contactos { grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 22px; }
   .contacto { padding: 12px; gap: 10px; border-radius: 14px; }
+  .contacto:not(:last-child) { flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 10px; }
+  .contacto:not(:last-child) b { font-size: .95rem; white-space: nowrap; }
   .contacto:hover { transform: none; }
   .contacto:last-child { grid-column: 1 / -1; }
   .contacto__ico { width: 38px; height: 38px; border-radius: 10px; }
@@ -1142,7 +1145,7 @@ h2 { position: relative; z-index: 0; }
 
 @media (max-width: 370px) {
   .portada__garantias li { font-size: .72rem; padding: 10px 4px; }
-  .contactos { grid-template-columns: 1fr; }
+  .contacto:not(:last-child) b { font-size: .86rem; }
   .servicio { flex-basis: 88%; }
   .barra-movil a { font-size: .92rem; }
 }
