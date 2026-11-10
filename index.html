@@ -93,7 +93,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v= obliga al navegador a bajar la versión nueva: súbelo en cada cambio de CSS o JS -->
-  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10o">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10p">
   <!-- preguntas frecuentes para Google (se genera desde las preguntas visibles) -->
   <script type="application/ld+json" id="faq-ld">
 {
@@ -188,43 +188,94 @@
       <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3.5h3.2l1.6 4.4-2.2 1.4a11.5 11.5 0 0 0 7.1 7.1l1.4-2.2 4.4 1.6V19a1.9 1.9 0 0 1-2 1.9A16.6 16.6 0 0 1 3.1 5.5 1.9 1.9 0 0 1 5 3.5Z"/></symbol>
       <symbol id="i-flecha" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
       <!-- piezas de los camiones ilustrados -->
-      <linearGradient id="g-cabina" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#eef2f9"/><stop offset="1" stop-color="#cfd9ea"/></linearGradient>
-      <linearGradient id="g-vidrio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7fb0ef"/><stop offset=".45" stop-color="#2d5ba8"/><stop offset="1" stop-color="#14306a"/></linearGradient>
-      <linearGradient id="g-caja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f4fa"/><stop offset="1" stop-color="#d7dfec"/></linearGradient>
-      <linearGradient id="g-poste" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c3cddd"/><stop offset=".5" stop-color="#eef2f8"/><stop offset="1" stop-color="#b3bfd3"/></linearGradient>
-      <linearGradient id="g-lona" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a5384"/><stop offset=".25" stop-color="#2a426f"/><stop offset="1" stop-color="#1b2c4f"/></linearGradient>
+      <linearGradient id="g-cabina" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f1f4fa"/><stop offset="1" stop-color="#cbd6e8"/></linearGradient>
+      <linearGradient id="g-vidrio" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8dbcf4"/><stop offset=".4" stop-color="#3866b2"/><stop offset="1" stop-color="#132c63"/></linearGradient>
+      <linearGradient id="g-caja" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#f2f5fa"/><stop offset="1" stop-color="#d4dcea"/></linearGradient>
+      <linearGradient id="g-poste" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#aeb9cc"/><stop offset=".45" stop-color="#f5f7fb"/><stop offset="1" stop-color="#9eaac0"/></linearGradient>
+      <linearGradient id="g-riel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f9fc"/><stop offset=".5" stop-color="#c3cddd"/><stop offset="1" stop-color="#8e9ab0"/></linearGradient>
+      <linearGradient id="g-lona" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f5a8e"/><stop offset=".22" stop-color="#2b4473"/><stop offset="1" stop-color="#18284a"/></linearGradient>
       <linearGradient id="g-franja" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0a2a6e"/><stop offset="1" stop-color="#1f63d6"/></linearGradient>
-      <linearGradient id="g-tanque" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#eef2f8"/><stop offset=".5" stop-color="#b9c4d6"/><stop offset="1" stop-color="#7f8ca5"/></linearGradient>
-      <linearGradient id="g-rin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".6" stop-color="#b6c1d3"/><stop offset="1" stop-color="#7c879c"/></linearGradient>
+      <linearGradient id="g-tanque" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f7fb"/><stop offset=".45" stop-color="#bcc7d8"/><stop offset="1" stop-color="#76839c"/></linearGradient>
+      <linearGradient id="g-sombra-abajo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a1630" stop-opacity="0"/><stop offset="1" stop-color="#0a1630" stop-opacity=".22"/></linearGradient>
+      <linearGradient id="g-reflejo" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+      <radialGradient id="g-llanta"><stop offset=".55" stop-color="#2a303d"/><stop offset=".85" stop-color="#151a24"/><stop offset="1" stop-color="#0b0e14"/></radialGradient>
+      <radialGradient id="g-rin" cx=".38" cy=".32"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#c5cfde"/><stop offset="1" stop-color="#7b879c"/></radialGradient>
       <linearGradient id="g-haz" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff3b0" stop-opacity=".55"/><stop offset="1" stop-color="#fff3b0" stop-opacity="0"/></linearGradient>
       <pattern id="p-cinta" width="16" height="6" patternUnits="userSpaceOnUse"><rect width="8" height="6" fill="#e11d2e"/><rect x="8" width="8" height="6" fill="#ffffff"/></pattern>
+      <pattern id="p-remaches" width="9" height="4" patternUnits="userSpaceOnUse"><circle cx="4.5" cy="2" r=".9" fill="#7d899f"/><circle cx="4.2" cy="1.7" r=".35" fill="#fff"/></pattern>
+      <pattern id="p-diamante" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#4c5669"/><path d="M1 4l2-2M3.5 5.5l2-2" stroke="#7a859a" stroke-width="1" stroke-linecap="round"/></pattern>
+      <!-- llanta con banda, rin con perforaciones y tuercas -->
       <symbol id="s-rueda" viewBox="-24 -24 48 48">
-        <circle r="23" fill="#11151e"/>
-        <circle r="20.5" fill="none" stroke="#262d3b" stroke-width="3" stroke-dasharray="3.2 2.2"/>
-        <circle r="13" fill="url(#g-rin)" stroke="#5b667c" stroke-width="1"/>
-        <circle r="8.5" fill="none" stroke="#8c97ac" stroke-width="1.2"/>
-        <g fill="#5b667c"><circle cx="0" cy="-6" r="1.4"/><circle cx="5.2" cy="-3" r="1.4"/><circle cx="5.2" cy="3" r="1.4"/><circle cx="0" cy="6" r="1.4"/><circle cx="-5.2" cy="3" r="1.4"/><circle cx="-5.2" cy="-3" r="1.4"/></g>
-        <circle r="3.2" fill="#3c4558"/>
-        <path d="M-12 -1.2h4M8 -1.2h4" stroke="#7c879c" stroke-width="1.6" stroke-linecap="round"/>
+        <circle r="23" fill="url(#g-llanta)"/>
+        <circle r="21.2" fill="none" stroke="#06080c" stroke-width="2.6" stroke-dasharray="2.6 1.9"/>
+        <circle r="17.4" fill="none" stroke="#3a4253" stroke-width=".8"/>
+        <circle r="15" fill="#2c3341"/>
+        <circle r="13.6" fill="url(#g-rin)" stroke="#5b667c" stroke-width=".8"/>
+        <circle r="11.2" fill="none" stroke="#97a3b8" stroke-width="1.1"/>
+        <g fill="#3a4357"><ellipse cx="0" cy="-8.6" rx="2" ry="2.6"/><ellipse cx="0" cy="8.6" rx="2" ry="2.6"/><ellipse cx="-8.6" cy="0" rx="2.6" ry="2"/><ellipse cx="8.6" cy="0" rx="2.6" ry="2"/><ellipse cx="6.1" cy="-6.1" rx="2" ry="2.4" transform="rotate(45 6.1 -6.1)"/><ellipse cx="-6.1" cy="6.1" rx="2" ry="2.4" transform="rotate(45 -6.1 6.1)"/><ellipse cx="-6.1" cy="-6.1" rx="2" ry="2.4" transform="rotate(-45 -6.1 -6.1)"/><ellipse cx="6.1" cy="6.1" rx="2" ry="2.4" transform="rotate(-45 6.1 6.1)"/></g>
+        <circle r="5.6" fill="#d9e0ea" stroke="#6d7990" stroke-width=".8"/>
+        <g fill="#5b667c"><circle cx="0" cy="-3.6" r="1"/><circle cx="3.1" cy="-1.8" r="1"/><circle cx="3.1" cy="1.8" r="1"/><circle cx="0" cy="3.6" r="1"/><circle cx="-3.1" cy="1.8" r="1"/><circle cx="-3.1" cy="-1.8" r="1"/></g>
+        <circle r="1.6" fill="#3c4558"/>
+        <path d="M-9 -9.5a13 13 0 0 1 7-3" stroke="#fff" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".75"/>
       </symbol>
       <!-- cabina JAC vista de lado, mirando a la derecha (la base del chasis en y=100) -->
       <symbol id="s-cabina" viewBox="0 0 124 112" overflow="visible">
-        <path d="M4 8Q4 2 10 2H74Q86 2 93 10L111 41Q117 51 117 61V92Q117 100 109 100H4Z" fill="url(#g-cabina)" stroke="#b7c3d8" stroke-width="1.2"/>
-        <path d="M60 100a27 27 0 0 1 54 0Z" fill="#222a3a"/>
+        <!-- luces de gálibo del techo -->
+        <g fill="#ffb020"><rect x="58" y="-1" width="6" height="3" rx="1"/><rect x="68" y="-1" width="6" height="3" rx="1"/><rect x="78" y="0" width="6" height="3" rx="1"/></g>
+        <!-- carrocería -->
+        <path d="M4 8Q4 2 10 2H74Q86 2 93 10L111 41Q117 51 117 61V92Q117 100 109 100H4Z" fill="url(#g-cabina)" stroke="#aebbd2" stroke-width="1.2"/>
+        <path d="M4 74H117V92Q117 100 109 100H4Z" fill="url(#g-sombra-abajo)"/>
+        <path d="M8 4.5H73Q84 4.5 90 11" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".9"/>
+        <!-- vidrio con marco, timón y asiento -->
+        <path d="M12 10H72Q81 10 87 18L101 45H12Z" fill="#1a2233"/>
         <path d="M14 12H71Q79 12 85 20L98 43H14Z" fill="url(#g-vidrio)"/>
-        <path d="M30 13h11L27 42H17Z" fill="#fff" opacity=".22"/>
+        <path d="M58 43a12 6 0 0 1 22-9" stroke="#0e1a36" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M22 43V24q0-5 5-5h6q4 0 4 5v19" fill="#0e1a36" opacity=".55"/>
+        <path d="M30 13h11L27 42H17Z" fill="#fff" opacity=".24"/>
         <path d="M46 13h4L36 42h-4Z" fill="#fff" opacity=".14"/>
-        <path d="M10 48V96M86 48V78" stroke="#c4cfe2" stroke-width="1.4"/>
-        <rect x="64" y="56" width="13" height="3.4" rx="1.7" fill="#8f9bb2"/>
-        <circle cx="38" cy="70" r="8.5" fill="#fff" stroke="#0a2a6e" stroke-width="1.6"/>
+        <path d="M86 19l13 26" stroke="#1a2233" stroke-width="3.2" stroke-linecap="round"/>
+        <!-- puerta -->
+        <path d="M11 47H86V79Q86 92 74 95H11Z" fill="none" stroke="#b4c0d5" stroke-width="1.3"/>
+        <rect x="63" y="54" width="15" height="5" rx="2.5" fill="#c9d2e1"/>
+        <rect x="65" y="55.2" width="11" height="2.6" rx="1.3" fill="#6f7b91"/>
+        <circle cx="80.5" cy="56.5" r="1.1" fill="#6f7b91"/>
+        <!-- logo -->
+        <circle cx="38" cy="70" r="9" fill="#fff" stroke="#0a2a6e" stroke-width="1.6"/>
+        <circle cx="38" cy="70" r="7" fill="none" stroke="#0a2a6e" stroke-width=".5" stroke-dasharray="5 1.5 2 1"/>
         <text x="38" y="73.2" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="8.6" fill="#0a2a6e">MK</text>
-        <rect x="101" y="85" width="19" height="15" rx="3.5" fill="#e6ebf4" stroke="#b7c3d8" stroke-width="1"/>
-        <rect x="103" y="95" width="15" height="3" fill="url(#p-cinta)"/>
-        <path d="M108 63h6.5q3 0 3 3v11q0 3-3 3H108Z" fill="#fff7cf" stroke="#c3cee0" stroke-width="1"/>
-        <rect x="111" y="81.5" width="6" height="3" rx="1" fill="#ffb020"/>
+        <!-- guardafango y arco de la rueda delantera -->
+        <path d="M60 100a27 27 0 0 1 54 0Z" fill="#1a202c"/>
+        <path d="M58 100a29 29 0 0 1 58 0" fill="none" stroke="#2a3140" stroke-width="4.5"/>
+        <path d="M60.5 97a26.5 26.5 0 0 1 9-17" fill="none" stroke="#4a5469" stroke-width="1.2"/>
+        <!-- frente: faro, direccional, defensa y neblinero -->
+        <path d="M108 61h6.5q3 0 3 3v12q0 3-3 3H108Z" fill="#dfe6f0" stroke="#aebbd2" stroke-width="1"/>
+        <path d="M109.5 63h5q1.6 0 1.6 1.6v6.4h-6.6Z" fill="#fff8d6"/>
+        <rect x="109.5" y="72" width="6.6" height="4.5" rx="1" fill="#ffb020"/>
+        <rect x="100" y="84" width="20" height="16" rx="3.5" fill="#e3e9f2" stroke="#aebbd2" stroke-width="1"/>
+        <rect x="102" y="86.5" width="16" height="4" rx="1.5" fill="#3a4357"/>
+        <circle cx="114.5" cy="88.5" r="1.4" fill="#fff4c2"/>
+        <rect x="102" y="94.5" width="16" height="3" fill="url(#p-cinta)"/>
+        <rect x="88" y="80" width="5" height="2.6" rx="1" fill="#ffb020"/>
+        <!-- espejos -->
         <path d="M95 30l11-9" stroke="#1c2333" stroke-width="2.4" stroke-linecap="round"/>
-        <rect x="104" y="8" width="7.5" height="21" rx="2.5" fill="#1c2333"/>
-        <rect x="34" y="100" width="22" height="4" rx="1" fill="#3a4357"/>
+        <path d="M96 38l9-5" stroke="#1c2333" stroke-width="1.8" stroke-linecap="round"/>
+        <rect x="104" y="7" width="8" height="22" rx="2.5" fill="#1c2333"/>
+        <rect x="105.3" y="9" width="2" height="17" rx="1" fill="#6b84b5" opacity=".7"/>
+        <rect x="103.5" y="30" width="6" height="7" rx="2" fill="#1c2333"/>
+        <!-- escalón -->
+        <rect x="24" y="100" width="34" height="6" rx="1.5" fill="#3a4357"/>
+        <path d="M27 102.5h28M27 104.5h28" stroke="#5c667c" stroke-width=".8"/>
+      </symbol>
+      <!-- chasis común: travesaños, tanque con correas, batería, defensa lateral -->
+      <symbol id="s-chasis" viewBox="0 0 220 30" overflow="visible">
+        <rect x="0" y="0" width="220" height="8" fill="#1d2330"/>
+        <g fill="#2c3445"><rect x="10" y="0" width="4" height="10"/><rect x="60" y="0" width="4" height="10"/><rect x="110" y="0" width="4" height="10"/><rect x="160" y="0" width="4" height="10"/></g>
+        <rect x="140" y="5" width="46" height="15" rx="7.5" fill="url(#g-tanque)"/>
+        <rect x="150" y="4" width="3.5" height="17" rx="1" fill="#3a4357"/><rect x="172" y="4" width="3.5" height="17" rx="1" fill="#3a4357"/>
+        <circle cx="182" cy="9" r="2.4" fill="#5b667c"/>
+        <rect x="118" y="6" width="18" height="13" rx="2" fill="#2a3140"/><rect x="120" y="8" width="14" height="2" fill="#4a5469"/>
+        <g fill="#c9d2e1"><rect x="40" y="13" width="96" height="3" rx="1.5"/><rect x="40" y="19" width="96" height="3" rx="1.5"/></g>
+        <g fill="#8e9ab0"><rect x="44" y="12" width="3" height="11"/><rect x="88" y="12" width="3" height="11"/><rect x="130" y="12" width="3" height="11"/></g>
       </symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
     </defs>
@@ -343,35 +394,45 @@
         <div class="caravana">
           <!-- camión de 16 pies con lona y rampa hidráulica -->
           <div class="camion camion--lona">
-            <svg viewBox="0 0 360 172" class="camion__svg">
-              <ellipse cx="186" cy="166" rx="172" ry="5.5" fill="#000" opacity=".32"/>
-              <rect x="20" y="130" width="238" height="9" fill="#222a3a"/>
-              <!-- rampa hidráulica plegada -->
-              <rect x="6" y="104" width="9" height="40" rx="2" fill="#4a5468"/>
-              <rect x="8" y="108" width="5" height="32" fill="#2f3748"/>
-              <!-- barandas -->
-              <rect x="16" y="112" width="218" height="20" fill="#e9eef6" stroke="#b8c3d6" stroke-width="1"/>
-              <path d="M16 122H234" stroke="#c4cedf" stroke-width="1"/>
-              <g fill="#b8c3d6"><rect x="16" y="112" width="4" height="20"/><rect x="72" y="112" width="3" height="20"/><rect x="126" y="112" width="3" height="20"/><rect x="180" y="112" width="3" height="20"/><rect x="230" y="112" width="4" height="20"/></g>
-              <rect x="16" y="126" width="218" height="4" fill="url(#p-cinta)"/>
-              <!-- lona -->
-              <path d="M17 32Q17 22 27 22H222Q232 22 232 32V114H17Z" fill="url(#g-lona)"/>
-              <path d="M17 32Q17 22 27 22H222Q232 22 232 32" fill="none" stroke="#5c78ad" stroke-width="2" opacity=".7"/>
-              <g fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="2">
-                <path d="M40 26q8 40 2 86"/><path d="M92 26q-6 44 4 86"/><path d="M146 26q9 40 0 86"/><path d="M200 26q-7 42 3 86"/>
-              </g>
-              <g stroke="#0e1830" stroke-width="2.2"><path d="M30 104v12M58 104v12M86 104v12M114 104v12M142 104v12M170 104v12M198 104v12M222 104v12"/></g>
-              <g fill="#c9d1df"><rect x="28" y="111" width="6" height="4" rx="1"/><rect x="56" y="111" width="6" height="4" rx="1"/><rect x="84" y="111" width="6" height="4" rx="1"/><rect x="112" y="111" width="6" height="4" rx="1"/><rect x="140" y="111" width="6" height="4" rx="1"/><rect x="168" y="111" width="6" height="4" rx="1"/><rect x="196" y="111" width="6" height="4" rx="1"/><rect x="220" y="111" width="6" height="4" rx="1"/></g>
-              <text x="124" y="74" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="22" fill="#fff" fill-opacity=".9" letter-spacing="1.5">MAKENA</text>
-              <text x="124" y="88" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="7.5" fill="#ffc21a" letter-spacing="2">16 PIES · RAMPA</text>
-              <rect x="10" y="96" width="6" height="11" rx="1" fill="#e11d2e"/>
-              <!-- tanque y guardafango -->
-              <rect x="150" y="134" width="40" height="14" rx="7" fill="url(#g-tanque)"/>
-              <rect x="106" y="134" width="5" height="18" rx="1" fill="#1c2333"/>
-              <path d="M46 132a28 28 0 0 1 56 0Z" fill="#222a3a"/>
+            <svg viewBox="0 0 360 176" class="camion__svg">
+              <ellipse cx="186" cy="168" rx="174" ry="5.5" fill="#000" opacity=".3"/>
+              <g fill="#000" opacity=".45"><ellipse cx="74" cy="170" rx="24" ry="3"/><ellipse cx="321" cy="170" rx="24" ry="3"/></g>
+              <!-- chasis -->
+              <rect x="20" y="130" width="238" height="9" fill="#1d2330"/>
+              <use href="#s-chasis" x="62" y="130" width="220" height="30"/>
+              <!-- rampa hidráulica plegada, con pistón y lámina antideslizante -->
+              <path d="M17 136L34 126" stroke="#9aa6bb" stroke-width="3.2" stroke-linecap="round"/>
+              <path d="M17 136L26 131" stroke="#e8edf5" stroke-width="1.6" stroke-linecap="round"/>
+              <rect x="3" y="98" width="14" height="48" rx="2" fill="url(#p-diamante)" stroke="#2f3748" stroke-width="1.2"/>
+              <rect x="3" y="98" width="14" height="5" fill="url(#p-cinta)"/>
+              <rect x="3" y="140" width="14" height="5" fill="url(#p-cinta)"/>
+              <rect x="0" y="146" width="20" height="3" rx="1" fill="#2a3140"/>
+              <rect x="5" y="106" width="4" height="9" rx="1" fill="#e11d2e"/>
+              <!-- barandas con bisagras y cerrojos -->
+              <rect x="17" y="112" width="217" height="20" fill="#eef2f8" stroke="#b0bcd0" stroke-width="1"/>
+              <path d="M17 117H234M17 122H234" stroke="#d3dbe8" stroke-width="1"/>
+              <g fill="#aab6ca"><rect x="17" y="112" width="4" height="20"/><rect x="72" y="112" width="3" height="20"/><rect x="126" y="112" width="3" height="20"/><rect x="180" y="112" width="3" height="20"/><rect x="230" y="112" width="4" height="20"/></g>
+              <g fill="#5b667c"><rect x="64" y="114" width="6" height="3" rx="1"/><rect x="118" y="114" width="6" height="3" rx="1"/><rect x="172" y="114" width="6" height="3" rx="1"/><rect x="222" y="114" width="6" height="3" rx="1"/></g>
+              <rect x="17" y="126" width="217" height="4" fill="url(#p-cinta)"/>
+              <!-- lona: arcos, pliegues, dobladillo, ojales y sogas -->
+              <path d="M17 32Q17 22 27 22H44q3 -3 6 0H100q3 -3 6 0H156q3 -3 6 0H210q3 -3 6 0h6Q232 22 232 32V114H17Z" fill="url(#g-lona)"/>
+              <path d="M17 32Q17 22 27 22H222Q232 22 232 32" fill="none" stroke="#6a86bb" stroke-width="2" opacity=".75"/>
+              <g stroke="#0f1b36" stroke-opacity=".55" stroke-width="2.4"><path d="M47 24v76M103 24v76M159 24v76M213 24v76"/></g>
+              <g stroke="#7f9bcf" stroke-opacity=".28" stroke-width="1.4"><path d="M45 24v76M101 24v76M157 24v76M211 24v76"/></g>
+              <g fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="2.2"><path d="M30 28q7 34 2 72"/><path d="M75 28q-6 40 3 72"/><path d="M130 28q8 36 0 72"/><path d="M186 28q-7 38 3 72"/></g>
+              <rect x="17" y="100" width="215" height="14" fill="#14223f"/>
+              <g fill="#c9d1df" stroke="#0f1b36" stroke-width=".8"><circle cx="30" cy="106" r="2.2"/><circle cx="58" cy="106" r="2.2"/><circle cx="86" cy="106" r="2.2"/><circle cx="114" cy="106" r="2.2"/><circle cx="142" cy="106" r="2.2"/><circle cx="170" cy="106" r="2.2"/><circle cx="198" cy="106" r="2.2"/><circle cx="224" cy="106" r="2.2"/></g>
+              <path d="M30 106L44 117L58 106L72 117L86 106L100 117L114 106L128 117L142 106L156 117L170 106L184 117L198 106L211 117L224 106" fill="none" stroke="#e3d3a4" stroke-width="1.3" stroke-linejoin="round"/>
+              <text x="124" y="68" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="22" fill="#fff" fill-opacity=".92" letter-spacing="1.5">MAKENA</text>
+              <text x="124" y="82" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="7.5" fill="#ffc21a" letter-spacing="2">16 PIES · RAMPA</text>
+              <!-- guardafango y goma trasera -->
+              <path d="M46 132a28 28 0 0 1 56 0Z" fill="#1a202c"/>
+              <path d="M44 132a30 30 0 0 1 60 0" fill="none" stroke="#2a3140" stroke-width="3.5"/>
+              <rect x="100" y="132" width="5" height="28" rx="1" fill="#141922"/>
               <!-- cabina -->
               <use href="#s-cabina" x="234" y="30" width="124" height="112"/>
-              <!-- ruedas -->
+              <!-- ruedas (doble atrás) -->
+              <circle cx="79" cy="148" r="22.5" fill="#0b0e14"/>
               <g class="rueda" style="transform-origin:74px 148px"><use href="#s-rueda" x="51" y="125" width="46" height="46"/></g>
               <g class="rueda" style="transform-origin:321px 148px"><use href="#s-rueda" x="298" y="125" width="46" height="46"/></g>
             </svg>
@@ -380,35 +441,56 @@
 
           <!-- camión cerrado de 22 pies -->
           <div class="camion camion--cerrado">
-            <svg viewBox="0 0 450 172" class="camion__svg">
+            <svg viewBox="0 0 450 176" class="camion__svg">
               <path d="M436 100l120-16v52Z" fill="url(#g-haz)"/>
-              <ellipse cx="226" cy="166" rx="215" ry="5.5" fill="#000" opacity=".32"/>
-              <rect x="20" y="130" width="306" height="9" fill="#222a3a"/>
-              <!-- caja -->
+              <ellipse cx="226" cy="168" rx="216" ry="5.5" fill="#000" opacity=".3"/>
+              <g fill="#000" opacity=".45"><ellipse cx="80" cy="170" rx="24" ry="3"/><ellipse cx="409" cy="170" rx="24" ry="3"/></g>
+              <!-- chasis -->
+              <rect x="20" y="130" width="306" height="9" fill="#1d2330"/>
+              <use href="#s-chasis" x="110" y="130" width="220" height="30"/>
+              <!-- defensa trasera con reflectivo -->
+              <rect x="4" y="139" width="34" height="6" rx="1.5" fill="#2a3140"/>
+              <rect x="6" y="140.5" width="30" height="3" fill="url(#p-cinta)"/>
+              <path d="M14 132v7M30 132v7" stroke="#2a3140" stroke-width="3"/>
+              <!-- caja de aluminio -->
               <rect x="14" y="10" width="306" height="122" rx="4" fill="url(#g-caja)"/>
-              <rect x="14" y="10" width="306" height="8" rx="3" fill="#e4e9f2"/>
-              <rect x="14" y="122" width="306" height="10" fill="#c6cfdf"/>
-              <rect x="14" y="10" width="10" height="122" fill="url(#g-poste)"/>
-              <rect x="310" y="10" width="10" height="122" fill="url(#g-poste)"/>
-              <g stroke="#0a2a6e" stroke-opacity=".05" stroke-width="2"><path d="M60 18v104M106 18v104M152 18v104M198 18v104M244 18v104M290 18v104"/></g>
+              <g stroke="#9aa6bb" stroke-opacity=".35" stroke-width="1"><path d="M60 18v104M106 18v104M152 18v104M198 18v104M244 18v104M290 18v104"/></g>
+              <g stroke="#7d899f" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0 7"><path d="M60 22v98M106 22v98M152 22v98M198 22v98M244 22v98M290 22v98"/></g>
+              <path d="M120 10H176L120 122H64Z" fill="url(#g-reflejo)" opacity=".5"/>
+              <!-- rieles superior e inferior con remaches -->
+              <rect x="14" y="8" width="306" height="10" rx="3" fill="url(#g-riel)"/>
+              <rect x="20" y="11" width="294" height="4" fill="url(#p-remaches)"/>
+              <rect x="14" y="120" width="306" height="12" fill="url(#g-riel)"/>
+              <rect x="18" y="125" width="296" height="4" fill="url(#p-cinta)"/>
+              <!-- postes de esquina con remaches y bisagras -->
+              <rect x="14" y="8" width="11" height="124" fill="url(#g-poste)"/>
+              <rect x="309" y="8" width="11" height="124" fill="url(#g-poste)"/>
+              <g stroke="#7d899f" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0 8"><path d="M19.5 22v96M314.5 22v96"/></g>
+              <g fill="#5b667c"><rect x="12" y="30" width="5" height="9" rx="1"/><rect x="12" y="64" width="5" height="9" rx="1"/><rect x="12" y="98" width="5" height="9" rx="1"/></g>
+              <!-- luces de gálibo -->
+              <rect x="16" y="3" width="7" height="5" rx="1.5" fill="#e11d2e"/>
+              <rect x="311" y="3" width="7" height="5" rx="1.5" fill="#ffb020"/>
+              <g fill="#ffb020"><rect x="120" y="121" width="6" height="3" rx="1"/><rect x="220" y="121" width="6" height="3" rx="1"/></g>
               <!-- franja de la marca -->
-              <path d="M24 112C120 104 214 98 310 72V96C214 116 120 120 24 122Z" fill="url(#g-franja)"/>
-              <path d="M24 108C120 99 214 92 310 64" fill="none" stroke="#ffc21a" stroke-width="3.5" stroke-linecap="round"/>
+              <path d="M25 112C120 104 214 98 309 72V96C214 116 120 120 25 120Z" fill="url(#g-franja)"/>
+              <path d="M25 108C120 99 214 92 309 64" fill="none" stroke="#ffc21a" stroke-width="3.5" stroke-linecap="round"/>
               <!-- logo y nombre -->
               <circle cx="72" cy="58" r="27" fill="#fff" stroke="#0a2a6e" stroke-width="3"/>
               <circle cx="72" cy="58" r="22" fill="none" stroke="#0a2a6e" stroke-width="1" stroke-dasharray="14 3 6 2"/>
               <text x="72" y="64" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-size="21" fill="#0a2a6e" letter-spacing="-1">MK</text>
               <text x="198" y="62" text-anchor="middle" font-family="Anton, Impact, sans-serif" font-size="38" fill="#0a2a6e" letter-spacing="1.5">MAKENA</text>
               <text x="198" y="78" text-anchor="middle" font-family="Manrope, Arial, sans-serif" font-weight="800" font-size="9.5" fill="#1351c4" letter-spacing="3">ACARREOS · PANAMÁ</text>
-              <rect x="18" y="124" width="296" height="4" fill="url(#p-cinta)"/>
-              <rect x="8" y="98" width="6" height="14" rx="1" fill="#e11d2e"/>
-              <!-- tanque y guardafango -->
-              <rect x="236" y="134" width="44" height="14" rx="7" fill="url(#g-tanque)"/>
-              <rect x="116" y="134" width="5" height="19" rx="1" fill="#1c2333"/>
-              <path d="M52 132a28 28 0 0 1 56 0Z" fill="#222a3a"/>
+              <!-- luces traseras -->
+              <rect x="7" y="98" width="7" height="16" rx="1.5" fill="#e11d2e"/>
+              <rect x="8.5" y="100" width="4" height="5" rx="1" fill="#ff7a85"/>
+              <!-- guardafango y goma trasera -->
+              <path d="M52 132a28 28 0 0 1 56 0Z" fill="#1a202c"/>
+              <path d="M50 132a30 30 0 0 1 60 0" fill="none" stroke="#2a3140" stroke-width="3.5"/>
+              <rect x="106" y="132" width="5" height="28" rx="1" fill="#141922"/>
               <!-- cabina -->
               <use href="#s-cabina" x="322" y="30" width="124" height="112"/>
               <!-- ruedas (doble atrás) -->
+              <circle cx="85" cy="148" r="22.5" fill="#0b0e14"/>
               <g class="rueda" style="transform-origin:80px 148px"><use href="#s-rueda" x="57" y="125" width="46" height="46"/></g>
               <g class="rueda" style="transform-origin:409px 148px"><use href="#s-rueda" x="386" y="125" width="46" height="46"/></g>
             </svg>
@@ -1038,6 +1120,6 @@
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
 
-  <script src="js/main.js?v=2026-11-10o" defer></script>
+  <script src="js/main.js?v=2026-11-10p" defer></script>
 </body>
 </html>
