@@ -176,6 +176,41 @@
     }
   }
 
+  /* ---------- Showroom de la flota: cada tarjeta muestra su camión ---------- */
+  const garaje = $('#garaje');
+  if (garaje) {
+    const medida = $('#garaje-medida');
+    const botones = $$('.vehiculo[data-vehiculo]');
+    const autos = $$('.garaje__vehiculo', garaje);
+    const elegir = (cual, boton) => {
+      if (garaje.dataset.activo === cual) return;
+      garaje.dataset.activo = cual;
+      botones.forEach(b => {
+        const si = b.dataset.vehiculo === cual;
+        b.classList.toggle('activo', si);
+        b.setAttribute('aria-pressed', String(si));
+      });
+      autos.forEach(a => {
+        if (a.dataset.vehiculo === cual) {
+          a.classList.remove('saliendo');
+          a.classList.add('activo');
+        } else if (a.classList.contains('activo')) {
+          a.classList.remove('activo');
+          a.classList.add('saliendo');
+          setTimeout(() => a.classList.remove('saliendo'), 900);
+        }
+      });
+      medida.classList.add('cambiando');
+      setTimeout(() => { medida.textContent = boton.dataset.medida; medida.classList.remove('cambiando'); }, 280);
+      // en celular el showroom queda arriba de las tarjetas: si no se ve, se lleva a la vista
+      const r = garaje.getBoundingClientRect();
+      if (r.top < 60 || r.bottom > innerHeight) {
+        garaje.scrollIntoView({ behavior: sinMovimiento ? 'auto' : 'smooth', block: 'center' });
+      }
+    };
+    botones.forEach(b => b.addEventListener('click', () => elegir(b.dataset.vehiculo, b)));
+  }
+
   /* ---------- Carrusel de servicios en celular: puntitos ---------- */
   const carrusel = $('.servicios');
   const puntos = $('#puntos-servicios');

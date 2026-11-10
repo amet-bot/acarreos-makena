@@ -412,35 +412,51 @@
     <!-- ============ FLOTA ============ -->
     <section class="seccion seccion--clara" id="flota">
       <div class="contenedor flota">
-        <div class="flota__foto" data-revelar>
-          <div class="foto-marco foto-marco--plano" data-inclinar>
-            <img src="img/camion-baranda-hd.webp" alt="Camión de baranda de Acarreos Makena" width="894" height="645" loading="lazy">
-          </div>
-          <span class="flota__sello"><b>Entrega</b> y puntualidad en todo Panamá</span>
+        <!-- showroom: muestra el camión de la tarjeta elegida -->
+        <div class="garaje" id="garaje" data-revelar data-activo="cerrado">
+          <span class="garaje__medida" id="garaje-medida" aria-hidden="true">22 pies</span>
+          <span class="garaje__luz garaje__luz--1" aria-hidden="true"></span>
+          <span class="garaje__luz garaje__luz--2" aria-hidden="true"></span>
+          <span class="garaje__piso" aria-hidden="true"></span>
+          <figure class="garaje__vehiculo activo" data-vehiculo="cerrado">
+            <img src="img/flota-cerrado.webp" alt="Camión cerrado de 22 pies de Acarreos Makena" width="900" height="644" loading="lazy">
+          </figure>
+          <figure class="garaje__vehiculo" data-vehiculo="rampa">
+            <img src="img/flota-rampa.webp" alt="Camión de 16 pies con carpa y rampa hidráulica de Acarreos Makena" width="900" height="599" loading="lazy">
+          </figure>
+          <figure class="garaje__vehiculo" data-vehiculo="baranda">
+            <img src="img/flota-baranda.webp" alt="Camión de baranda de Acarreos Makena" width="900" height="534" loading="lazy">
+          </figure>
         </div>
         <div class="flota__texto">
           <p class="sobretitulo" data-revelar>Nuestra flota</p>
           <h2 data-revelar style="--d:1">El camión correcto para <span class="subrayado">cada carga</span></h2>
-          <div class="vehiculo" data-revelar style="--d:2">
-            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26V10H4Z"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></div>
-            <div>
-              <h3>Camión cerrado de 22 pies</h3>
-              <p>Caja cerrada que protege del sol y la lluvia. Ideal para mudanzas, muebles, electrodomésticos y mercancía.</p>
-            </div>
-          </div>
-          <div class="vehiculo" data-revelar style="--d:3">
-            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M12 30h20V12H12Z"/><path d="M32 18h7l5 7v5H32"/><circle cx="18" cy="34" r="4"/><circle cx="38" cy="34" r="4"/><path d="M12 30 4 40h8"/></svg></div>
-            <div>
-              <h3>Camión de 16 pies con rampa hidráulica</h3>
-              <p>Sube y baja cargas pesadas sin esfuerzo: tarimas, pantallas, equipo de sonido y maquinaria.</p>
-            </div>
-          </div>
-          <div class="vehiculo" data-revelar style="--d:4">
-            <div class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26M4 32V22M30 32V22M4 22h26M10 22v10M17 22v10M24 22v10"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></div>
-            <div>
-              <h3>Camión de baranda</h3>
-              <p>Plataforma abierta para caliche, escombros, materiales de construcción y cargas voluminosas.</p>
-            </div>
+          <p class="flota__pista" data-revelar style="--d:1">Toca cada camión para verlo</p>
+          <div class="vehiculos" role="group" aria-label="Elige un camión">
+          <button type="button" class="vehiculo activo" data-vehiculo="cerrado" data-medida="22 pies" aria-pressed="true" data-revelar style="--d:2">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26V10H4Z"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión cerrado de 22 pies</b>
+              <span>Caja cerrada que protege del sol y la lluvia. Ideal para mudanzas, muebles, electrodomésticos y mercancía.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
+          <button type="button" class="vehiculo" data-vehiculo="rampa" data-medida="16 pies" aria-pressed="false" data-revelar style="--d:3">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M12 30h20V12H12Z"/><path d="M32 18h7l5 7v5H32"/><circle cx="18" cy="34" r="4"/><circle cx="38" cy="34" r="4"/><path d="M12 30 4 40h8"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión de 16 pies con rampa hidráulica</b>
+              <span>Sube y baja cargas pesadas sin esfuerzo: tarimas, pantallas, equipo de sonido y maquinaria.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
+          <button type="button" class="vehiculo" data-vehiculo="baranda" data-medida="Baranda" aria-pressed="false" data-revelar style="--d:4">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26M4 32V22M30 32V22M4 22h26M10 22v10M17 22v10M24 22v10"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión de baranda</b>
+              <span>Plataforma abierta para caliche, escombros, materiales de construcción y cargas voluminosas.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
           </div>
           <a class="boton boton--azul" href="#cotizar" data-revelar style="--d:5">¿Cuál necesito? Pregúntanos <svg class="ico"><use href="#i-flecha"/></svg></a>
         </div>
