@@ -745,64 +745,6 @@ h2 { position: relative; z-index: 0; }
 .provincias li:hover { background: var(--azul-800); color: var(--amarillo); }
 .provincias li:first-child { background: var(--amarillo); border-color: var(--amarillo); color: var(--azul-900); }
 
-/* ---------- Sabor criollo (Venezuela + Panamá) ---------- */
-.criollo { background: linear-gradient(180deg, #fffaf0, #fff 70%); overflow: hidden; }
-.criollo::before, .criollo::after {
-  content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; filter: blur(80px); opacity: .25; pointer-events: none;
-}
-.criollo::before { background: #ffcc00; top: -120px; left: -120px; }
-.criollo::after { background: #d21034; bottom: -160px; right: -120px; opacity: .14; }
-.criollo > .contenedor { position: relative; z-index: 1; }
-.banderas { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 18px; }
-.bandera {
-  width: 66px; height: 44px; border-radius: 6px; box-shadow: 0 10px 24px -10px rgba(6, 26, 68, .5);
-  transform-origin: left center; animation: ondear 2.6s ease-in-out infinite;
-}
-.bandera--pa { animation-delay: -1.3s; }
-@keyframes ondear {
-  0%, 100% { transform: perspective(300px) rotateY(0deg) skewY(0deg); }
-  25% { transform: perspective(300px) rotateY(-14deg) skewY(-2deg); }
-  75% { transform: perspective(300px) rotateY(10deg) skewY(2deg); }
-}
-.banderas__mas { font-family: var(--display); font-size: 2rem; color: var(--azul-800); animation: latido 1.3s ease-in-out infinite; }
-@keyframes latido { 50% { transform: scale(1.25); } }
-.texto-ve, .texto-pa { position: relative; white-space: nowrap; }
-.texto-ve { background: linear-gradient(180deg, #e8b800 0 33%, #00247d 33% 66%, #cf142b 66%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-.texto-pa { color: #005293; }
-.texto-pa::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: .02em; height: .14em; border-radius: 3px;
-  background: linear-gradient(90deg, #005293 0 50%, #d21034 50%);
-}
-
-.diccionario { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; perspective: 1200px; }
-.palabra {
-  position: relative; height: 190px; padding: 0; border: 0; background: none; cursor: pointer; text-align: center;
-  transform-style: preserve-3d;
-}
-.palabra[data-revelar].visible { transition: opacity .9s var(--curva), transform .7s var(--curva); }
-.palabra__cara {
-  position: absolute; inset: 0; border-radius: 20px; padding: 20px;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  transition: transform .7s var(--curva);
-}
-.palabra__frente { background: var(--blanco); border: 1px solid var(--linea); box-shadow: var(--sombra); }
-.palabra__frente b { font-family: var(--display); font-weight: 400; font-size: 2.1rem; text-transform: uppercase; letter-spacing: .02em; color: var(--azul-900); line-height: 1; }
-.palabra__frente small { color: var(--gris); font-weight: 700; font-size: .8rem; display: flex; align-items: center; gap: 6px; }
-.palabra__frente small::before { content: "↻"; font-size: 1rem; color: var(--azul-600); }
-.palabra__flag { width: 36px; height: 24px; border-radius: 4px; box-shadow: 0 4px 10px -4px rgba(0, 0, 0, .4); }
-.palabra__dorso {
-  background: linear-gradient(160deg, var(--azul-800), var(--azul-900)); color: #c5d2ef; font-size: .95rem; line-height: 1.45;
-  transform: rotateY(180deg);
-}
-.palabra__dorso b { color: var(--amarillo); font-family: var(--display); font-weight: 400; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .02em; }
-.palabra.volteada .palabra__frente { transform: rotateY(-180deg); }
-.palabra.volteada .palabra__dorso { transform: rotateY(0deg); }
-@media (hover: hover) {
-  .palabra:hover .palabra__frente { transform: rotateY(-180deg); }
-  .palabra:hover .palabra__dorso { transform: rotateY(0deg); }
-}
-.palabra:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 4px; border-radius: 20px; }
 .pie__sabor { display: inline-flex; align-items: center; gap: 6px; }
 .mini-flag { width: 21px; height: 14px; border-radius: 2px; }
 
@@ -1001,7 +943,6 @@ h2 { position: relative; z-index: 0; }
   .vehiculos { order: 5; }
   .flota__texto .boton { order: 6; justify-self: start; }
   .pilares { grid-template-columns: 1fr; }
-  .diccionario { grid-template-columns: repeat(2, 1fr); }
   .galeria { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 160px; }
   .pasos { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
   .final__caja { grid-template-columns: 1fr; text-align: center; }
@@ -1149,16 +1090,6 @@ h2 { position: relative; z-index: 0; }
   /* cobertura */
   .provincias { gap: 8px; }
   .provincias li { padding: 9px 15px; font-size: .9rem; }
-
-  /* diccionario */
-  .diccionario { gap: 10px; }
-  .palabra { height: 150px; }
-  .palabra__cara { padding: 12px; border-radius: 18px; gap: 6px; }
-  .palabra__frente b { font-size: 1.55rem; }
-  .palabra__frente small { font-size: .74rem; }
-  .palabra__dorso { font-size: .84rem; line-height: 1.38; }
-  .palabra__dorso b { font-size: 1.15rem; }
-  .banderas .bandera { width: 54px; height: 36px; }
 
   /* cotizar */
   .cotizar__texto > p { font-size: 1rem; }

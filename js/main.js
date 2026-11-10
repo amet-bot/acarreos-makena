@@ -385,9 +385,6 @@
     marcar();
   }
 
-  /* ---------- Diccionario: las tarjetas se voltean al tocarlas ---------- */
-  $$('.palabra').forEach(p => p.addEventListener('click', () => p.classList.toggle('volteada')));
-
   /* ---------- Inclinación 3D de las fotos ---------- */
   if (!sinMovimiento && matchMedia('(hover: hover)').matches) {
     $$('[data-inclinar]').forEach(el => {
