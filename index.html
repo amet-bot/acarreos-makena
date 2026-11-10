@@ -62,7 +62,7 @@
           "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
           "opens": "00:00", "closes": "23:59"
         },
-        "sameAs": ["https://www.instagram.com/acarreosmakenapty/"],
+        "sameAs": ["https://www.instagram.com/acarreosmakenapty/", "https://www.tiktok.com/@acarreosmakenapty"],
         "knowsLanguage": "es",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
@@ -93,7 +93,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v= obliga al navegador a bajar la versión nueva: súbelo en cada cambio de CSS o JS -->
-  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10m">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10o">
   <!-- preguntas frecuentes para Google (se genera desde las preguntas visibles) -->
   <script type="application/ld+json" id="faq-ld">
 {
@@ -184,6 +184,7 @@
       </symbol>
       <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2a9.9 9.9 0 0 0-8.5 15l-1.4 5 5.2-1.4A9.9 9.9 0 1 0 12.04 2Zm0 18.1a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.1.82.83-3-.2-.31a8.2 8.2 0 1 1 6.97 3.82Zm4.5-6.14c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.55.12-.17.25-.64.8-.78.97-.14.16-.29.18-.53.06a6.7 6.7 0 0 1-3.34-2.92c-.25-.43.25-.4.72-1.33.08-.16.04-.3-.02-.43-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.66.31 2.77 2.77 0 0 0-.86 2.06 4.8 4.8 0 0 0 1 2.56 11 11 0 0 0 4.22 3.73c1.57.68 2.19.74 2.98.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.08.14-1.18-.06-.1-.22-.17-.47-.29Z"/></symbol>
       <symbol id="i-ig" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M7 2.9h10A4.1 4.1 0 0 1 21.1 7v10a4.1 4.1 0 0 1-4.1 4.1H7A4.1 4.1 0 0 1 2.9 17V7A4.1 4.1 0 0 1 7 2.9Z"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M16.6 3c.3 2.2 1.6 3.6 3.9 3.8v2.6c-1.4.1-2.6-.3-3.9-1.1v5.6c0 6.6-7.2 8.7-10.1 4-1.9-3-.7-8.3 5.3-8.5v2.8c-.5.1-1 .2-1.4.3-1.4.5-2.1 1.3-1.9 2.8.4 2.9 5.8 3.8 5.3-1.9V3Z"/></symbol>
       <symbol id="i-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M5 3.5h3.2l1.6 4.4-2.2 1.4a11.5 11.5 0 0 0 7.1 7.1l1.4-2.2 4.4 1.6V19a1.9 1.9 0 0 1-2 1.9A16.6 16.6 0 0 1 3.1 5.5 1.9 1.9 0 0 1 5 3.5Z"/></symbol>
       <symbol id="i-flecha" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
       <!-- piezas de los camiones ilustrados -->
@@ -530,59 +531,141 @@
         <header class="seccion__cabeza" data-revelar>
           <p class="sobretitulo">Trabajos reales</p>
           <h2>Así trabajamos <span class="subrayado">en la calle</span></h2>
-          <p class="seccion__intro">Fotos y videos de nuestros acarreos por todo Panamá. Toca cualquiera para verlo en grande.</p>
+          <p class="seccion__intro">Fotos y videos de nuestros acarreos por todo Panamá. Elige una sección y toca cualquiera para verla en grande.</p>
         </header>
 
-        <div class="filtros" role="group" aria-label="Filtrar trabajos" data-revelar>
-          <button type="button" class="filtro activo" data-filtro="todos" aria-pressed="true">Todos <span></span></button>
-          <button type="button" class="filtro" data-filtro="mudanzas" aria-pressed="false">Mudanzas <span></span></button>
-          <button type="button" class="filtro" data-filtro="materiales" aria-pressed="false">Materiales y carga <span></span></button>
-          <button type="button" class="filtro" data-filtro="eventos" aria-pressed="false">Eventos <span></span></button>
-          <button type="button" class="filtro" data-filtro="flota" aria-pressed="false">Flota <span></span></button>
+        <div class="filtros" role="tablist" aria-label="Secciones de trabajos" data-revelar>
+          <button type="button" class="filtro activo" role="tab" data-filtro="mudanzas" aria-selected="true">Mudanzas <span></span></button>
+          <button type="button" class="filtro" role="tab" data-filtro="mercancia" aria-selected="false">Mercancía y materiales <span></span></button>
+          <button type="button" class="filtro" role="tab" data-filtro="eventos" aria-selected="false">Eventos <span></span></button>
+          <button type="button" class="filtro" role="tab" data-filtro="flota" aria-selected="false">Equipo y flota <span></span></button>
         </div>
 
         <div class="galeria" id="galeria">
-          <button type="button" class="pieza pieza--grande" data-cat="flota" data-titulo="Así se mueve Makena por la ciudad" data-video="media/galeria-presentacion.mp4" data-poster="media/galeria-presentacion.jpg">
-            <video muted loop playsinline preload="none" poster="media/galeria-presentacion.jpg" data-auto><source src="media/galeria-presentacion.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Video</span>Así se mueve Makena por la ciudad</span>
+          <!-- Mudanzas -->
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Mudanza en un residencial" data-video="media/galeria-mudanza-casa.mp4" data-poster="media/galeria-mudanza-casa.jpg">
+            <video muted loop playsinline preload="none" poster="media/galeria-mudanza-casa.jpg" data-auto style="aspect-ratio:4/5"><source src="media/galeria-mudanza-casa.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Mudanza en un residencial</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="mudanzas" data-titulo="Mudanza en un residencial" data-video="media/galeria-mudanza-casa.mp4" data-poster="media/galeria-mudanza-casa.jpg">
-            <video muted loop playsinline preload="none" poster="media/galeria-mudanza-casa.jpg" data-auto><source src="media/galeria-mudanza-casa.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Mudanza</span>Mudanza en un residencial</span>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Casa completa cargada y bien acomodada" data-foto="media/ig-mudanza-casa.webp">
+            <img src="media/ig-mudanza-casa.webp" alt="Camión de Acarreos Makena cargado con una mudanza completa" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mudanza</span>Casa completa</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="mudanzas" data-titulo="Lo que no cabe en el ascensor, lo subimos por fachada" data-video="media/galeria-fachada.mp4" data-poster="media/galeria-fachada.jpg">
-            <video muted loop playsinline preload="none" poster="media/galeria-fachada.jpg" data-auto><source src="media/galeria-fachada.mp4" type="video/mp4"></video>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Lo que no cabe en el ascensor, lo subimos por fachada" data-video="media/galeria-fachada.mp4" data-poster="media/galeria-fachada.jpg">
+            <video muted loop playsinline preload="none" poster="media/galeria-fachada.jpg" data-auto style="aspect-ratio:4/5"><source src="media/galeria-fachada.mp4" type="video/mp4"></video>
             <span class="pieza__cap"><span class="pieza__tag">Edificios</span>Izaje por fachada</span>
           </button>
-          <button type="button" class="pieza pieza--ancha" data-cat="flota" data-titulo="Camión cerrado listo para salir" data-foto="media/galeria-isuzu.webp">
-            <img src="media/galeria-isuzu.webp" alt="Camión cerrado Isuzu de Acarreos Makena al anochecer" width="1200" height="900" loading="lazy">
-            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Camión cerrado listo para salir</span>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Muebles amarrados y listos para el viaje" data-foto="media/ig-mudanza-muebles.webp">
+            <img src="media/ig-mudanza-muebles.webp" alt="Camión de baranda con muebles de una mudanza amarrados" width="1000" height="563" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mudanza</span>Muebles bien amarrados</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="eventos" data-titulo="Montaje y desmontaje de ferias en Atlapa" data-video="media/montaje-feria.mp4" data-poster="media/montaje-feria.jpg">
-            <video muted loop playsinline preload="none" poster="media/montaje-feria.jpg" data-auto><source src="media/montaje-feria.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Eventos</span>Montaje de ferias</span>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Sofás envueltos para que lleguen sin un rayón" data-foto="media/ig-sofas-embalados.webp">
+            <img src="media/ig-sofas-embalados.webp" alt="Sofás envueltos en plástico sobre el camión" width="1000" height="563" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Embalaje</span>Sofás protegidos</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="mudanzas" data-titulo="Embalamos cada colchón y mueble antes de moverlo" data-video="media/galeria-colchon.mp4" data-poster="media/galeria-colchon.jpg">
-            <video muted loop playsinline preload="none" poster="media/galeria-colchon.jpg" data-auto><source src="media/galeria-colchon.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Embalaje</span>Colchón protegido</span>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Embalamos cada colchón y mueble antes de moverlo" data-video="media/galeria-colchon.mp4" data-poster="media/galeria-colchon.jpg">
+            <video muted loop playsinline preload="none" poster="media/galeria-colchon.jpg" data-auto style="aspect-ratio:4/5"><source src="media/galeria-colchon.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Colchón protegido</span>
           </button>
-          <button type="button" class="pieza pieza--ancha" data-cat="flota" data-titulo="Camión con lona y rampa hidráulica" data-foto="media/galeria-lona.webp">
-            <img src="media/galeria-lona.webp" alt="Camión con lona y rampa hidráulica de Acarreos Makena estacionado" width="1200" height="675" loading="lazy">
-            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Camión con lona y rampa</span>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Cuarto completo en un solo viaje" data-foto="media/ig-mudanza-cuarto.webp">
+            <img src="media/ig-mudanza-cuarto.webp" alt="Camión con muebles de habitación, maletas y enseres" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mudanza</span>Un solo viaje</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="materiales" data-titulo="Carga embalada subiendo por la rampa hidráulica" data-video="media/carga-embalada.mp4" data-poster="media/carga-embalada.jpg">
-            <video muted loop playsinline preload="none" poster="media/carga-embalada.jpg" data-auto><source src="media/carga-embalada.mp4" type="video/mp4"></video>
+          <button type="button" class="pieza" data-cat="mudanzas" data-titulo="Muebles antiguos con el cuidado que merecen" data-foto="media/ig-mudanza-sillas.webp">
+            <img src="media/ig-mudanza-sillas.webp" alt="Camión de baranda con sillas antiguas y muebles" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mudanza</span>Muebles antiguos</span>
+          </button>
+
+          <!-- Mercancía y materiales -->
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Carga envuelta y asegurada con correas" data-foto="media/ig-carga-amarrada.webp" hidden>
+            <img src="media/ig-carga-amarrada.webp" alt="Carga envuelta en plástico y asegurada con correas amarillas" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Embalaje</span>Asegurada con correas</span>
+          </button>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Carga embalada subiendo por la rampa hidráulica" data-video="media/carga-embalada.mp4" data-poster="media/carga-embalada.jpg" hidden>
+            <video muted loop playsinline preload="none" poster="media/carga-embalada.jpg" data-auto style="aspect-ratio:3/4"><source src="media/carga-embalada.mp4" type="video/mp4"></video>
             <span class="pieza__cap"><span class="pieza__tag">Rampa</span>Carga embalada</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="eventos" data-titulo="Tarimas, pantallas y sonido con la rampa hidráulica" data-video="media/rampa-hidraulica.mp4" data-poster="media/rampa-hidraulica.jpg">
-            <video muted loop playsinline preload="none" poster="media/rampa-hidraulica.jpg" data-auto><source src="media/rampa-hidraulica.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Eventos</span>Tarimas y sonido</span>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Hasta una escultura, bien protegida" data-foto="media/ig-escultura.webp" hidden>
+            <img src="media/ig-escultura.webp" alt="Escultura blanca envuelta transportada en el camión de noche" width="1000" height="587" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Frágil</span>Una escultura</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="materiales" data-titulo="Distribución de mercancía puerta a puerta" data-video="media/distribucion.mp4" data-poster="media/distribucion.jpg">
-            <video muted loop playsinline preload="none" poster="media/distribucion.jpg" data-auto><source src="media/distribucion.mp4" type="video/mp4"></video>
-            <span class="pieza__cap"><span class="pieza__tag">Mercancía</span>Puerta a puerta</span>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Carga cubierta con lona contra la lluvia" data-foto="media/ig-lona-azul.webp" hidden>
+            <img src="media/ig-lona-azul.webp" alt="Carga cubierta con lona azul y amarrada en el camión" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Carga</span>Protegida de la lluvia</span>
           </button>
-          <button type="button" class="pieza pieza--alta" data-cat="flota" data-titulo="También trabajamos de noche" data-foto="media/galeria-noche.webp">
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Distribución de mercancía puerta a puerta" data-video="media/distribucion.mp4" data-poster="media/distribucion.jpg" hidden>
+            <video muted loop playsinline preload="none" poster="media/distribucion.jpg" data-auto style="aspect-ratio:4/5"><source src="media/distribucion.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Puerta a puerta</span>
+          </button>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Equipos envueltos y listos para entregar" data-foto="media/ig-carga-negra.webp" hidden>
+            <img src="media/ig-carga-negra.webp" alt="Equipos envueltos en plástico negro sobre el camión" width="1000" height="581" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mercancía</span>Lista para entregar</span>
+          </button>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Pintura y perfiles para la obra" data-foto="media/ig-pintura-perfiles.webp" hidden>
+            <img src="media/ig-pintura-perfiles.webp" alt="Cubetas de pintura y perfiles metálicos en el camión" width="900" height="909" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Materiales</span>Para la obra</span>
+          </button>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Sacos de material bien acomodados" data-foto="media/ig-sacos.webp" hidden>
+            <img src="media/ig-sacos.webp" alt="Sacos de material apilados en el camión" width="900" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Materiales</span>Sacos de material</span>
+          </button>
+          <button type="button" class="pieza" data-cat="mercancia" data-titulo="Mercancía en cajas para tu negocio" data-foto="media/ig-cajas-amarillas.webp" hidden>
+            <img src="media/ig-cajas-amarillas.webp" alt="Cajas plásticas amarillas de mercancía en el camión" width="1000" height="659" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Mercancía</span>Para tu negocio</span>
+          </button>
+
+          <!-- Eventos -->
+          <button type="button" class="pieza" data-cat="eventos" data-titulo="Montaje y desmontaje de ferias en Atlapa" data-video="media/montaje-feria.mp4" data-poster="media/montaje-feria.jpg" hidden>
+            <video muted loop playsinline preload="none" poster="media/montaje-feria.jpg" data-auto style="aspect-ratio:4/5"><source src="media/montaje-feria.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Montaje de ferias</span>
+          </button>
+          <button type="button" class="pieza" data-cat="eventos" data-titulo="Sillas para evento, embaladas una por una" data-foto="media/ig-sillas-embaladas.webp" hidden>
+            <img src="media/ig-sillas-embaladas.webp" alt="Sillas de evento envueltas en plástico dentro del camión" width="1000" height="576" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Eventos</span>Sillas embaladas</span>
+          </button>
+          <button type="button" class="pieza" data-cat="eventos" data-titulo="Decoración para eventos, entregada intacta" data-foto="media/ig-corazon-evento.webp" hidden>
+            <img src="media/ig-corazon-evento.webp" alt="Decoración en forma de corazón entregada para un evento" width="629" height="629" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Eventos</span>Decoración intacta</span>
+          </button>
+          <button type="button" class="pieza" data-cat="eventos" data-titulo="Tarimas, pantallas y sonido con la rampa hidráulica" data-video="media/rampa-hidraulica.mp4" data-poster="media/rampa-hidraulica.jpg" hidden>
+            <video muted loop playsinline preload="none" poster="media/rampa-hidraulica.jpg" data-auto style="aspect-ratio:4/5"><source src="media/rampa-hidraulica.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Tarimas y sonido</span>
+          </button>
+          <button type="button" class="pieza" data-cat="eventos" data-titulo="Mobiliario de evento listo para montar" data-foto="media/ig-sillas-evento.webp" hidden>
+            <img src="media/ig-sillas-evento.webp" alt="Sillas y mobiliario de evento cargados en el camión" width="1000" height="1001" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Eventos</span>Mobiliario listo</span>
+          </button>
+
+          <!-- Equipo y flota -->
+          <button type="button" class="pieza" data-cat="flota" data-titulo="El equipo de Acarreos Makena" data-foto="media/ig-equipo.webp" hidden>
+            <img src="media/ig-equipo.webp" alt="El equipo de Acarreos Makena frente a un camión cargado" width="1000" height="1250" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Equipo</span>Team Acarreos Makena</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Así se mueve Makena por la ciudad" data-video="media/galeria-presentacion.mp4" data-poster="media/galeria-presentacion.jpg" hidden>
+            <video muted loop playsinline preload="none" poster="media/galeria-presentacion.jpg" data-auto style="aspect-ratio:16/9"><source src="media/galeria-presentacion.mp4" type="video/mp4"></video>
+            <span class="pieza__cap"><span class="pieza__tag">Video</span>Makena por la ciudad</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Camión con lona y rampa hidráulica" data-foto="media/ig-camion-lona.webp" hidden>
+            <img src="media/ig-camion-lona.webp" alt="Camión JAC con lona de Acarreos Makena en la calle" width="1000" height="682" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Camión con lona</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Camión cerrado listo para salir" data-foto="media/galeria-isuzu.webp" hidden>
+            <img src="media/galeria-isuzu.webp" alt="Camión cerrado Isuzu de Acarreos Makena al anochecer" width="1200" height="900" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Camión cerrado</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Siempre listos, también de noche" data-foto="media/ig-camion-luces.webp" hidden>
+            <img src="media/ig-camion-luces.webp" alt="Camión JAC con las luces encendidas" width="1000" height="1000" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Luces encendidas</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Cargando en bodega" data-foto="media/ig-camion-bodega.webp" hidden>
+            <img src="media/ig-camion-bodega.webp" alt="Camión de Acarreos Makena cargando frente a una bodega" width="1000" height="563" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Flota</span>En la bodega</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="Camión con lona y rampa estacionado" data-foto="media/galeria-lona.webp" hidden>
+            <img src="media/galeria-lona.webp" alt="Camión con lona y rampa hidráulica de Acarreos Makena estacionado" width="1200" height="675" loading="lazy">
+            <span class="pieza__cap"><span class="pieza__tag">Flota</span>Con rampa hidráulica</span>
+          </button>
+          <button type="button" class="pieza" data-cat="flota" data-titulo="También trabajamos de noche" data-foto="media/galeria-noche.webp" hidden>
             <img src="media/galeria-noche.webp" alt="Camión cerrado de Acarreos Makena estacionado de noche" width="1200" height="1600" loading="lazy">
             <span class="pieza__cap"><span class="pieza__tag">Flota</span>También de noche</span>
           </button>
@@ -591,6 +674,9 @@
         <div class="galeria__pie" data-revelar>
           <a class="boton boton--instagram" href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener">
             <svg class="ico"><use href="#i-ig"/></svg> Ver más en Instagram
+          </a>
+          <a class="boton boton--tiktok" href="https://www.tiktok.com/@acarreosmakenapty" target="_blank" rel="noopener">
+            <svg class="ico"><use href="#i-tiktok"/></svg> Síguenos en TikTok
           </a>
         </div>
       </div>
@@ -766,7 +852,11 @@
             </a>
             <a href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener" class="contacto">
               <span class="contacto__ico contacto__ico--ig"><svg class="ico"><use href="#i-ig"/></svg></span>
-              <span><small>Síguenos</small><b>@acarreosmakenapty</b></span>
+              <span><small>Instagram</small><b>@acarreosmakenapty</b></span>
+            </a>
+            <a href="https://www.tiktok.com/@acarreosmakenapty" target="_blank" rel="noopener" class="contacto">
+              <span class="contacto__ico contacto__ico--tiktok"><svg class="ico"><use href="#i-tiktok"/></svg></span>
+              <span><small>TikTok</small><b>@acarreosmakenapty</b></span>
             </a>
           </div>
         </div>
@@ -926,6 +1016,7 @@
           <li><a href="https://wa.me/50769971253" target="_blank" rel="noopener">WhatsApp 6997-1253</a></li>
           <li><a href="tel:+50769420280">Teléfono 6942-0280</a></li>
           <li><a href="https://www.instagram.com/acarreosmakenapty/" target="_blank" rel="noopener">Instagram @acarreosmakenapty</a></li>
+          <li><a href="https://www.tiktok.com/@acarreosmakenapty" target="_blank" rel="noopener">TikTok @acarreosmakenapty</a></li>
         </ul>
       </div>
     </div>
@@ -947,6 +1038,6 @@
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
 
-  <script src="js/main.js?v=2026-11-10m" defer></script>
+  <script src="js/main.js?v=2026-11-10o" defer></script>
 </body>
 </html>

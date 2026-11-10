@@ -256,21 +256,26 @@
     }
   }
 
-  /* ---------- Trabajos reales: filtros ---------- */
+  /* ---------- Trabajos reales: pestañas por sección ---------- */
   const piezas = $$('#galeria .pieza');
   const filtros = $$('.filtro');
   filtros.forEach(b => {
     const cat = b.dataset.filtro;
-    $('span', b).textContent = cat === 'todos' ? piezas.length : piezas.filter(p => p.dataset.cat === cat).length;
+    $('span', b).textContent = piezas.filter(p => p.dataset.cat === cat).length;
     b.addEventListener('click', () => {
-      filtros.forEach(o => { const si = o === b; o.classList.toggle('activo', si); o.setAttribute('aria-pressed', String(si)); });
+      filtros.forEach(o => { const si = o === b; o.classList.toggle('activo', si); o.setAttribute('aria-selected', String(si)); });
+      let k = 0;
       piezas.forEach(p => {
-        const ver = cat === 'todos' || p.dataset.cat === cat;
-        if (ver && p.classList.contains('oculta')) {
-          p.classList.remove('oculta'); p.classList.add('apareciendo');
-          requestAnimationFrame(() => requestAnimationFrame(() => p.classList.remove('apareciendo')));
-        } else if (!ver) {
-          p.classList.add('oculta');
+        const ver = p.dataset.cat === cat;
+        const v = $('video', p);
+        if (ver && p.hidden) {
+          p.hidden = false;
+          p.classList.remove('apareciendo'); void p.offsetWidth; // reinicia la animación de entrada
+          p.style.setProperty('--retraso', `${(k++) * 45}ms`);
+          p.classList.add('apareciendo');
+        } else if (!ver && !p.hidden) {
+          p.hidden = true;
+          if (v) v.pause();
         }
       });
     });
@@ -281,7 +286,7 @@
   if (visor) {
     const medio = $('#visor-medio'), titulo = $('#visor-titulo');
     let actual = 0;
-    const visibles = () => piezas.filter(p => !p.classList.contains('oculta'));
+    const visibles = () => piezas.filter(p => !p.hidden);
     const mostrar = i => {
       const lista = visibles();
       actual = (i + lista.length) % lista.length;
