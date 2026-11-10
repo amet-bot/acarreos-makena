@@ -217,7 +217,7 @@ h2 { position: relative; z-index: 0; }
   display: inline-flex; align-items: center; gap: 10px;
   padding: 8px 16px 8px 12px; border-radius: 999px;
   background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .16);
-  font-weight: 700; font-size: .9rem; letter-spacing: .02em;
+  font-weight: 700; font-size: .9rem; letter-spacing: .02em; line-height: 1.3;
 }
 .punto-vivo { width: 9px; height: 9px; border-radius: 50%; background: var(--amarillo); box-shadow: 0 0 0 0 rgba(255, 194, 26, .7); animation: pulso 2s infinite; }
 @keyframes pulso { 70% { box-shadow: 0 0 0 10px rgba(255, 194, 26, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 194, 26, 0); } }
@@ -855,6 +855,7 @@ h2 { position: relative; z-index: 0; }
 .pie { background: var(--azul-950); color: #b9c6e4; padding: 64px 0 28px; }
 .pie__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .pie__logo { width: 96px; height: 96px; color: var(--blanco); margin-bottom: 14px; }
+.pie__nota { margin-top: 8px; font-size: .82rem; opacity: .7; }
 .pie h4 { color: var(--blanco); font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 16px; }
 .pie ul { display: grid; gap: 10px; }
 .pie a { transition: color .2s; }

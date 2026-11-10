@@ -4,7 +4,13 @@ Sitio de presentación de **Acarreos Makena** (mudanzas, caliche y escombros, re
 
 Es una página estática: HTML, CSS y JavaScript sin dependencias ni paso de compilación.
 
-**Publicada en:** https://amet-bot.github.io/acarreos-makena/ (GitHub Pages desde `main`; cada push a `main` la actualiza en uno o dos minutos).
+**Publicada en:** https://ametlu2901-bot.github.io/acarreos-makena/ (GitHub Pages desde `main`; cada push a `main` la actualiza en uno o dos minutos). Dominio propio: **acarreosmakena.com** (Cloudflare).
+
+## SEO
+
+- Título, descripción, `canonical` y vista previa (`og:*`) en la cabecera de `index.html`.
+- Datos de empresa (`MovingCompany`) y preguntas frecuentes (`FAQPage`) en JSON-LD. El de preguntas se genera desde las preguntas visibles: si cambias una pregunta, actualiza también ese bloque.
+- `robots.txt` y `sitemap.xml` apuntan a https://acarreosmakena.com/.
 
 ## Verla en la computadora
 
