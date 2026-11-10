@@ -256,6 +256,77 @@
     }
   }
 
+  /* ---------- Trabajos reales: filtros ---------- */
+  const piezas = $$('#galeria .pieza');
+  const filtros = $$('.filtro');
+  filtros.forEach(b => {
+    const cat = b.dataset.filtro;
+    $('span', b).textContent = cat === 'todos' ? piezas.length : piezas.filter(p => p.dataset.cat === cat).length;
+    b.addEventListener('click', () => {
+      filtros.forEach(o => { const si = o === b; o.classList.toggle('activo', si); o.setAttribute('aria-pressed', String(si)); });
+      piezas.forEach(p => {
+        const ver = cat === 'todos' || p.dataset.cat === cat;
+        if (ver && p.classList.contains('oculta')) {
+          p.classList.remove('oculta'); p.classList.add('apareciendo');
+          requestAnimationFrame(() => requestAnimationFrame(() => p.classList.remove('apareciendo')));
+        } else if (!ver) {
+          p.classList.add('oculta');
+        }
+      });
+    });
+  });
+
+  /* ---------- Visor: foto o video en grande ---------- */
+  const visor = $('#visor');
+  if (visor) {
+    const medio = $('#visor-medio'), titulo = $('#visor-titulo');
+    let actual = 0;
+    const visibles = () => piezas.filter(p => !p.classList.contains('oculta'));
+    const mostrar = i => {
+      const lista = visibles();
+      actual = (i + lista.length) % lista.length;
+      const p = lista[actual];
+      medio.innerHTML = p.dataset.video
+        ? `<video src="${p.dataset.video}" poster="${p.dataset.poster}" controls autoplay muted loop playsinline></video>`
+        : `<img src="${p.dataset.foto}" alt="${p.dataset.titulo}">`;
+      titulo.textContent = p.dataset.titulo;
+    };
+    let origen = null;
+    const abrir = p => {
+      origen = p;
+      mostrar(visibles().indexOf(p));
+      visor.hidden = false;
+      document.body.classList.add('visor-abierto');
+      $('.visor__cerrar', visor).focus();
+    };
+    const cerrar = () => {
+      visor.hidden = true;
+      medio.innerHTML = '';
+      document.body.classList.remove('visor-abierto');
+      if (origen) origen.focus();
+    };
+    piezas.forEach(p => p.addEventListener('click', () => abrir(p)));
+    $('.visor__cerrar', visor).addEventListener('click', cerrar);
+    $('.visor__flecha--ant', visor).addEventListener('click', () => mostrar(actual - 1));
+    $('.visor__flecha--sig', visor).addEventListener('click', () => mostrar(actual + 1));
+    visor.addEventListener('click', e => { if (e.target === visor) cerrar(); });
+    addEventListener('keydown', e => {
+      if (visor.hidden) return;
+      if (e.key === 'Escape') cerrar();
+      if (e.key === 'ArrowLeft') mostrar(actual - 1);
+      if (e.key === 'ArrowRight') mostrar(actual + 1);
+    });
+    // en celular: deslizar a los lados para pasar
+    let x0 = null;
+    visor.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    visor.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) mostrar(actual + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+  }
+
   /* ---------- Showroom de la flota: cada tarjeta muestra su camión ---------- */
   const garaje = $('#garaje');
   if (garaje) {
