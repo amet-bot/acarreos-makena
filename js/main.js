@@ -54,7 +54,7 @@
   $$('[data-revelar]').forEach(el => obsRevelar.observe(el));
 
   /* ---------- Palabra que rota ---------- */
-  const palabras = ['mudanzas', 'escombros', 'caliche', 'mercancías', 'cachivaches', 'oficinas', 'frágiles'];
+  const palabras = ['mudanzas', 'corotos', 'escombros', 'caliche', 'mercancías', 'tarimas', 'cachivaches', 'oficinas', 'frágiles'];
   const rotador = $('#rotador');
   if (rotador && !sinMovimiento) {
     let i = 0;
@@ -143,6 +143,9 @@
     // con movimiento reducido: el video arranca solo si la persona lo toca
     videos.forEach(v => v.parentElement.addEventListener('click', () => (v.paused ? v.play() : v.pause())));
   }
+
+  /* ---------- Diccionario: las tarjetas se voltean al tocarlas ---------- */
+  $$('.palabra').forEach(p => p.addEventListener('click', () => p.classList.toggle('volteada')));
 
   /* ---------- Inclinación 3D de las fotos ---------- */
   if (!sinMovimiento && matchMedia('(hover: hover)').matches) {
