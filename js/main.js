@@ -8,10 +8,12 @@
   /* ---------- Cabecera con fondo al bajar ---------- */
   const cabecera = $('#cabecera');
   const flotante = $('.wa-flotante');
+  const barraMovil = $('.barra-movil');
   const alBajar = () => {
     const y = scrollY;
     cabecera.classList.toggle('con-fondo', y > 40);
     flotante.classList.toggle('visible', y > innerHeight * 0.6);
+    barraMovil.classList.toggle('visible', y > innerHeight * 0.45);
   };
   addEventListener('scroll', alBajar, { passive: true });
   alBajar();
@@ -142,6 +144,59 @@
   } else {
     // con movimiento reducido: el video arranca solo si la persona lo toca
     videos.forEach(v => v.parentElement.addEventListener('click', () => (v.paused ? v.play() : v.pause())));
+  }
+
+  /* ---------- Tarjeta "Tu acarreo" de la portada ---------- */
+  const seg = $('#seguimiento');
+  const segEstado = $('#seguimiento-estado');
+  if (seg && segEstado) {
+    const estados = ['Cargando tus corotos', 'En camino a tu destino', '¡Entregado a tiempo!'];
+    let paso = 0;
+    const mostrar = (p, reinicio) => {
+      segEstado.classList.add('cambiando');
+      setTimeout(() => {
+        seg.classList.toggle('reinicio', !!reinicio);
+        seg.dataset.paso = p;
+        segEstado.textContent = estados[p];
+        segEstado.classList.remove('cambiando');
+        if (reinicio) requestAnimationFrame(() => requestAnimationFrame(() => seg.classList.remove('reinicio')));
+      }, 300);
+    };
+    if (sinMovimiento) {
+      seg.dataset.paso = 1;
+      segEstado.textContent = estados[1];
+    } else {
+      // arranca cuando la puerta ya subió; entregado se queda un poco más
+      const ciclo = () => {
+        paso = (paso + 1) % estados.length;
+        mostrar(paso, paso === 0);
+        setTimeout(ciclo, paso === 2 ? 3600 : 2600);
+      };
+      setTimeout(ciclo, 3200);
+    }
+  }
+
+  /* ---------- Carrusel de servicios en celular: puntitos ---------- */
+  const carrusel = $('.servicios');
+  const puntos = $('#puntos-servicios');
+  if (carrusel && puntos) {
+    const tarjetas = $$('.servicio', carrusel);
+    tarjetas.forEach((t, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', `Servicio ${i + 1} de ${tarjetas.length}`);
+      b.addEventListener('click', () => carrusel.scrollTo({ left: t.offsetLeft - carrusel.offsetLeft - 16, behavior: sinMovimiento ? 'auto' : 'smooth' }));
+      puntos.appendChild(b);
+    });
+    const marcar = () => {
+      const centro = carrusel.scrollLeft + carrusel.clientWidth * 0.35;
+      let activo = 0;
+      tarjetas.forEach((t, i) => { if (t.offsetLeft - carrusel.offsetLeft <= centro) activo = i; });
+      if (carrusel.scrollLeft + carrusel.clientWidth >= carrusel.scrollWidth - 4) activo = tarjetas.length - 1;
+      [...puntos.children].forEach((b, i) => b.classList.toggle('activo', i === activo));
+    };
+    carrusel.addEventListener('scroll', marcar, { passive: true });
+    marcar();
   }
 
   /* ---------- Diccionario: las tarjetas se voltean al tocarlas ---------- */

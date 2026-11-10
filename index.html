@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Acarreos Makena · Mudanzas y acarreos en todo Panamá</title>
   <meta name="description" content="Acarreos Makena: mudanzas, botamos caliche y escombros, retiro de basura, distribución de mercancías, embalaje y manejo de artículos frágiles. Entrega y puntualidad en todo Panamá.">
   <meta name="theme-color" content="#061a44">
@@ -115,18 +115,39 @@
           </ul>
         </div>
 
-        <div class="portada__visual entrada entrada--zoom" style="--d:3">
-          <div class="foto-marco" data-inclinar>
-            <img src="img/flota-1600.webp" srcset="img/flota-900.webp 900w, img/flota-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 640px" alt="Camión cerrado y camión de baranda de Acarreos Makena frente a la ciudad de Panamá" width="1600" height="793" fetchpriority="high">
-            <div class="foto-marco__borde" aria-hidden="true"></div>
+        <div class="portada__visual escena entrada entrada--zoom" style="--d:3">
+          <!-- líneas de velocidad -->
+          <div class="escena__velocidad" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+          <!-- foto en marco inclinado, con puerta enrollable que sube -->
+          <div class="escena__foto" data-inclinar>
+            <img src="img/flota-1600.webp" srcset="img/flota-900.webp 900w, img/flota-1600.webp 1600w" sizes="(max-width: 960px) 100vw, 680px" alt="Camión cerrado y camión de baranda de Acarreos Makena frente a la ciudad de Panamá" width="1600" height="793" fetchpriority="high">
+            <div class="escena__brillo" aria-hidden="true"></div>
+            <div class="escena__puerta" aria-hidden="true"><span class="escena__manija"></span></div>
           </div>
-          <div class="chapa chapa--1">
-            <span class="chapa__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg></span>
-            <span><b>Puntualidad</b><small>Llegamos a la hora acordada</small></span>
+
+          <!-- sello giratorio -->
+          <div class="sello" aria-label="Todo Panamá, de la ciudad al interior">
+            <svg class="sello__texto" viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="circulo-sello" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs>
+              <text><textPath href="#circulo-sello" textLength="286">TODO PANAMÁ ✦ DE LA CIUDAD AL INTERIOR ✦</textPath></text>
+            </svg>
+            <span class="sello__centro"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
           </div>
-          <div class="chapa chapa--2">
-            <span class="chapa__ico chapa__ico--amarillo"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-            <span><b>Todo Panamá</b><small>De la ciudad al interior</small></span>
+
+          <!-- tarjeta "tu acarreo" -->
+          <div class="seguimiento" id="seguimiento" data-paso="0" aria-hidden="true">
+            <div class="seguimiento__cab">
+              <span class="seguimiento__vivo"></span>
+              <b>Tu acarreo</b>
+              <span class="seguimiento__estado" id="seguimiento-estado">Cargando tus corotos</span>
+            </div>
+            <div class="seguimiento__ruta">
+              <span class="seguimiento__linea"><i></i></span>
+              <span class="seguimiento__punto"></span><span class="seguimiento__punto"></span><span class="seguimiento__punto"></span>
+              <svg class="seguimiento__camion" viewBox="0 0 48 48"><path d="M4 30h24V12H4Z"/><path d="M28 18h9l7 8v4H28"/><circle cx="12" cy="34" r="4"/><circle cx="36" cy="34" r="4"/></svg>
+            </div>
+            <div class="seguimiento__etiquetas"><span>Carga</span><span>En camino</span><span>Entrega</span></div>
           </div>
         </div>
       </div>
@@ -266,6 +287,10 @@
             <p>Transporte privado y logística a la medida: llevamos tus bienes a tu residencia, oficina o negocio, en la ciudad o al interior.</p>
             <a href="#cotizar" data-servicio="Transporte a destino" class="servicio__link">Cotizar transporte <svg class="ico"><use href="#i-flecha"/></svg></a>
           </article>
+        </div>
+        <div class="carrusel-pie solo-movil">
+          <span class="deslizar">Desliza para ver más <svg class="ico"><use href="#i-flecha"/></svg></span>
+          <div class="puntos" id="puntos-servicios" role="tablist" aria-label="Servicios"></div>
         </div>
       </div>
     </section>
@@ -637,6 +662,12 @@
     <svg class="ico"><use href="#i-wa"/></svg>
     <span class="wa-flotante__texto">¿Qué xopá? ¡Cotiza!</span>
   </a>
+
+  <!-- Barra de acciones fija (solo celular) -->
+  <nav class="barra-movil" aria-label="Contacto rápido">
+    <a class="barra-movil__llamar" href="tel:+50764525086"><svg class="ico"><use href="#i-tel"/></svg> Llamar</a>
+    <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
+  </nav>
 
   <script src="js/main.js" defer></script>
 </body>
