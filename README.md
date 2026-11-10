@@ -4,6 +4,8 @@ Sitio de presentación de **Acarreos Makena** (mudanzas, caliche y escombros, re
 
 Es una página estática: HTML, CSS y JavaScript sin dependencias ni paso de compilación.
 
+**Publicada en:** https://amet-bot.github.io/acarreos-makena/ (GitHub Pages desde `main`; cada push a `main` la actualiza en uno o dos minutos).
+
 ## Verla en la computadora
 
 ```bash
