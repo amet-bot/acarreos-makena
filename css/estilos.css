@@ -745,8 +745,6 @@ h2 { position: relative; z-index: 0; }
 .provincias li:hover { background: var(--azul-800); color: var(--amarillo); }
 .provincias li:first-child { background: var(--amarillo); border-color: var(--amarillo); color: var(--azul-900); }
 
-.pie__sabor { display: inline-flex; align-items: center; gap: 6px; }
-.mini-flag { width: 21px; height: 14px; border-radius: 2px; }
 
 /* ---------- Cotizar ---------- */
 .cotizar__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(36px, 6vw, 72px); align-items: start; }

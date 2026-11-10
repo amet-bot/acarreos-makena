@@ -56,7 +56,7 @@
   $$('[data-revelar]').forEach(el => obsRevelar.observe(el));
 
   /* ---------- Palabra que rota ---------- */
-  const palabras = ['mudanzas', 'corotos', 'facturas', 'escombros', 'caliche', 'maquinaria', 'mercancías', 'tarimas', 'oficinas', 'frágiles'];
+  const palabras = ['mudanzas', 'facturas', 'escombros', 'caliche', 'maquinaria', 'mercancías', 'tarimas', 'oficinas', 'frágiles'];
   const rotador = $('#rotador');
   if (rotador && !sinMovimiento) {
     let i = 0;
@@ -230,7 +230,7 @@
   const seg = $('#seguimiento');
   const segEstado = $('#seguimiento-estado');
   if (seg && segEstado) {
-    const estados = ['Cargando tus corotos', 'En camino a tu destino', '¡Entregado a tiempo!'];
+    const estados = ['Cargando tus cosas', 'En camino a tu destino', '¡Entregado a tiempo!'];
     let paso = 0;
     const mostrar = (p, reinicio) => {
       segEstado.classList.add('cambiando');
