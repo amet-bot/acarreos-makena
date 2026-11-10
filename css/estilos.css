@@ -801,6 +801,15 @@ h2 { position: relative; z-index: 0; }
 .opciones input:checked + span { background: var(--azul-800); border-color: var(--azul-800); color: var(--blanco); transform: scale(1.04); }
 .opciones input:focus-visible + span { outline: 3px solid var(--amarillo); outline-offset: 2px; }
 .formulario__error { grid-column: 1 / -1; color: #c22a2a; font-weight: 700; font-size: .92rem; min-height: 0; }
+/* datos del edificio: aparecen solo si eligen "Edificio" */
+.edificio { padding: 14px; border-radius: 14px; background: var(--azul-50); border: 1.5px dashed #c3d2ee; animation: aparecer .35s var(--curva); }
+.edificio[hidden] { display: none; }
+@keyframes aparecer { from { opacity: 0; transform: translateY(-6px); } }
+.edificio__fila { display: grid; grid-template-columns: 110px 1fr; gap: 14px; align-items: start; }
+.edificio__piso, .edificio__acceso { display: grid; gap: 7px; }
+.edificio__piso input { background: var(--blanco); }
+.formulario__pista { display: flex; gap: 10px; align-items: flex-start; margin: -2px 0 0; padding: 12px 14px; border-radius: 12px; background: #fff8e1; color: #6b5300; font-size: .88rem; font-weight: 600; line-height: 1.45; }
+.formulario__pista svg { width: 20px; height: 20px; flex: none; margin-top: 1px; fill: none; stroke: #b8860b; stroke-width: 1.8; stroke-linejoin: round; }
 .formulario__error:empty { display: none; }
 .formulario .boton { grid-column: 1 / -1; margin-top: 4px; }
 .formulario__nota { grid-column: 1 / -1; text-align: center; color: var(--gris); font-size: .85rem; }
@@ -1091,6 +1100,8 @@ h2 { position: relative; z-index: 0; }
   .contacto__ico .ico { width: 19px; height: 19px; }
   .contacto b { font-size: 1rem; }
   .formulario { grid-template-columns: 1fr; gap: 14px; border-radius: 20px; }
+  .edificio__fila { grid-template-columns: 1fr; }
+  .edificio__piso input { max-width: 120px; }
   .opciones span { padding: 8px 13px; font-size: .86rem; }
 
   /* preguntas y cierre */

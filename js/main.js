@@ -56,7 +56,7 @@
   $$('[data-revelar]').forEach(el => obsRevelar.observe(el));
 
   /* ---------- Palabra que rota ---------- */
-  const palabras = ['mudanzas', 'corotos', 'escombros', 'caliche', 'mercancías', 'tarimas', 'cachivaches', 'oficinas', 'frágiles'];
+  const palabras = ['mudanzas', 'corotos', 'facturas', 'escombros', 'caliche', 'maquinaria', 'mercancías', 'tarimas', 'oficinas', 'frágiles'];
   const rotador = $('#rotador');
   if (rotador && !sinMovimiento) {
     let i = 0;
@@ -361,6 +361,11 @@
   /* ---------- Formulario → WhatsApp ---------- */
   const form = $('#formulario');
   const error = $('#error');
+  // los datos del edificio (piso, ascensor o escaleras) solo se piden si eligen "Edificio"
+  const bloqueEdificio = $('#edificio');
+  const verEdificio = () => { bloqueEdificio.hidden = form.elements.lugar.value !== 'Edificio'; };
+  $$('input[name="lugar"]', form).forEach(r => r.addEventListener('change', verEdificio));
+  verEdificio();
   form.addEventListener('submit', e => {
     e.preventDefault();
     const d = Object.fromEntries(new FormData(form));
@@ -377,11 +382,17 @@
       const [a, m, dia] = d.fecha.split('-');
       fecha = `${dia}/${m}/${a}`;
     }
+    let lugar = `🏠 Lugar: ${d.lugar}`;
+    if (d.lugar === 'Edificio') {
+      const piso = String(d.piso || '').trim();
+      lugar += `${piso ? `, piso ${piso}` : ''} · ${d.acceso}`;
+    }
     const lineas = [
       `Hola Acarreos Makena, soy ${d.nombre.trim()}.`,
       `Quiero cotizar: *${d.servicio}*`,
       `📍 Desde: ${d.desde.trim()}`,
       d.hasta.trim() && `🏁 Hasta: ${d.hasta.trim()}`,
+      lugar,
       fecha && `📅 Fecha: ${fecha}`,
       d.detalles.trim() && `📝 Detalles: ${d.detalles.trim()}`,
     ].filter(Boolean);
