@@ -94,7 +94,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v= obliga al navegador a bajar la versión nueva: súbelo en cada cambio de CSS o JS -->
-  <link rel="stylesheet" href="css/estilos.css?v=2026-11-10z">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-11a">
   <!-- preguntas frecuentes para Google (se genera desde las preguntas visibles) -->
   <script type="application/ld+json" id="faq-ld">
 {
@@ -542,7 +542,11 @@
           </article>
 
           <article class="servicio" data-revelar data-foco style="--d:2">
-            <div class="servicio__foto"><img src="media/servicio-facturas.webp" alt="Paletas de materiales subiendo al camión de baranda en una ferretería" width="960" height="640" loading="lazy"></div>
+            <div class="servicio__foto servicio__foto--pasa" data-pasafotos title="Toca para ver la otra foto">
+              <img class="activa" src="media/servicio-facturas.webp" alt="Paletas de materiales subiendo al camión de baranda en una ferretería" width="960" height="640" loading="lazy">
+              <img src="media/servicio-maquinaria.webp" alt="Camión con rampa hidráulica cargado con láminas de gypsum" width="960" height="640" loading="lazy">
+              <div class="pasafotos__puntos"><button type="button" class="activo" aria-label="Ver foto 1"></button><button type="button" aria-label="Ver foto 2"></button></div>
+            </div>
             <div class="servicio__ico">
               <svg viewBox="0 0 48 48"><path d="M12 6h24v36l-4-3-4 3-4-3-4 3-4-3-4 3Z"/><path d="M18 15h12M18 22h12"/><path class="acento" d="M18 29h7"/></svg>
             </div>
@@ -1104,6 +1108,6 @@
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
 
-  <script src="js/main.js?v=2026-11-10z" defer></script>
+  <script src="js/main.js?v=2026-11-11a" defer></script>
 </body>
 </html>

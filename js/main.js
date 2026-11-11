@@ -390,6 +390,26 @@
     marcar();
   }
 
+  /* ---------- Tarjetas con dos o más fotos que se turnan ---------- */
+  $$('[data-pasafotos]').forEach(caja => {
+    const fotos = $$('img', caja);
+    const marcas = $$('.pasafotos__puntos button', caja);
+    let actual = 0, reloj = null, visible = false;
+    const mostrar = n => {
+      actual = (n + fotos.length) % fotos.length;
+      fotos.forEach((f, i) => f.classList.toggle('activa', i === actual));
+      marcas.forEach((m, i) => { m.classList.toggle('activo', i === actual); m.setAttribute('aria-pressed', String(i === actual)); });
+    };
+    const arrancar = () => {
+      clearInterval(reloj);
+      if (visible && !sinMovimiento) reloj = setInterval(() => mostrar(actual + 1), 4000);
+    };
+    marcas.forEach((m, i) => m.addEventListener('click', e => { e.stopPropagation(); mostrar(i); arrancar(); }));
+    caja.addEventListener('click', () => { mostrar(actual + 1); arrancar(); });
+    // solo se turnan mientras la tarjeta está en pantalla
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; arrancar(); }, { threshold: 0.4 }).observe(caja);
+  });
+
   /* ---------- Inclinación 3D de las fotos ---------- */
   if (!sinMovimiento && matchMedia('(hover: hover)').matches) {
     $$('[data-inclinar]').forEach(el => {
