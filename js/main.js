@@ -265,7 +265,8 @@
     b.addEventListener('click', () => {
       filtros.forEach(o => { const si = o === b; o.classList.toggle('activo', si); o.setAttribute('aria-selected', String(si)); });
       let k = 0;
-      piezas.forEach(p => {
+      $$('#galeria [data-cat]').forEach(p => { // fotos, videos y la tarjeta de cotizar
+
         const ver = p.dataset.cat === cat;
         const v = $('video', p);
         if (ver && p.hidden) {
