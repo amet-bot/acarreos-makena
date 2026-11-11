@@ -1,6 +1,6 @@
 # Acarreos Makena — página web
 
-Sitio de presentación de **Acarreos Makena** (mudanzas, caliche y escombros, retiro de basura, distribución de mercancías, montaje de eventos y embalaje en todo Panamá).
+Sitio de presentación de **Acarreos Makena** (mudanzas, escombros y retiro de basura, distribución de mercancías, montaje de eventos y embalaje en todo Panamá).
 
 Es una página estática: HTML, CSS y JavaScript sin dependencias ni paso de compilación.
 
