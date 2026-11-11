@@ -56,7 +56,7 @@
   $$('[data-revelar]').forEach(el => obsRevelar.observe(el));
 
   /* ---------- Palabra que rota ---------- */
-  const palabras = ['mudanzas', 'facturas', 'escombros', 'basura', 'maquinaria', 'mercancías', 'tarimas', 'oficinas', 'frágiles'];
+  const palabras = ['mudanzas', 'facturas', 'escombros', 'basura', 'pallets', 'mercancías', 'tarimas', 'oficinas', 'frágiles'];
   const rotador = $('#rotador');
   if (rotador && !sinMovimiento) {
     let i = 0;
