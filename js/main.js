@@ -69,7 +69,7 @@
         rotador.classList.add('entrando');
         void rotador.offsetWidth; // reinicia la transición
         rotador.classList.remove('entrando');
-      }, 380);
+      }, 240);
     }, 2200);
   }
 

@@ -1,129 +1,92 @@
 /* =========================================================
-   Acarreos Makena — capa "premium / corporativa"
-   Se carga DESPUÉS de estilos.css. Para volver al diseño anterior,
-   quitar el <link> de premium.css en index.html.
-   No cambia ningún texto: solo tipografía, color, espacios y acabados.
+   Acarreos Makena — pulido de diseño (capa sobre estilos.css)
+   Mantiene la identidad original (Anton, amarillo, azul) y mejora
+   orden, ritmo, jerarquía, sombras y detalles. No cambia ningún texto.
+   Para quitarla: borrar el <link> de premium.css en index.html.
    ========================================================= */
 :root {
-  --azul-950: #060d1c;
-  --azul-900: #0a1428;
-  --azul-800: #11213f;
-  --azul-700: #1a3260;
-  --azul-600: #243f75;
-  --azul-400: #6b86b8;
-  --azul-100: #e8ecf4;
-  --azul-50:  #f6f7f9;
-  --amarillo: #c9a24d;        /* dorado sobrio en lugar de amarillo fuerte */
-  --amarillo-600: #a9832f;
-  --tinta: #0d1526;
-  --gris: #5b6577;
-  --linea: #e2e5eb;
-
-  --display: "DM Serif Display", Georgia, "Times New Roman", serif;
-  --radio: 10px;
-  --sombra: 0 14px 40px -24px rgba(10, 20, 40, .28);
-  --sombra-alta: 0 28px 70px -34px rgba(10, 20, 40, .5);
+  --radio: 14px;
+  --sombra: 0 1px 2px rgba(6, 26, 68, .06), 0 14px 34px -18px rgba(6, 26, 68, .28);
+  --sombra-alta: 0 2px 4px rgba(6, 26, 68, .08), 0 34px 70px -28px rgba(6, 26, 68, .5);
 }
 
-body { letter-spacing: .005em; line-height: 1.7; background: #fff; }
-
-/* ---------- Titulares: serif elegante, sin mayúsculas gritonas ---------- */
-.seccion__cabeza h2, .flota__texto h2, .cotizar__texto h2,
-.final h2, .portada__titulo, .servicio--destacado h3, .pilar h3 {
-  font-family: var(--display); font-weight: 400;
-  text-transform: none; letter-spacing: -.005em; line-height: 1.1;
-}
-.seccion__cabeza h2, .flota__texto h2, .cotizar__texto h2 { font-size: clamp(2rem, 4.2vw, 3.1rem); }
-.portada__titulo { font-size: clamp(2.7rem, 6vw, 4.9rem); line-height: 1.04; }
-.pilar h3 { font-size: 1.7rem; }
-.servicio--destacado h3 { font-size: 1.55rem; line-height: 1.15; }
-.final h2 { font-size: clamp(2rem, 4vw, 2.9rem); }
-.marca__texto { font-family: var(--display); letter-spacing: .14em; font-size: 1.05rem; }
-.lema { font-family: var(--texto); font-weight: 700; letter-spacing: .24em; font-size: .85rem; }
-
-/* Subrayado grueso -> línea fina dorada */
-.subrayado { color: inherit; }
-.subrayado::after { height: 2px; bottom: -.08em; z-index: 0; border-radius: 0; }
-.resaltado { color: var(--amarillo); font-style: italic; }
-
-/* Sobretítulos más finos */
-.sobretitulo { font-weight: 700; font-size: .74rem; letter-spacing: .3em; color: var(--amarillo-600); }
-.sobretitulo::before { width: 34px; height: 1px; border-radius: 0; }
-.sobretitulo--claro { color: var(--amarillo); }
-
-/* ---------- Más aire entre secciones ---------- */
-.seccion { padding-block: clamp(76px, 10vw, 128px); }
-.seccion__cabeza { margin-bottom: clamp(48px, 7vw, 80px); }
-.seccion__intro { font-size: 1.05rem; line-height: 1.8; }
-.seccion--clara { background: var(--azul-50); }
+/* ---------- Ritmo y espacio ---------- */
+body { line-height: 1.7; }
+.seccion { padding-block: clamp(80px, 10vw, 132px); }
+.seccion__cabeza { margin-bottom: clamp(48px, 7vw, 84px); }
+.seccion__cabeza h2, .flota__texto h2, .cotizar__texto h2 { letter-spacing: .012em; }
+.seccion__intro { max-width: 620px; margin-inline: auto; line-height: 1.8; }
+.sobretitulo { letter-spacing: .28em; font-size: .74rem; }
+.sobretitulo::before { height: 2px; width: 32px; }
+.seccion--clara { background: linear-gradient(180deg, #f6f9fe, #eef3fb); }
 .seccion--oscura { background: linear-gradient(180deg, var(--azul-900), var(--azul-950)); }
-.seccion--oscura::before {
-  background: radial-gradient(700px 420px at 85% 0%, rgba(201, 162, 77, .10), transparent 70%);
-}
 
-/* ---------- Botones: sobrios ---------- */
-.boton { border-radius: 6px; font-weight: 700; letter-spacing: .03em; box-shadow: none; transition: transform .25s, background .25s, box-shadow .25s; }
-.boton:hover { transform: translateY(-2px); box-shadow: 0 14px 30px -16px rgba(0, 0, 0, .55); }
+/* ---------- Botones ---------- */
+.boton { border-radius: 12px; font-weight: 800; letter-spacing: .01em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 12px 24px -14px rgba(0, 0, 0, .5);
+  transition: transform .25s var(--curva), box-shadow .25s, filter .25s; }
+.boton:hover { transform: translateY(-3px); box-shadow: 0 2px 4px rgba(0, 0, 0, .14), 0 20px 34px -14px rgba(0, 0, 0, .55); }
+.boton:active { transform: translateY(0); }
 
 /* ---------- Cabecera ---------- */
-.cabecera { backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.cabecera { backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); }
 
-/* ---------- Portada ---------- */
-.portada { background: linear-gradient(165deg, var(--azul-950) 0%, var(--azul-900) 55%, var(--azul-800) 100%); }
-.portada__brillo--1 { background: #2a4a8a; opacity: .35; }
-.portada__brillo--2 { background: rgba(201, 162, 77, .22); }
-.portada__rejilla { opacity: .5; }
-.etiqueta { border-radius: 4px; background: transparent; border-color: rgba(201, 162, 77, .45); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
-.punto-vivo { animation: none; box-shadow: none; }
-.portada__grid { padding-bottom: clamp(56px, 8vw, 104px); }
-.rotador__caja { border-radius: 4px; background: transparent; color: var(--amarillo); border: 1px solid rgba(201, 162, 77, .55); }
+/* ---------- Portada: más profundidad y mejor lectura ---------- */
+.portada::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 78% 38%, rgba(59, 130, 246, .22), transparent 70%),
+    linear-gradient(180deg, rgba(4, 18, 47, 0) 60%, rgba(4, 18, 47, .55) 100%);
+}
+.portada__grid, .carretera { position: relative; z-index: 1; }
+.portada__titulo { text-shadow: 0 6px 40px rgba(0, 0, 0, .35); }
+.portada__sub { line-height: 1.75; }
+.etiqueta { backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.escena__foto { box-shadow: 0 50px 100px -40px rgba(0, 0, 0, .85), 0 0 0 1px rgba(255, 255, 255, .08); }
+.portada__garantias { padding-top: 22px; border-top: 1px solid rgba(255, 255, 255, .12); }
 
-/* Se retira la carretera de caricatura animada y la cinta amarilla inclinada */
-.carretera { display: none !important; }
-.escena::before { background: transparent; border: 1px solid rgba(201, 162, 77, .5); }
-.escena::after { display: none; }
-.escena__foto { border-radius: 8px; box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .8); }
-.escena__velocidad { display: none; }
-
-.cinta { transform: none; margin: 0; background: var(--azul-950); color: #d9dfeb; padding: 20px 0; box-shadow: none; border-block: 1px solid rgba(201, 162, 77, .35); }
-.cinta__pista { font-family: var(--texto); font-weight: 600; font-size: .82rem; letter-spacing: .26em; text-transform: uppercase; gap: 34px; }
-.cinta__pista i { color: var(--amarillo); }
+/* Cinta amarilla: recta y más fina (menos "pegatina") */
+.cinta { transform: none; margin: 0; padding: 14px 0; box-shadow: 0 20px 40px -24px rgba(6, 26, 68, .5); }
+.cinta__pista { font-size: clamp(1.05rem, 1.8vw, 1.3rem); letter-spacing: .06em; gap: 36px; }
 
 /* ---------- Tarjetas ---------- */
-.servicio, .pilar, .paso, .faq, [class*="tarjeta"] { border-radius: var(--radio); }
-.servicio { border: 1px solid var(--linea); box-shadow: none; transition: transform .35s, box-shadow .35s, border-color .35s; }
-.servicio:hover { transform: translateY(-5px); box-shadow: var(--sombra-alta); border-color: rgba(201, 162, 77, .6); }
-.servicio--destacado { background: linear-gradient(160deg, var(--azul-900), var(--azul-800)); }
-.servicio img { filter: saturate(.92) contrast(1.02); }
+.servicio { border-radius: var(--radio); border: 1px solid var(--linea); box-shadow: var(--sombra);
+  transition: transform .4s var(--curva), box-shadow .4s var(--curva), border-color .3s; overflow: hidden; }
+.servicio:hover { transform: translateY(-8px); box-shadow: var(--sombra-alta); border-color: rgba(255, 194, 26, .8); }
+.servicio img { transition: transform .8s var(--curva); }
+.servicio:hover img { transform: scale(1.06); }
+.pilar, .paso { border-radius: var(--radio); }
+.pilar { transition: transform .4s var(--curva), border-color .3s, background .3s; }
+.pilar:hover { transform: translateY(-6px); border-color: rgba(255, 194, 26, .6); }
 
-/* Insignias y etiquetas amarillas fuertes -> dorado contenido */
-.sello { filter: saturate(.7); }
+/* ---------- Preguntas ---------- */
+details { transition: box-shadow .3s, border-color .3s; }
+details:hover { border-color: rgba(19, 81, 196, .35); box-shadow: var(--sombra); }
 
 /* ---------- Pie ---------- */
-.pie { background: var(--azul-950); }
-.pie h4 { letter-spacing: .24em; font-size: .78rem; color: var(--amarillo); }
+.pie { background: linear-gradient(180deg, var(--azul-900), var(--azul-950)); }
 
-/* ---------- Movimiento respetuoso ---------- */
+/* ---------- Accesibilidad de movimiento ---------- */
 @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
-
-/* ---------- Pulido final ---------- */
-.boton--instagram { background: transparent; border: 1px solid rgba(10, 20, 40, .35); color: var(--azul-900); }
-.boton--instagram:hover { background: var(--azul-900); color: #fff; filter: none; }
-.final__caja { background: linear-gradient(135deg, var(--azul-900), var(--azul-800)) !important; border: 1px solid rgba(201, 162, 77, .5); border-radius: 12px; color: #fff; }
-.final__caja::before { display: none; }
-.final h2 { text-transform: none; }
-.final .boton--whatsapp { background: var(--amarillo); color: var(--azul-900); }
-.final p { color: #d9dfeb; font-weight: 500; }
 
 /* ---------- Celular ---------- */
 @media (max-width: 760px) {
-  .sello { right: 10px; top: -14px; width: 78px; height: 78px; filter: none; }
+  .sello { right: 10px; top: -14px; width: 78px; height: 78px; }
   .escena::before { display: none; }
-  .escena__foto { border-radius: 6px; }
-  .portada__titulo { font-size: clamp(2.5rem, 11vw, 3.3rem); }
-  .etiqueta { font-size: .68rem; letter-spacing: .08em; }
-  .rotador__caja { min-width: 11ch; }
   .seccion { padding-block: 64px; }
   .seccion__cabeza { margin-bottom: 40px; }
-  .cinta__pista { font-size: .72rem; letter-spacing: .2em; }
+  .portada__garantias { padding-top: 16px; }
+  .cinta { padding: 11px 0; }
 }
+
+/* ---------- Transiciones suaves ---------- */
+.rotador__palabra { transition: transform .3s var(--curva), opacity .3s; }
+.menu a, .pie a, .barra-movil a, .wa-flotante, .provincias li, .chip, [class*="filtro"], [class*="pestana"] {
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .3s var(--curva), box-shadow .3s ease, opacity .25s ease;
+}
+input, textarea, select { transition: border-color .25s ease, box-shadow .25s ease, background-color .25s ease; }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--azul-600); box-shadow: 0 0 0 4px rgba(19, 81, 196, .15); }
+img { transition: opacity .6s ease; }
+.galeria a, .galeria button, [class*="miniatura"] { transition: transform .5s var(--curva), box-shadow .5s var(--curva); }
+.galeria a:hover, .galeria button:hover { transform: translateY(-4px); box-shadow: var(--sombra-alta); }
+.flota__opcion, [class*="flota"] button { transition: transform .35s var(--curva), box-shadow .35s var(--curva), border-color .3s, background .3s; }
