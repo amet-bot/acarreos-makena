@@ -114,3 +114,16 @@ body { letter-spacing: .005em; line-height: 1.7; background: #fff; }
 .final h2 { text-transform: none; }
 .final .boton--whatsapp { background: var(--amarillo); color: var(--azul-900); }
 .final p { color: #d9dfeb; font-weight: 500; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 760px) {
+  .sello { right: 10px; top: -14px; width: 78px; height: 78px; filter: none; }
+  .escena::before { display: none; }
+  .escena__foto { border-radius: 6px; }
+  .portada__titulo { font-size: clamp(2.5rem, 11vw, 3.3rem); }
+  .etiqueta { font-size: .68rem; letter-spacing: .08em; }
+  .rotador__caja { min-width: 11ch; }
+  .seccion { padding-block: 64px; }
+  .seccion__cabeza { margin-bottom: 40px; }
+  .cinta__pista { font-size: .72rem; letter-spacing: .2em; }
+}
