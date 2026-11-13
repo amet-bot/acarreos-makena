@@ -1204,3 +1204,5 @@ h2 { position: relative; z-index: 0; }
 .servicio:has(.servicio__ir:focus-visible) { outline: 3px solid var(--amarillo); outline-offset: 3px; }
 /* lo que se toca por separado queda por encima del enlace de la tarjeta */
 .servicio__link, .pasafotos__puntos, .servicio__foto--pasa { position: relative; z-index: 2; }
+/* el icono va por encima de la foto (también de la que cambia sola); no estorba al toque */
+.servicio .servicio__ico { z-index: 3; pointer-events: none; }
