@@ -888,7 +888,6 @@ h2 { position: relative; z-index: 0; }
 .pie { background: var(--azul-950); color: #b9c6e4; padding: 64px 0 28px; }
 .pie__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 36px; padding-bottom: 40px; border-bottom: 1px solid rgba(255, 255, 255, .1); }
 .pie__logo { width: 96px; height: 96px; color: var(--blanco); margin-bottom: 14px; }
-.pie__nota { margin-top: 8px; font-size: .82rem; opacity: .7; }
 .pie h4 { color: var(--blanco); font-size: .85rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 16px; }
 .pie ul { display: grid; gap: 10px; }
 .pie a { transition: color .2s; }
