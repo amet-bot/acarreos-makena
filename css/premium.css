@@ -155,3 +155,18 @@ img { transition: opacity .6s ease; }
   .sv-items { grid-template-columns: 1fr; }
   .sv-botones .boton { width: 100%; }
 }
+
+/* Página "Servicios" */
+.sv-hero__grid--uno { grid-template-columns: 1fr; }
+.sv-hero__grid--uno .sv-lead { max-width: 680px; }
+.sv-servicios { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 20px; overflow: visible !important; }
+.sv-servicios .servicio { min-width: 0; width: auto; flex: none; scroll-snap-align: none; }
+.sv-3flota { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.sv-3flota article { background: #fff; border: 1px solid var(--linea); border-radius: var(--radio); overflow: hidden; box-shadow: var(--sombra); transition: transform .4s var(--curva), box-shadow .4s var(--curva), opacity .9s var(--curva); }
+.sv-3flota article:hover { transform: translateY(-6px); box-shadow: var(--sombra-alta); }
+.sv-3flota img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.sv-3flota h3 { padding: 20px 22px 6px; font-size: 1.1rem; }
+.sv-3flota p { padding: 0 22px 24px; color: var(--gris); font-size: .96rem; line-height: 1.7; }
+@media (max-width: 1100px) { .sv-servicios { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) { .sv-3flota { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .sv-servicios { grid-template-columns: 1fr; } }
