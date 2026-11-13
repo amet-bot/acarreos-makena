@@ -186,11 +186,56 @@
       </div>
     </section>
 
-    <section class="seccion seccion--clara">
-      <div class="contenedor sv-flota">
-        <img src="img/flota-cerrado.webp" alt="Camión cerrado de 22 pies de Acarreos Makena" width="900" height="600" loading="lazy">
-        <div data-revelar><p class="sobretitulo">Nuestra flota</p><h2>Camión cerrado de 22 pies</h2><p class="seccion__intro">Caja cerrada que protege del sol y la lluvia. Ideal para mudanzas, muebles, electrodomésticos y mercancía.</p>
-        <a class="boton boton--whatsapp" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20una%20mudanza." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar mi mudanza</a></div>
+    <section class="seccion seccion--clara" id="flota">
+      <div class="contenedor flota">
+        <!-- showroom: muestra el camión de la tarjeta elegida -->
+        <div class="garaje" id="garaje" data-revelar data-activo="cerrado">
+          <span class="garaje__medida" id="garaje-medida" aria-hidden="true">22 pies</span>
+          <span class="garaje__luz garaje__luz--1" aria-hidden="true"></span>
+          <span class="garaje__luz garaje__luz--2" aria-hidden="true"></span>
+          <span class="garaje__piso" aria-hidden="true"></span>
+          <figure class="garaje__vehiculo activo" data-vehiculo="cerrado">
+            <img src="img/flota-cerrado.webp" alt="Camión cerrado de 22 pies de Acarreos Makena" width="900" height="644" loading="lazy">
+          </figure>
+          <figure class="garaje__vehiculo" data-vehiculo="rampa">
+            <img src="img/flota-rampa.webp" alt="Camión de 16 pies con carpa y rampa hidráulica de Acarreos Makena" width="900" height="599" loading="lazy">
+          </figure>
+          <figure class="garaje__vehiculo" data-vehiculo="baranda">
+            <img src="img/flota-baranda.webp" alt="Camión de baranda de Acarreos Makena" width="900" height="534" loading="lazy">
+          </figure>
+        </div>
+        <div class="flota__texto">
+          <p class="sobretitulo" data-revelar>Nuestra flota</p>
+          <h2 data-revelar style="--d:1">El camión correcto para <span class="subrayado">cada carga</span></h2>
+          <p class="flota__pista" data-revelar style="--d:1">Toca cada camión para verlo</p>
+          <div class="vehiculos" role="group" aria-label="Elige un camión">
+          <button type="button" class="vehiculo activo" data-vehiculo="cerrado" data-medida="22 pies" aria-pressed="true" data-revelar style="--d:2">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26V10H4Z"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión cerrado de 22 pies</b>
+              <span>Caja cerrada que protege del sol y la lluvia. Ideal para mudanzas, muebles, electrodomésticos y mercancía.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
+          <button type="button" class="vehiculo" data-vehiculo="rampa" data-medida="16 pies" aria-pressed="false" data-revelar style="--d:3">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M12 30h20V12H12Z"/><path d="M32 18h7l5 7v5H32"/><circle cx="18" cy="34" r="4"/><circle cx="38" cy="34" r="4"/><path d="M12 30 4 40h8"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión de 16 pies con rampa hidráulica</b>
+              <span>Sube y baja cargas pesadas sin esfuerzo: tarimas, pantallas, equipo de sonido y maquinaria.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
+          <button type="button" class="vehiculo" data-vehiculo="baranda" data-medida="Baranda" aria-pressed="false" data-revelar style="--d:4">
+            <span class="vehiculo__ico"><svg viewBox="0 0 48 48"><path d="M4 32h26M4 32V22M30 32V22M4 22h26M10 22v10M17 22v10M24 22v10"/><path d="M30 18h8l6 7v7H30"/><circle cx="12" cy="36" r="4"/><circle cx="36" cy="36" r="4"/></svg></span>
+            <span class="vehiculo__txt">
+              <b>Camión de baranda</b>
+              <span>Plataforma abierta para escombros, materiales de construcción y cargas voluminosas.</span>
+            </span>
+            <span class="vehiculo__ojo" aria-hidden="true"><svg class="ico"><use href="#i-flecha"/></svg></span>
+          </button>
+          </div>
+          <a class="boton boton--azul" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20una%20mudanza." target="_blank" rel="noopener" data-revelar style="--d:5">¿Cuál necesito? Pregúntanos <svg class="ico"><use href="#i-flecha"/></svg></a>
+        </div>
       </div>
     </section>
 
@@ -243,7 +288,9 @@
       <div><h4>Servicios</h4><ul>
         <li><a href="mudanzas-en-panama">Mudanzas en Panamá</a></li>
         <li><a href="acarreos-en-panama">Acarreos y fletes en Panamá</a></li>
-        <li><a href="retiro-de-escombros-panama">Retiro de escombros en Panamá</a></li></ul></div>
+        <li><a href="retiro-de-escombros-panama">Retiro de escombros en Panamá</a></li>
+        <li><a href="montaje-de-eventos-panama">Montaje de eventos en Panamá</a></li>
+        <li><a href="montaje-de-oficinas-panama">Montaje de oficinas en Panamá</a></li></ul></div>
       <div><h4>Contacto</h4><ul>
         <li><a href="https://wa.me/50764525086" target="_blank" rel="noopener">WhatsApp 6452-5086</a></li>
         <li><a href="https://wa.me/50769971253" target="_blank" rel="noopener">WhatsApp 6997-1253</a></li>
@@ -258,6 +305,6 @@
     <a class="barra-movil__llamar" href="tel:+50764525086"><svg class="ico"><use href="#i-tel"/></svg> Llamar</a>
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20una%20mudanza." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
-  <script src="js/servicio.js?v=1" defer></script>
+  <script src="js/servicio.js?v=2" defer></script>
 </body>
 </html>
