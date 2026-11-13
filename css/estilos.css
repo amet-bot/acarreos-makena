@@ -1195,3 +1195,12 @@ h2 { position: relative; z-index: 0; }
   .escena__puerta { display: none; }
   .final__camion { animation: none !important; }
 }
+
+/* ---------- Tarjeta completa lleva a la página del servicio ---------- */
+.servicio:has(.servicio__ir) { cursor: pointer; }
+.servicio__ir { color: inherit; text-decoration: none; }
+.servicio__ir::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.servicio__ir:focus-visible { outline: none; }
+.servicio:has(.servicio__ir:focus-visible) { outline: 3px solid var(--amarillo); outline-offset: 3px; }
+/* lo que se toca por separado queda por encima del enlace de la tarjeta */
+.servicio__link, .pasafotos__puntos, .servicio__foto--pasa { position: relative; z-index: 2; }
