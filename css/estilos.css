@@ -1276,3 +1276,7 @@ h2 { position: relative; z-index: 0; }
 .campo--fecha input { max-width: calc(50% - 8px); }
 .campo__titulo small { font-weight: 600; color: var(--gris); }
 @media (max-width: 640px) { .campo--fecha input { max-width: none; } }
+/* con pocas opiniones, las tarjetas quedan centradas */
+.resenas__lista { display: flex; flex-wrap: wrap; justify-content: center; }
+.resenas__lista .resena { flex: 0 1 360px; }
+@media (max-width: 640px) { .resenas__lista .resena { flex-basis: 100%; } }

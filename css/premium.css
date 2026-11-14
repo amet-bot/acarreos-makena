@@ -170,3 +170,12 @@ img { transition: opacity .6s ease; }
 @media (max-width: 1100px) { .sv-servicios { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 800px) { .sv-3flota { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .sv-servicios { grid-template-columns: 1fr; } }
+
+/* ---------- Páginas de mudanzas: galería de trabajos reales y enlaces por zona ---------- */
+.sv-galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sv-galeria figure { margin: 0; border-radius: 16px; overflow: hidden; background: var(--blanco); box-shadow: var(--sombra); }
+.sv-galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.sv-galeria figcaption { padding: 12px 16px; font-weight: 700; font-size: .92rem; color: var(--azul-900); }
+.sv-zonas { margin-top: 26px; text-align: center; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; }
+.seccion--oscura .sv-zonas .sv-rel { color: var(--amarillo); border-color: rgba(255, 194, 26, .5); }
+@media (max-width: 860px) { .sv-galeria { grid-template-columns: 1fr; } }
