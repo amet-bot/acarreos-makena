@@ -94,7 +94,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- ?v= obliga al navegador a bajar la versión nueva: súbelo en cada cambio de CSS o JS -->
-  <link rel="stylesheet" href="css/estilos.css?v=2026-11-13e">
+  <link rel="stylesheet" href="css/estilos.css?v=2026-11-13g">
   <link rel="stylesheet" href="css/premium.css?v=8">
   <!-- preguntas frecuentes para Google (se genera desde las preguntas visibles) -->
   <script type="application/ld+json" id="faq-ld">
@@ -948,8 +948,8 @@
             <input type="text" name="nombre" autocomplete="name" placeholder="Ej. María Pérez" required>
           </label>
           <label class="campo">
-            <span class="campo__titulo">Fecha aproximada</span>
-            <input type="date" name="fecha">
+            <span class="campo__titulo">Tu teléfono <small>(opcional)</small></span>
+            <input type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="Ej. 6123-4567">
           </label>
           <label class="campo">
             <span class="campo__titulo">Desde</span>
@@ -958,6 +958,10 @@
           <label class="campo">
             <span class="campo__titulo">Hasta</span>
             <input type="text" name="hasta" placeholder="Ej. Arraiján">
+          </label>
+          <label class="campo campo--ancho campo--fecha">
+            <span class="campo__titulo">Fecha aproximada</span>
+            <input type="date" name="fecha">
           </label>
           <div class="campo campo--ancho">
             <span class="campo__titulo">¿Dónde es?</span>
@@ -1043,6 +1047,59 @@
       </div>
     </section>
 
+    <!-- ============ RESEÑAS ============ -->
+    <section class="seccion seccion--clara resenas" id="resenas">
+      <div class="contenedor">
+        <header class="seccion__cabeza" data-revelar>
+          <p class="sobretitulo">Opiniones</p>
+          <h2>Lo que dicen <span class="subrayado">nuestros clientes</span></h2>
+          <p class="resenas__promedio" id="resenas-promedio" hidden></p>
+        </header>
+        <div class="resenas__lista" id="resenas-lista" hidden></div>
+
+        <div class="resena-caja" data-revelar data-resena-url="ENLACE_RESENAS_GOOGLE">
+          <h3>¿Cómo te fue con nosotros?</h3>
+          <p class="resena-caja__intro">Toca las estrellas y cuéntanos tu experiencia. Tu opinión ayuda a otras personas a elegirnos.</p>
+          <form class="resena-form" id="resena-form" novalidate>
+            <div class="estrellas" role="radiogroup" aria-label="Califica el servicio de 1 a 5 estrellas">
+              <button type="button" class="estrella" role="radio" aria-checked="false" data-valor="1" aria-label="1 estrella"><svg viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9Z"/></svg></button>
+              <button type="button" class="estrella" role="radio" aria-checked="false" data-valor="2" aria-label="2 estrellas"><svg viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9Z"/></svg></button>
+              <button type="button" class="estrella" role="radio" aria-checked="false" data-valor="3" aria-label="3 estrellas"><svg viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9Z"/></svg></button>
+              <button type="button" class="estrella" role="radio" aria-checked="false" data-valor="4" aria-label="4 estrellas"><svg viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9Z"/></svg></button>
+              <button type="button" class="estrella" role="radio" aria-checked="false" data-valor="5" aria-label="5 estrellas"><svg viewBox="0 0 24 24"><path d="m12 2.6 2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.5l-5.9 3.1 1.2-6.5L2.5 9.5l6.6-.9Z"/></svg></button>
+            </div>
+            <p class="resena-caja__estado" id="resena-estado" aria-live="polite">Elige de 1 a 5 estrellas</p>
+            <div class="resena-form__campos" id="resena-campos" hidden>
+              <label class="campo">
+                <span class="campo__titulo">Tu nombre</span>
+                <input type="text" name="nombre" autocomplete="name" maxlength="60" placeholder="Ej. María Pérez" required>
+              </label>
+              <label class="campo">
+                <span class="campo__titulo">Servicio que usaste <small>(opcional)</small></span>
+                <select name="servicio"><option value="">Elige uno</option><option>Mudanza</option><option>Escombros / basura</option><option>Retiro de facturas</option><option>Mercancías</option><option>Maquinaria</option><option>Embalaje / frágiles</option><option>Montaje</option><option>Otro</option></select>
+              </label>
+              <label class="campo campo--ancho">
+                <span class="campo__titulo">Tu comentario</span>
+                <textarea name="comentario" rows="3" maxlength="800" placeholder="¿Qué tal el trato, la puntualidad y el cuidado de tus cosas?"></textarea>
+              </label>
+              <label class="resena-form__trampa" aria-hidden="true">No llenes este campo <input type="text" name="web" tabindex="-1" autocomplete="off"></label>
+              <p class="formulario__error" id="resena-error" role="alert"></p>
+              <button class="boton boton--azul boton--ancho" type="submit">Enviar mi opinión <svg class="ico"><use href="#i-flecha"/></svg></button>
+              <p class="formulario__nota">Mostramos tu nombre y la inicial de tu apellido. Publicamos las opiniones después de revisarlas.</p>
+            </div>
+          </form>
+          <div class="resena-gracias" id="resena-gracias" hidden>
+            <p class="resena-gracias__titulo">¡Gracias por tu opinión!</p>
+            <p>La publicaremos en cuanto la revisemos.</p>
+          </div>
+          <div class="resena-caja__acciones" id="resena-acciones" hidden>
+            <a class="boton boton--contorno-azul" id="resena-google" href="#" target="_blank" rel="noopener" hidden>También déjanos tu reseña en Google <svg class="ico"><use href="#i-flecha"/></svg></a>
+            <a class="resena-caja__wa" id="resena-wa" href="#" target="_blank" rel="noopener" hidden><svg class="ico"><use href="#i-wa"/></svg> ¿Algo salió mal? Cuéntanos por WhatsApp y lo arreglamos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ LLAMADO FINAL ============ -->
     <section class="final">
       <div class="contenedor final__caja" data-revelar>
@@ -1107,6 +1164,6 @@
     <a class="barra-movil__wa" href="https://wa.me/50764525086?text=Hola%20Acarreos%20Makena%2C%20quiero%20cotizar%20un%20acarreo." target="_blank" rel="noopener"><svg class="ico"><use href="#i-wa"/></svg> Cotizar por WhatsApp</a>
   </nav>
 
-  <script src="js/main.js?v=2026-11-11b" defer></script>
+  <script src="js/main.js?v=2026-11-13b" defer></script>
 </body>
 </html>

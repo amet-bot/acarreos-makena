@@ -4,6 +4,12 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const sinMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const WHATSAPP = '50764525086';
+  // URL de la aplicación web de Google Apps Script (crm/Codigo.gs). Vacía = sin hoja: todo sigue por WhatsApp.
+  const CRM_URL = 'https://script.google.com/macros/s/AKfycbwJWu4I7fGfwS3GQBGnPuHeizNN8P8jLDJ5pP7fnL74Iafel83Tgjl3dhTIt0jqdY_CgQ/exec';
+  // Envía datos a la hoja. Formulario simple (sin preflight CORS); la respuesta no se puede leer en modo no-cors.
+  const enviarCRM = datos => CRM_URL
+    ? fetch(CRM_URL, { method: 'POST', mode: 'no-cors', keepalive: true, body: new URLSearchParams(datos) })
+    : Promise.reject(new Error('sin CRM'));
 
   /* ---------- Cabecera con fondo al bajar ---------- */
   const cabecera = $('#cabecera');
@@ -451,6 +457,118 @@
     });
   });
 
+  /* ---------- Reseñas: lista de opiniones aprobadas (desde la hoja) ---------- */
+  const listaResenas = $('#resenas-lista');
+  if (listaResenas && CRM_URL) {
+    fetch(CRM_URL)
+      .then(r => r.json())
+      .then(d => {
+        if (!d.ok || !d.total) return;
+        const promedio = $('#resenas-promedio');
+        promedio.innerHTML = `<b>${d.promedio.toFixed(1)} ★</b> · ${d.total} ${d.total === 1 ? 'opinión' : 'opiniones'}`;
+        promedio.hidden = false;
+        d.resenas.forEach(r => {
+          const art = document.createElement('article');
+          art.className = 'resena';
+          const est = document.createElement('div');
+          est.className = 'resena__estrellas';
+          est.textContent = '★'.repeat(r.estrellas) + '☆'.repeat(5 - r.estrellas);
+          est.setAttribute('aria-label', `${r.estrellas} de 5 estrellas`);
+          const txt = document.createElement('p');
+          txt.className = 'resena__texto';
+          txt.textContent = r.comentario || '';
+          const pie = document.createElement('p');
+          pie.className = 'resena__pie';
+          const quien = document.createElement('b');
+          quien.textContent = r.nombre;
+          pie.append(quien, r.servicio ? ` · ${r.servicio}` : '');
+          art.append(est);
+          if (r.comentario) art.append(txt);
+          art.append(pie);
+          listaResenas.append(art);
+        });
+        listaResenas.hidden = false;
+      })
+      .catch(() => {});
+  }
+
+  /* ---------- Reseñas: estrellas + comentario → hoja ----------
+     Con 1 a 3 estrellas se ofrece WhatsApp para arreglar lo que salió mal. El botón
+     de Google (cuando haya enlace) sale con cualquier calificación: Google no permite
+     mandar solo a los clientes contentos. */
+  const cajaResena = $('.resena-caja');
+  if (cajaResena) {
+    const estrellas = $$('.estrella', cajaResena);
+    const estado = $('#resena-estado');
+    const campos = $('#resena-campos');
+    const formResena = $('#resena-form');
+    const errorResena = $('#resena-error');
+    const gracias = $('#resena-gracias');
+    const acciones = $('#resena-acciones');
+    const enlaceGoogle = $('#resena-google');
+    const enlaceWa = $('#resena-wa');
+    const textos = ['', 'Muy malo', 'Malo', 'Regular', 'Bueno', '¡Excelente!'];
+    const urlGoogle = cajaResena.dataset.resenaUrl || '';
+    const hayGoogle = /^https:\/\//.test(urlGoogle);
+    if (hayGoogle) enlaceGoogle.href = urlGoogle;
+    let elegido = 0;
+    const pintar = n => estrellas.forEach((e, i) => e.classList.toggle('encendida', i < n));
+    formResena.addEventListener('submit', ev => {
+      ev.preventDefault();
+      const d = Object.fromEntries(new FormData(formResena));
+      const nombre = String(d.nombre || '').trim();
+      if (!elegido || !nombre) {
+        errorResena.textContent = !elegido ? 'Elige de 1 a 5 estrellas.' : 'Escribe tu nombre.';
+        if (elegido) formResena.elements.nombre.focus();
+        return;
+      }
+      errorResena.textContent = '';
+      const comentario = String(d.comentario || '').trim();
+      const listo = () => {
+        formResena.hidden = true;
+        gracias.hidden = false;
+        acciones.hidden = false;
+        enlaceGoogle.hidden = !hayGoogle;
+      };
+      const boton = $('button[type="submit"]', formResena);
+      boton.disabled = true;
+      enviarCRM({ tipo: 'resena', estrellas: elegido, nombre, comentario, servicio: d.servicio || '', web: d.web || '' })
+        .then(listo)
+        .catch(() => {
+          // sin hoja configurada o sin conexión: la opinión se manda por WhatsApp
+          const texto = `Hola Acarreos Makena, soy ${nombre}. Califico su servicio con ${elegido} de 5 estrellas.${comentario ? `\n${comentario}` : ''}`;
+          window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+          listo();
+        })
+        .finally(() => { boton.disabled = false; });
+    });
+    estrellas.forEach((e, i) => {
+      const valor = i + 1;
+      e.addEventListener('mouseenter', () => pintar(valor));
+      e.addEventListener('mouseleave', () => pintar(elegido));
+      e.addEventListener('click', () => {
+        elegido = valor;
+        pintar(valor);
+        estrellas.forEach((x, j) => { x.setAttribute('aria-checked', String(j === i)); x.tabIndex = j === i ? 0 : -1; });
+        estado.textContent = `${textos[valor]} · ${valor} de 5 estrellas`;
+        errorResena.textContent = '';
+        campos.hidden = false;
+        acciones.hidden = valor > 3;
+        enlaceGoogle.hidden = true;
+        enlaceWa.hidden = valor > 3;
+        enlaceWa.href = `https://wa.me/${WHATSAPP}?text=` + encodeURIComponent(`Hola Acarreos Makena, califiqué su servicio con ${valor} de 5 estrellas. Les cuento qué pasó: `);
+      });
+      // flechas del teclado para moverse entre estrellas
+      e.addEventListener('keydown', ev => {
+        const d = ev.key === 'ArrowRight' || ev.key === 'ArrowUp' ? 1 : ev.key === 'ArrowLeft' || ev.key === 'ArrowDown' ? -1 : 0;
+        if (!d) return;
+        ev.preventDefault();
+        const sig = estrellas[Math.min(4, Math.max(0, i + d))];
+        sig.focus(); sig.click();
+      });
+    });
+  }
+
   /* ---------- Formulario → WhatsApp ---------- */
   const form = $('#formulario');
   const error = $('#error');
@@ -480,8 +598,16 @@
       const piso = String(d.piso || '').trim();
       lugar += `${piso ? `, piso ${piso}` : ''} · ${d.acceso}`;
     }
+    // guarda la solicitud en la hoja (CRM) sin esperar: WhatsApp se abre igual, aunque falle
+    enviarCRM({
+      tipo: 'cotizacion', nombre: d.nombre.trim(), telefono: String(d.telefono || '').trim(), servicio: d.servicio,
+      desde: d.desde.trim(), hasta: d.hasta.trim(), lugar: lugar.replace('🏠 Lugar: ', ''), fecha,
+      detalles: d.detalles.trim(), pagina: location.pathname,
+    }).catch(() => {});
+    const telefono = String(d.telefono || '').trim();
     const lineas = [
       `Hola Acarreos Makena, soy ${d.nombre.trim()}.`,
+      telefono && `📞 Teléfono: ${telefono}`,
       `Quiero cotizar: *${d.servicio}*`,
       `📍 Desde: ${d.desde.trim()}`,
       d.hasta.trim() && `🏁 Hasta: ${d.hasta.trim()}`,
