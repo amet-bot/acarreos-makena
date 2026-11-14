@@ -1221,10 +1221,15 @@ h2 { position: relative; z-index: 0; }
   background: var(--blanco); border: 1px solid var(--linea); border-radius: var(--radio); padding: 22px;
   box-shadow: var(--sombra); display: flex; flex-direction: column; gap: 10px;
 }
-.resena__estrellas { color: var(--amarillo-600); letter-spacing: 2px; font-size: 1.15rem; line-height: 1; }
+.resena__cabeza { display: flex; align-items: center; gap: 12px; }
+.resena__avatar {
+  flex: none; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--azul-800); color: var(--amarillo); font-family: var(--display); font-size: 1.3rem;
+}
+.resena__nombre { display: block; color: var(--azul-900); font-weight: 800; font-size: 1.02rem; overflow-wrap: anywhere; }
+.resena__estrellas { color: var(--amarillo-600); letter-spacing: 2px; font-size: 1.1rem; line-height: 1.2; }
 .resena__texto { color: var(--tinta); flex: 1; white-space: pre-line; overflow-wrap: anywhere; }
-.resena__pie { font-size: .88rem; color: var(--gris); }
-.resena__pie b { color: var(--azul-900); }
+.resena__pie { font-size: .85rem; color: var(--gris); }
 @media (max-width: 960px) { .resenas__lista { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .resenas__lista { grid-template-columns: 1fr; } }
 

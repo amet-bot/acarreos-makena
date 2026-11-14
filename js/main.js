@@ -468,23 +468,44 @@
         promedio.innerHTML = `<b>${d.promedio.toFixed(1)} ★</b> · ${d.total} ${d.total === 1 ? 'opinión' : 'opiniones'}`;
         promedio.hidden = false;
         d.resenas.forEach(r => {
+          // tarjeta: inicial + nombre completo y estrellas arriba, luego el comentario y el pie
           const art = document.createElement('article');
           art.className = 'resena';
+          const cabeza = document.createElement('div');
+          cabeza.className = 'resena__cabeza';
+          const avatar = document.createElement('span');
+          avatar.className = 'resena__avatar';
+          avatar.setAttribute('aria-hidden', 'true');
+          avatar.textContent = (r.nombre.trim()[0] || '★').toUpperCase();
+          const quien = document.createElement('div');
+          const nombre = document.createElement('b');
+          nombre.className = 'resena__nombre';
+          nombre.textContent = r.nombre;
           const est = document.createElement('div');
           est.className = 'resena__estrellas';
           est.textContent = '★'.repeat(r.estrellas) + '☆'.repeat(5 - r.estrellas);
           est.setAttribute('aria-label', `${r.estrellas} de 5 estrellas`);
-          const txt = document.createElement('p');
-          txt.className = 'resena__texto';
-          txt.textContent = r.comentario || '';
-          const pie = document.createElement('p');
-          pie.className = 'resena__pie';
-          const quien = document.createElement('b');
-          quien.textContent = r.nombre;
-          pie.append(quien, r.servicio ? ` · ${r.servicio}` : '');
-          art.append(est);
-          if (r.comentario) art.append(txt);
-          art.append(pie);
+          quien.append(nombre, est);
+          cabeza.append(avatar, quien);
+          art.append(cabeza);
+          if (r.comentario) {
+            const txt = document.createElement('p');
+            txt.className = 'resena__texto';
+            txt.textContent = r.comentario;
+            art.append(txt);
+          }
+          const partes = [];
+          if (r.servicio) partes.push(r.servicio);
+          if (r.fecha) {
+            const [a, m, d] = r.fecha.split('-');
+            partes.push(`${d}/${m}/${a}`);
+          }
+          if (partes.length) {
+            const pie = document.createElement('p');
+            pie.className = 'resena__pie';
+            pie.textContent = partes.join(' · ');
+            art.append(pie);
+          }
           listaResenas.append(art);
         });
         listaResenas.hidden = false;

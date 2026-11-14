@@ -66,7 +66,7 @@ function doGet() {
     .filter(f => String(f[5]).trim().toUpperCase().replace('SI', 'SÍ') === 'SÍ' && Number(f[2]) >= 1)
     .map(f => ({
       fecha: f[0] instanceof Date ? Utilities.formatDate(f[0], 'America/Panama', 'yyyy-MM-dd') : '',
-      nombre: soloNombre(String(f[1])),
+      nombre: String(f[1]).replace(/^'/, '').trim(),
       estrellas: Number(f[2]),
       comentario: String(f[3]),
       servicio: String(f[4]),
@@ -88,12 +88,6 @@ function limpiar(valor, max) {
   let t = String(valor || '').replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/g, '').trim().slice(0, max);
   if (/^[=+\-@]/.test(t)) t = "'" + t;
   return t;
-}
-
-// en la página se muestra «Juan P.» en vez del nombre completo
-function soloNombre(nombre) {
-  const partes = nombre.replace(/^'/, '').trim().split(/\s+/);
-  return partes.length > 1 ? `${partes[0]} ${partes[1].charAt(0).toUpperCase()}.` : partes[0];
 }
 
 /* ---------------- Configuración inicial (ejecutar una vez) ---------------- */
