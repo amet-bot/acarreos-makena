@@ -1206,3 +1206,7 @@ h2 { position: relative; z-index: 0; }
 .servicio__link, .pasafotos__puntos, .servicio__foto--pasa { position: relative; z-index: 2; }
 /* el icono va por encima de la foto (también de la que cambia sola); no estorba al toque */
 .servicio .servicio__ico { z-index: 3; pointer-events: none; }
+/* menú móvil: si la pantalla es baja (celular acostado), se desplaza en vez de encimarse con el logo */
+@media (max-width: 1120px) {
+  .menu { justify-content: safe center; overflow-y: auto; overscroll-behavior: contain; }
+}

@@ -29,7 +29,7 @@ body { line-height: 1.7; }
 .boton:active { transform: translateY(0); }
 
 /* ---------- Cabecera ---------- */
-.cabecera { backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2); }
+/* el vidrio de la cabecera va en .cabecera::before (estilos.css); un backdrop-filter aquí encerraba al menú móvil dentro de la barra */
 
 /* ---------- Portada: más profundidad y mejor lectura ---------- */
 .portada::after {
